@@ -1,7 +1,7 @@
 > **兴趣成果驱动**
 
 <div style="display: none; width: 100rem; height: 4rem; border-radius: 7px 7px 0 0; vertical-align: middle; text-align: center; font-family: 'Microsoft YaHei UI'; font-size: 1.8rem; font-weight: bold; letter-spacing: 3px; background-color: #fe9600; color: aliceblue ">
-<span style="">兴趣成果驱动</span>
+<span style=""></span>
 </div>
 <br/>
 
@@ -112,7 +112,7 @@ funtech -- 项目目录
 
 <br/>
 <div style="display: none; width: 100rem; height: 4rem; border-radius: 0 0 7px 7px; vertical-align: middle; text-align: center; font-family: 'Microsoft YaHei UI'; font-size: 1.8rem; font-weight: bold; letter-spacing: 3px; background-color: #3e4042; color: aliceblue ">
-<span style="">理论概念驱不动</span>
+<span style=""></span>
 </div>
 
 > **理论概念驱不动**
