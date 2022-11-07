@@ -1,5 +1,7 @@
 > **兴趣成果驱动，理论概念驱不动。**
 
+
+
 # 说明
 
 - 技术资料多数整理搬运自网络开源技术博客，各章节开头有标明参考出处，**仅供个人学习参考**。
@@ -10,21 +12,22 @@
 
 
 
+
 # 结构
 ```
-funtech - 项目目录
-├── docs - 文档目录
+funtech -- 项目目录
+├── docs -- 文档目录
 │   ├── .vuepress
-│   │   ├── public - 公共资源
+│   │   ├── public -- 公共资源
 │   │   │   ├── bg00.png
 │   │   │   ├── favicon.ico
-│   │   ├── styles - 公共样式
-│   │   │   ├── index.scss - 在这里覆盖原有的样式
-│   │   │   └── palette.scss - 在这里新增样式
-│   │   ├── config.ts - 全局配置文件
-│   │   ├── navbar.ts - 顶部导航栏配置
-│   │   ├── sidebar.ts - 左侧菜单栏配置
-│   │   └── theme.ts - 主题配置
+│   │   ├── styles -- 公共样式
+│   │   │   ├── index.scss -- 在这里覆盖原有的样式
+│   │   │   └── palette.scss -- 在这里新增样式
+│   │   ├── config.ts -- 全局配置文件
+│   │   ├── navbar.ts -- 顶部导航栏配置
+│   │   ├── sidebar.ts -- 左侧菜单栏配置
+│   │   └── theme.ts -- 主题配置
 │   ├── note
 │   │   ├── 关于博客.assets
 │   │   ├── 生活感悟.assets
@@ -82,12 +85,13 @@ funtech - 项目目录
 │   │       ├── MQ消息中间件资料教程.md
 │   │       ├── Nginx资料教程.md
 │   │       └── Redis资料教程.md
-│   ├── home.md - 博客主页
-│   └── README.md - 项目首页
+│   ├── home.md -- 博客主页
+│   └── README.md -- 项目首页
 ├── package-lock.json
 ├── package.json
 └── README.md
 ```
+
 
 
 # 提醒
