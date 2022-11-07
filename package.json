@@ -1,0 +1,20 @@
+{
+  "name": "funtech",
+  "version": "2.0.0",
+  "description": "兴趣成果驱动，理论概念驱不动。",
+  "license": "MIT",
+  "scripts": {
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:dev": "vuepress dev docs"
+  },
+  "devDependencies": {
+    "@vuepress/client": "^2.0.0-beta.49",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.49",
+    "@vuepress/plugin-search": "^2.0.0-beta.49",
+    "vue": "^3.2.36",
+    "vuepress": "^2.0.0-beta.49",
+    "vuepress-plugin-md-enhance": "^2.0.0-beta.90",
+    "vuepress-theme-hope": "^2.0.0-beta.87"
+  }
+}
