@@ -1,5 +1,7 @@
-> **兴趣成果驱动，理论概念驱不动。**
-
+<div style="display: table-cell; width: 100rem; height: 4rem; border-radius: 7px 7px 0 0; vertical-align: middle; text-align: center; font-family: 'Microsoft YaHei UI'; font-size: 1.8rem; font-weight: bold; letter-spacing: 3px; background-color: #fe9600; color: aliceblue ">
+<span style="">兴趣成果驱动</span>
+</div>
+<br/>
 
 
 # 说明
@@ -10,7 +12,7 @@
 
 - 后续技术架构的学习会同步更新，增加原创技术学习记录，一定是自己真正理解弄懂了才写文章，并且用合适案列展示，而不是像其他技术文章一样，大篇幅的代码。
 
-
+<br/>
 
 
 # 结构
@@ -91,7 +93,7 @@ funtech -- 项目目录
 ├── package.json
 └── README.md
 ```
-
+<br/>
 
 
 # 提醒
@@ -101,11 +103,12 @@ funtech -- 项目目录
 
 - **清楚自身职业竞争优劣势，明确目标定位**。名校生的学历关环，及大厂保姆级别的资料教程，是绝大多数“双非”打工人可望不可及的！
 
-- 并不是说清楚自己进不了大厂就不努力，不去深究技术知识，明确自己的目标，选技术还是管理，还是尽早考公考研考教师、转行创业，在适合自己的方向上，努力提升。这不是卷，这是你的生存策略！你都没有活路，还说什么卷？
+- 并不是说清楚自己进不了大厂就不努力，不去深究技术知识，明确自己的目标，选技术还是管理，还是尽早考公考研考教师、转行创业，在适合自己的方向上，努力提升。这不是卷，这是你我的生存策略！都没有活路，还说什么卷？
 
-- **感恩积极对待每一份工作**，因为他给了你活下去的资本！别总想着`中年危机`，关键是走好当下现在的路，好高骛远、杞人忧天只会徒生焦虑！别抱怨什么压榨剥削了，有的人连被剥削的资格都没有，先积累生存的资本，再谈下一步怎么走。举个可能不太雅观的例子，岛国AV妹子如果不笑，板着脸工作，她们以后的资源将会极速下沉！越是消极对待，之后的工作越是糟糕恶劣，甚至没有工作！
-
-
+- **感恩积极对待每一份工作**，因为他给了你我活下去的资本！别总想着`中年危机`，关键是走好当下现在的路，好高骛远、杞人忧天只会徒生焦虑！别抱怨什么压榨剥削了，有的人连被剥削的资格都没有，先积累生存的资本，再谈下一步怎么走。举个可能不太雅观的例子，岛国AV妹子如果不笑，板着脸工作，她们以后的资源将会极速下沉！越是消极对待，之后的工作越是糟糕恶劣，甚至没有工作！
 
 
-
+<br/>
+<div style="display: table-cell; width: 100rem; height: 4rem; border-radius: 0 0 7px 7px; vertical-align: middle; text-align: center; font-family: 'Microsoft YaHei UI'; font-size: 1.8rem; font-weight: bold; letter-spacing: 3px; background-color: #3e4042; color: aliceblue ">
+<span style="">理论概念驱不动</span>
+</div>
