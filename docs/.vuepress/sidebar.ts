@@ -11,7 +11,7 @@ export const sidebarConfig = sidebar({
             icon: "computer",
             prefix: "00_01_计算机基础原理/",
             collapsable: true,
-            children: [],
+            children: ['计算机基础原理'],
         },
         {
             text: "计算机网络",
@@ -43,7 +43,7 @@ export const sidebarConfig = sidebar({
             icon: "process",
             prefix: "00_05_汇编原理/",
             collapsable: true,
-            children: [],
+            children: ['汇编原理'],
         },
         {
             text: "Java",
@@ -83,14 +83,14 @@ export const sidebarConfig = sidebar({
             icon: "storage",
             prefix: "01_04_Web后端/",
             collapsable: true,
-            children: [],
+            children: ['项目实战及调优'],
         },
         {
             text: "Web前端",
             icon: "page",
             prefix: "02_01_Web前端/",
             collapsable: true,
-            children: [],
+            children: ['Vue资料教程'],
         },
         {
             text: "项目管理",

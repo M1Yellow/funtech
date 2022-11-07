@@ -12,7 +12,7 @@ export default navbar([
                 text: "计算机原理",
                 icon: "computer", // 总菜单暂不支持图标
                 prefix: "00_01_计算机基础原理/", // 需要有 children 配置才有效
-                link: "00_01_计算机基础原理/计算机原理" // 非 children 配置，需要带上目录path路径，以便文档中的图片能正常访问
+                link: "00_01_计算机基础原理/计算机基础原理" // 非 children 配置，需要带上目录path路径，以便文档中的图片能正常访问
             },
             {
                 text: "计算机网络",
@@ -66,13 +66,13 @@ export default navbar([
                 text: "Web后端",
                 icon: "storage",
                 prefix: "01_04_Web后端/",
-                link: "01_04_Web后端/server"
+                link: "01_04_Web后端/项目实战及调优"
             },
             {
                 text: "Web前端",
                 icon: "page",
                 prefix: "02_01_Web前端/",
-                link: "02_01_Web前端/view"
+                link: "02_01_Web前端/Vue资料教程"
             },
             {
                 text: "项目管理",
