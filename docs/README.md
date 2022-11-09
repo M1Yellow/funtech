@@ -25,7 +25,12 @@ features:
     icon: cache
     details: mypages-cloud 为 mypages 的微服务版本。
     link: https://github.com/M1Yellow/mypages-cloud
-    
+
+  - title: funtech
+    icon: study
+    details: 工作和学习整理的技术知识结构体系。【兴趣成果驱动，理论概念驱不动】
+    link: https://github.com/M1Yellow/funtech
+
 ---
 
 ## 介绍

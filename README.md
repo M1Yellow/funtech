@@ -91,6 +91,16 @@ funtech -- 项目目录
 ├── package.json
 └── README.md
 ```
+
+
+<br/>
+
+# 使用
+
+- `npm run docs:dev` 本地运行
+
+- `npm run docs:build` 编译打包
+
 <br/>
 
 

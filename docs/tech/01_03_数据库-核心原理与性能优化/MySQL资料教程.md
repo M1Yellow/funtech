@@ -638,7 +638,7 @@ exit; -- 退出Mysql
 
 MySQL 数据库默认字符编码
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210107235914935.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210107235914935.png)
 
 
 
@@ -1443,7 +1443,7 @@ WHERE Address='' OR Address IS NULL;
 
 > 笛卡尔乘积现象
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210103212330051.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210103212330051.png)
 
 
 
@@ -1520,7 +1520,7 @@ on 连接条件
 - 交叉连接：使用 sql99 语法实现的笛卡尔乘积
 
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/sql-join.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/sql-join.png)
 
 
 
@@ -1874,7 +1874,7 @@ SELECT studentno,studentname FROM student WHERE studentno IN(
 
 使用 WITH ROLLUP，此函数是对聚合函数进行求和，注意 with rollup是对 group by 后的第一个字段，进行分组求和。
 
-![](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210420205041855.png)
+![](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210420205041855.png)
 
 
 
@@ -2226,7 +2226,7 @@ ADD CONSTRAINT `FK_gradeid` FOREIGN KEY (`gradeid`) REFERENCES `grade` (`gradeid
 
 操作：删除 grade 年级表，发现报错。
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201231145204294.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201231145204294.png)
 
 
 
@@ -2260,7 +2260,7 @@ ALTER TABLE student DROP INDEX FK_gradeid;
 
 **每次做 DELETE 或者 UPDATE 都必须考虑外键约束，会导致开发的时候很痛苦，测试数据极为不方便。**
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201231150825209.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201231150825209.png)
 
 
 
@@ -2501,7 +2501,7 @@ SELECT MIN(StudentResult) AS 最低分 FROM result;
 
 > count(*) 与 count(1)  的理解
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210103201739678.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210103201739678.png)
 
 
 
@@ -3336,7 +3336,7 @@ set global transaction isolation level read committed;
 
 
 
-![image-20210110001912627](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210110001912627.png)
+![image-20210110001912627](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210110001912627.png)
 
 
 
@@ -3835,7 +3835,7 @@ insert into student(id,name,class_id) values(1,'张三',100),
 
 聚簇索引 id 对应的 B+ 树如下图所示：
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/primary-index.jpg)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/primary-index.jpg)
 
 在聚簇索引的叶子节点**直接存储用户信息的内存地址**，使用内存地址可以直接找到相应的行数据。
 
@@ -3845,7 +3845,7 @@ insert into student(id,name,class_id) values(1,'张三',100),
 
 非聚簇索引在 InnoDB 引擎中，也叫二级索引，以上面 student 表为例，在 student 中非聚簇索引 class_id 对应 B+ 树如下图所示：
 
-![null](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/normal-index.jpg)
+![null](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/normal-index.jpg)
 
 **在非聚簇索引的叶子节点上存储的并不是真正的行数据，而是主键 ID，所以当使用非聚簇索引进行查询时，首先会得到一个主键 ID，然后再使用主键 ID 去聚簇索引上找到真正的行数据，把这个过程称之为回表查询。**
 
@@ -4108,7 +4108,7 @@ order by id desc limit 5;
 
 
 
-![image-20210108010218464](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108010218464.png)
+![image-20210108010218464](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108010218464.png)
 
 
 
@@ -4166,7 +4166,7 @@ UNION RESULT：联合结果查询，从 union 查询获取结果的 select 查�
 
 覆盖索引，简单理解，表中的几个字段创建了复合索引，select 查询的时候，**使用索引字段个数不能大于复合索引**，顺序可以不一致，这种情况就使用到了覆盖索引。
 
-![image-20210108030755975](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108030755975.png)
+![image-20210108030755975](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108030755975.png)
 
 
 
@@ -4212,7 +4212,7 @@ MySQL.5.7及更高版本，explain默认就会展示filtered。
 
 ### 索引失效及如何避免
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/index-missing.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/index-missing.png)
 
 
 
@@ -4391,13 +4391,13 @@ group by 字段，违法最左前缀法则、含非索引字段排序、会导�
 
 #### explain 分析 sql 语句执行顺序
 
-![image-20210108032036308](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108032036308.png)
+![image-20210108032036308](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108032036308.png)
 
 
 
 #### 索引使用情况测试
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108210548805.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108210548805.png)
 
 
 
@@ -4405,7 +4405,7 @@ group by 字段，违法最左前缀法则、含非索引字段排序、会导�
 
 对于复合索引 index(a, b, c)，为什么同样是范围，like 'kk%' 后面的索引字段还生效，而 b > 4 后面的索引字段却不生效？
 
-![image-20210108211022724](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108211022724.png)
+![image-20210108211022724](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108211022724.png)
 
 
 
@@ -4440,7 +4440,7 @@ group by 字段，违法最左前缀法则、含非索引字段排序、会导�
 
 小表驱动大表，即小的数据集驱动大的数据集。
 
-![image-20210108213829119](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108213829119.png)
+![image-20210108213829119](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108213829119.png)
 
 
 
@@ -4470,7 +4470,7 @@ filesort 使用的两种排序算法：双路排序和单路排序。
 
 
 
-![image-20210108221335374](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108221335374.png)
+![image-20210108221335374](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108221335374.png)
 
 
 
@@ -4513,7 +4513,7 @@ select sleep(4);
 
 ```
 
-![image-20210108222112216](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108222112216.png)
+![image-20210108222112216](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210108222112216.png)
 
 
 
@@ -4650,7 +4650,7 @@ select * from mysql.general_log;
 
 使用 `show engines` 查看。
 
-![img](http://m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210101220952784.png)
+![img](https://www.m1yellow.cn/doc-img/MySQL%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210101220952784.png)
 
 
 

@@ -816,11 +816,11 @@ server {
 
 #### 高可用（主备）
 
-![img](http://m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/HA-normal.webp)
+![img](https://www.m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/HA-normal.webp)
 
 
 
-![img](http://m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/HA-vip.webp)
+![img](https://www.m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/HA-vip.webp)
 
 
 
@@ -908,7 +908,7 @@ vrrp_instance VI_1 {
 
 访问虚拟 ip 成功：
 
-![ ](http://m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/access-by-vip.webp)
+![ ](https://www.m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/access-by-vip.webp)
 
 
 
@@ -918,7 +918,7 @@ vrrp_instance VI_1 {
 
 **原理解析**
 
-![ ](http://m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/master&worker.webp)
+![ ](https://www.m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/master&worker.webp)
 
 
 启动一个 master，一个 worker，master 是管理员，worker是具体工作的进程。
@@ -926,7 +926,7 @@ vrrp_instance VI_1 {
 
 worker 如何工作？如下图：
 
-![ ](http://m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/worker-process.webp)
+![ ](https://www.m1yellow.cn/doc-img/Nginx%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/worker-process.webp)
 
 
 

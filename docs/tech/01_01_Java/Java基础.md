@@ -98,7 +98,7 @@ tag:
 
 ### Java 源程序与编译型运行区别
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-vs-exe.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-vs-exe.png)
 
 
 
@@ -194,13 +194,13 @@ String s3 = null;
 
 单精度是这样的格式，1位符号，8位指数，23位小数。
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/float-format.jpg)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/float-format.jpg)
 
 
 
 双精度是1位符号，11位指数，52位小数。
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/double-format.jpg)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/double-format.jpg)
 
 
 
@@ -512,7 +512,7 @@ public class Variable{
 
 ### 运算符优先级
 
-![Java 运算符优先级](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png)
+![Java 运算符优先级](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png)
 
 
 
@@ -684,7 +684,7 @@ https://www.runoob.com/w3cnote/decimal-decimals-are-converted-to-binary-fraction
 
 例如把二进制数 110.11 转换成十进制数。
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/2to10-1.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/2to10-1.png)
 
 
 
@@ -700,7 +700,7 @@ https://www.runoob.com/w3cnote/decimal-decimals-are-converted-to-binary-fraction
 
 解：
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/10to2.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/10to2.png)
 
 
 
@@ -714,7 +714,7 @@ https://www.runoob.com/w3cnote/decimal-decimals-are-converted-to-binary-fraction
 
 解：
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/decimal-to-2.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/decimal-to-2.png)
 
 
 
@@ -804,7 +804,7 @@ String 被声明为 final，因此它不可被继承。
 
 如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/string-pool.jpg)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/string-pool.jpg)
 
 
 
@@ -1317,11 +1317,11 @@ public class TestDateTime {
 
 （截图来自《大话设计模式》）
 
-![类图1](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E7%B1%BB%E5%9B%BE1.png)
+![类图1](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E7%B1%BB%E5%9B%BE1.png)
 
 
 
-![类图2](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E7%B1%BB%E5%9B%BE2.png)
+![类图2](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E7%B1%BB%E5%9B%BE2.png)
 
 
 
@@ -1448,7 +1448,7 @@ Java建议在进行类型强转之前，先判断变量的真实类型。
 
 
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/instanceof-type.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/instanceof-type.png)
 
 
 
@@ -1467,7 +1467,7 @@ Java建议在进行类型强转之前，先判断变量的真实类型。
 
 《Java程序员面试笔试宝典》中的解答
 
-![值传递与引用传递](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%80%BC%E4%BC%A0%E9%80%92%E4%B8%8E%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92.png)
+![值传递与引用传递](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%80%BC%E4%BC%A0%E9%80%92%E4%B8%8E%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92.png)
 
 
 
@@ -2079,13 +2079,13 @@ public static <T> String arr2String(T[] nums) {}
 
 - 定义泛型方法语法格式
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-basic-generic-4.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-basic-generic-4.png)
 
 
 
 - 调用泛型方法语法格式
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-basic-generic-5.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-basic-generic-5.png)
 
 
 
@@ -2568,7 +2568,7 @@ if("hello".equals("world")){
 
 **反射修改能力范围**
 
-![反射修改能力范围](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%8F%8D%E5%B0%84%E4%BF%AE%E6%94%B9%E8%83%BD%E5%8A%9B%E8%8C%83%E5%9B%B4.jpg)
+![反射修改能力范围](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%8F%8D%E5%B0%84%E4%BF%AE%E6%94%B9%E8%83%BD%E5%8A%9B%E8%8C%83%E5%9B%B4.jpg)
 
 
 
@@ -2855,23 +2855,23 @@ public class 后面的类名必需与文件名一致，一个文件中可以有�
 
 ## 集合（容器）
 
-![Java 集合框架图1](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE1.jpg)
+![Java 集合框架图1](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE1.jpg)
 
 
 
-![Java 集合框架图2](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE2.jpg)
+![Java 集合框架图2](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE2.jpg)
 
 
 
 在《Java编程思想》第四版中，对Java集合框架结构的描述：
 
-![集合框架描述](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E6%8F%8F%E8%BF%B0.png)
+![集合框架描述](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E6%8F%8F%E8%BF%B0.png)
 
 
 
 集合思维导图
 
-![Java 集合(容器)](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E9%9B%86%E5%90%88(%E5%AE%B9%E5%99%A8).png)
+![Java 集合(容器)](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E9%9B%86%E5%90%88(%E5%AE%B9%E5%99%A8).png)
 
 
 
@@ -3619,7 +3619,7 @@ HashMap本质上是一个散列表，那么就离不开散列表的三大问题�
 
 ### 异常类型
 
-![Java 异常分类](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB.png)
+![Java 异常分类](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB.png)
 
 
 
@@ -3899,7 +3899,7 @@ list、数组等实例对象，先获取 stream 流，再进行一系列过滤�
 
 
 
-![image](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/stream-api.jpg)
+![image](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/stream-api.jpg)
 
 
 
@@ -3990,13 +3990,13 @@ System.out.print("\\\\");  // 输出为 \\
 
 
 
-![img](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-io-overview.jpg)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/java-io-overview.jpg)
 
 
 
 ### IO 流的层次结构
 
-![Java IO 流](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java-IO.jpg)
+![Java IO 流](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/Java-IO.jpg)
 
 
 
@@ -4080,21 +4080,21 @@ stream结尾都是字节流，reader和writer结尾都是字符流。
 
 
 
-![字符输入流](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E6%B5%81.png)
+![字符输入流](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E6%B5%81.png)
 
 
 
 ### 打印流
 
-![打印流](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E6%89%93%E5%8D%B0%E6%B5%81.png)
+![打印流](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E6%89%93%E5%8D%B0%E6%B5%81.png)
 
-![打印流2](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E6%89%93%E5%8D%B0%E6%B5%812.png)
+![打印流2](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E6%89%93%E5%8D%B0%E6%B5%812.png)
 
 
 
 ### 释放流资源新方式
 
-![释放资源新方式](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90%E6%96%B0%E6%96%B9%E5%BC%8F.png)
+![释放资源新方式](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90%E6%96%B0%E6%96%B9%E5%BC%8F.png)
 
 
 
@@ -4114,7 +4114,7 @@ Java NIO（New IO，Non-Blocking IO） 是从Java 1.4版本开始引入的一个
 
 ### NIO 与普通 IO 的主要区别
 
-![NIO与普通IO的主要区别](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/NIO%E4%B8%8E%E6%99%AE%E9%80%9AIO%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB.png)
+![NIO与普通IO的主要区别](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/NIO%E4%B8%8E%E6%99%AE%E9%80%9AIO%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB.png)
 
 
 
@@ -4124,7 +4124,7 @@ Java NIO（New IO，Non-Blocking IO） 是从Java 1.4版本开始引入的一个
 
 单向的
 
-![image-20210916175502935](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/IO-like.png)
+![image-20210916175502935](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/IO-like.png)
 
 
 
@@ -4134,7 +4134,7 @@ Java NIO（New IO，Non-Blocking IO） 是从Java 1.4版本开始引入的一个
 
 双向的
 
-![image-20210916175605112](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/NIO-like.png)
+![image-20210916175605112](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/NIO-like.png)
 
 
 
@@ -4198,7 +4198,7 @@ Buffer就像一个数组，可以保存多个相同类型的数据。根据数�
 
 标记、位置、限制、容量遵守以下不变式：0 \<= mark \<= position \<= limit \<= capacity
 
-![88db8afb3e2a462d3a8d9e62cb5c0f14](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/buffer-attributes.png)
+![88db8afb3e2a462d3a8d9e62cb5c0f14](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/buffer-attributes.png)
 
 
 
@@ -4261,13 +4261,13 @@ Buffer所有子类提供了两个用于数据操作的方法：get() 与put() �
 
 非直接缓冲区
 
-![非直接缓冲区](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA.png)
+![非直接缓冲区](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA.png)
 
 
 
 直接缓冲区
 
-![直接缓冲区](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA.png)
+![直接缓冲区](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E7%9B%B4%E6%8E%A5%E7%BC%93%E5%86%B2%E5%8C%BA.png)
 
 
 
@@ -4285,11 +4285,11 @@ Buffer所有子类提供了两个用于数据操作的方法：get() 与put() �
 
 
 
-![传统IO 1](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E4%BC%A0%E7%BB%9FIO-1.png)
+![传统IO 1](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E4%BC%A0%E7%BB%9FIO-1.png)
 
 
 
-![传统IO 2](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E4%BC%A0%E7%BB%9FIO-2.png)
+![传统IO 2](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E4%BC%A0%E7%BB%9FIO-2.png)
 
 
 
@@ -4297,7 +4297,7 @@ Buffer所有子类提供了两个用于数据操作的方法：get() 与put() �
 
 
 
-![NIO-11111](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/NIO-channel.png)
+![NIO-11111](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/NIO-channel.png)
 
 
 
@@ -4350,13 +4350,13 @@ Java 为Channel接口提供的最主要实现类如下：
 
 将Buffer 中数据写入Channel
 
-![b-c](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/b-c.png)
+![b-c](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/b-c.png)
 
 
 
 从Channel 读取数据到Buffer
 
-![c-b](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/c-b.png)
+![c-b](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/c-b.png)
 
 
 
@@ -4365,7 +4365,7 @@ Java 为Channel接口提供的最主要实现类如下：
 分散读取（Scattering Reads）是指从Channel 中读取的数据“分散”到多个Buffer
 中。
 
-![分散读](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%88%86%E6%95%A3%E8%AF%BB.png)
+![分散读](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E5%88%86%E6%95%A3%E8%AF%BB.png)
 
 注意：按照缓冲区的顺序，从Channel 中读取的数据依次将Buffer 填满。
 
@@ -4373,7 +4373,7 @@ Java 为Channel接口提供的最主要实现类如下：
 
 聚集写入（Gathering Writes）是指将多个Buffer 中的数据“聚集”到Channel。
 
-![聚集写](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E8%81%9A%E9%9B%86%E5%86%99.png)
+![聚集写](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/%E8%81%9A%E9%9B%86%E5%86%99.png)
 
 注意：按照缓冲区的顺序，写入position 和limit 之间的数据到Channel 。
 
@@ -4385,19 +4385,19 @@ Java 为Channel接口提供的最主要实现类如下：
 
 走直接缓冲区。
 
-![transferFrom](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/transferFrom.png)
+![transferFrom](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/transferFrom.png)
 
 
 
 #### transferTo()
 
-![transferTo](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/transferTo.png)
+![transferTo](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/transferTo.png)
 
 
 
 #### FileChannel 常用方法
 
-![FileChannel-methods](http://m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/FileChannel-methods.png)
+![FileChannel-methods](https://www.m1yellow.cn/doc-img/Java%E5%9F%BA%E7%A1%80.assets/FileChannel-methods.png)
 
 
 

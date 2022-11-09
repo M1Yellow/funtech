@@ -90,7 +90,7 @@ RabbitMQ 是一个开源的遵循 AMQP（Advanced Message Queuing Protocol）高
 
 
 
-![img](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/becf4792d1aafac1858c9ad9222d5676.png)
+![img](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/becf4792d1aafac1858c9ad9222d5676.png)
 
 
 
@@ -381,7 +381,7 @@ public class DirectSMSConsumer {
 
 **RabbitMQ Exchanges type 交换机支持类型**
 
-![image-20210602150349084](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210602150349084.png)
+![image-20210602150349084](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210602150349084.png)
 
 
 
@@ -394,13 +394,13 @@ public class DirectSMSConsumer {
 
 #### 简单模式 Simple
 
-![img](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-one.png)
+![img](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-one.png)
 
 
 
 #### 工作模式 Work queues
 
-![img](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-two.png)
+![img](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-two.png)
 
 
 
@@ -443,7 +443,7 @@ public class DirectSMSConsumer {
 
 #### 发布订阅模式 Publish/Subscribe
 
-![img](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-three.png)
+![img](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-three.png)
 
 
 
@@ -455,7 +455,7 @@ public class DirectSMSConsumer {
 
 #### 路由模式 Routing
 
-![img](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-four.png)
+![img](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-four.png)
 
 
 
@@ -467,7 +467,7 @@ public class DirectSMSConsumer {
 
 #### 主题模式 Topics
 
-![img](http://m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-five.png)
+![img](https://www.m1yellow.cn/doc-img/MQ%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/python-five.png)
 
 
 

@@ -29,7 +29,7 @@ Dubbo 是一个基于 RPC **远程过程调用**的 SOA 分布式服务框架。
 
 要不是因为发展历史混乱，估计都没人会整理记录内容了吧。
 
-![1.PNG](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-history.png)
+![1.PNG](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-history.png)
 
 
 
@@ -59,7 +59,7 @@ http://dubbo.apache.org/zh/docs/v2.7/user/preface/background/
 
 
 
-![image](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-architecture-roadmap.jpg)
+![image](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-architecture-roadmap.jpg)
 
 
 
@@ -95,7 +95,7 @@ RPC（Remote Procedure Call）是指远程过程调用。
 
 
 
-![image-20210120213300056](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120213300056.png)
+![image-20210120213300056](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120213300056.png)
 
 
 
@@ -113,13 +113,13 @@ Netty 是由 JBOSS 提供的一个 java 开源框架，现为 Github上的独立
 
 #### BIO（Blocking IO）
 
-![image-20210120221848982](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120221848982.png)
+![image-20210120221848982](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120221848982.png)
 
 
 
 #### NIO （Non-Blocking IO）
 
-![image-20210120221927419](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120221927419.png)
+![image-20210120221927419](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120221927419.png)
 
 
 
@@ -131,7 +131,7 @@ Connect（连接就绪）、Accept（接受就绪）、Read（读就绪）、Wri
 
 #### Netty 基本原理
 
-![image-20210120222105049](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120222105049.png)
+![image-20210120222105049](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120222105049.png)
 
 
 
@@ -143,7 +143,7 @@ Connect（连接就绪）、Accept（接受就绪）、Read（读就绪）、Wri
 
 **1、架构示意图**
 
-![image-20210120212333136](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120212333136.png)
+![image-20210120212333136](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210120212333136.png)
 
 
 
@@ -190,7 +190,7 @@ Connect（连接就绪）、Accept（接受就绪）、Read（读就绪）、Wri
 
 ### Dubbo 与 Spring Cloud 对比
 
-![img](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-springCloud.png)
+![img](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-springCloud.png)
 
 
 
@@ -216,7 +216,7 @@ https://mvnrepository.com/artifact/org.apache.dubbo/dubbo
 
 新项目或自己练习的项目尽量选择新版本，2.7 或 3.0。
 
-![image-20210118182333934](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210118182333934.png)
+![image-20210118182333934](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210118182333934.png)
 
 
 
@@ -872,7 +872,7 @@ Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会�
 
 下图展示了配置覆盖关系的优先级，从上到下优先级依次降低：
 
-![覆盖关系](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/configuration.jpg)
+![覆盖关系](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/configuration.jpg)
 
 
 
@@ -887,7 +887,7 @@ Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会�
 
 
 
-![dubbo-config-override](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-config-override.jpg)
+![dubbo-config-override](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/dubbo-config-override.jpg)
 
 
 
@@ -1022,7 +1022,7 @@ https://dubbo.apache.org/zh/docs/v2.7/user/examples/local-stub/
 
 远程服务后，客户端通常只剩下接口，而实现全在服务器端，但提供方有些时候想在客户端也执行部分逻辑，比如：做 ThreadLocal 缓存，提前验证参数，调用失败后伪造容错数据等等，此时就需要在 API 中带上 Stub，客户端生成 Proxy 实例，会把 Proxy 通过构造函数传给 Stub [1](https://dubbo.apache.org/zh/docs/v2.7/user/examples/local-stub/#fn:1)，然后把 Stub 暴露给用户，Stub 可以决定要不要去调 Proxy。
 
-![/user-guide/images/stub.jpg](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/stub.jpg)
+![/user-guide/images/stub.jpg](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/stub.jpg)
 
 在 spring 配置文件中按以下方式配置：
 
@@ -1070,7 +1070,7 @@ public class BarServiceStub implements BarService {
 
 可以让服务提供者开发方，只订阅服务(开发的服务可能依赖其它服务)，而不注册正在开发的服务，通过直连测试正在开发的服务。
 
-![/user-guide/images/subscribe-only.jpg](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/subscribe-only.jpg)
+![/user-guide/images/subscribe-only.jpg](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/subscribe-only.jpg)
 
 禁用注册配置
 
@@ -1161,7 +1161,7 @@ https://dubbo.apache.org/zh/docs/v2.7/user/examples/fault-tolerent-strategy/
 
 在集群调用失败时，Dubbo 提供了多种容错方案，缺省为 failover 重试。
 
-![cluster](http://m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/cluster.jpg)
+![cluster](https://www.m1yellow.cn/doc-img/Dubbo%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/cluster.jpg)
 
 
 

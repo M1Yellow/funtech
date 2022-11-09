@@ -7,7 +7,7 @@ tag:
     - 多线程
 ---
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-concurrent-overview-1.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-concurrent-overview-1.png)
 
 
 
@@ -150,13 +150,13 @@ tag:
 
 杀毒软件主程序及其功能模块以独立进程运行
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/db8eb1cf48719a0c49fcbf333e98df0f.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/db8eb1cf48719a0c49fcbf333e98df0f.png)
 
 
 
 谷歌浏览器主程序及插件以独立进程运行
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/9dfa9138089e0fa8d66dbbb39a229c4f.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/9dfa9138089e0fa8d66dbbb39a229c4f.png)
 
 
 
@@ -166,7 +166,7 @@ tag:
 
 借助 Process Explorer 工具查看应用程序进程下的线程
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/d9d0f6fe8db752bac492b9feb7f0825a.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/d9d0f6fe8db752bac492b9feb7f0825a.png)
 
 
 
@@ -324,7 +324,7 @@ public class TestThread01 extends Thread {
 
 - 方便一个线程类对象被多个线程调用。
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/e74fc7e2eaf6be581962a329623ab5b6.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/e74fc7e2eaf6be581962a329623ab5b6.png)
 
 
 
@@ -501,15 +501,15 @@ public class TestThread03 implements Callable<Boolean> {
 
 ### 线程的状态
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/0032a834f329e3b1d746e666a04897b7.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/0032a834f329e3b1d746e666a04897b7.png)
 
-![https://upload-images.jianshu.io/upload_images/2062729-3220c4bc58f5448b.png](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/d6fa51422177d7066e55d5fccbafc4a1.png)
+![https://upload-images.jianshu.io/upload_images/2062729-3220c4bc58f5448b.png](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/d6fa51422177d7066e55d5fccbafc4a1.png)
 
 
 
 Thread类源码中的状态标识：
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/95652843cb7d38c24da26b11f82f9703.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/95652843cb7d38c24da26b11f82f9703.png)
 
 
 
@@ -1229,7 +1229,7 @@ flag = true;          //语句2
 
 
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-jmm-3.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-jmm-3.png)
 
 
 
@@ -1262,7 +1262,7 @@ JMM本质上可以理解为，Java 内存模型规范了 JVM 如何提供按需�
 
 个人理解：两个或多个线程彼此持有一把不同的锁，但是自己持有的锁还没释放又想要其他线程的锁，相互僵持等待，导致程序无响应。
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/b73e0618c23c7c67744a5b0fd26de543.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/b73e0618c23c7c67744a5b0fd26de543.png)
 
 
 
@@ -1818,7 +1818,7 @@ public class Coop04 {
 
 ### 生产者消费者
 
-![image-20211007161120585](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/producer-consumer-like.png)
+![image-20211007161120585](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/producer-consumer-like.png)
 
 
 
@@ -2136,13 +2136,13 @@ JMM，全名为Java Memory Model，即Java内存模型。它是一组规范，�
 
 **CPU 缓存模型示意图**
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/2117a0078cf0709508f550989a1f357d.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/2117a0078cf0709508f550989a1f357d.png)
 
 
 
 **Java 多线程内存模型示意图**
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/546a20aff27b4c7f1dde0077ac83610d.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/546a20aff27b4c7f1dde0077ac83610d.png)
 
 
 
@@ -2164,7 +2164,7 @@ unlock（解锁）：将主内存变量解锁，解锁后的变量才可以被�
 
 
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/74ffda103cd3d35d7f2f1d850c650d3c.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/74ffda103cd3d35d7f2f1d850c650d3c.png)
 
 
 
@@ -2202,7 +2202,7 @@ unlock（解锁）：将主内存变量解锁，解锁后的变量才可以被�
 
 多核CPU的情况下有多个一级缓存，如何保证缓存内部数据的一致，不让系统数据混乱？
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/2dc826a1a947a04303aac2bf689ee153.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/2dc826a1a947a04303aac2bf689ee153.png)
 
 
 
@@ -2210,7 +2210,7 @@ unlock（解锁）：将主内存变量解锁，解锁后的变量才可以被�
 
 对于M和E状态而言总是精确的，他们在和该缓存行的真正状态是一致的，而S状态可能是非一致的。
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/29f9935ac27e35068741dbdc94f3327a.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/29f9935ac27e35068741dbdc94f3327a.png)
 
 
 
@@ -2226,7 +2226,7 @@ unlock（解锁）：将主内存变量解锁，解锁后的变量才可以被�
 
 如果两个或者更多的线程在没有正确的使用volatile声明或者同步的情况下共享一个对象，一个线程更新这个共享对象可能对其它线程来说是不可见的：共享对象被初始化在主存中。跑在CPU上的一个线程将这个共享对象读到CPU缓存中，然后修改了这个对象。只要CPU缓存没有被刷新会主存，对象修改后的版本对跑在其它CPU上的线程都是不可见的。这种方式可能导致每个线程拥有这个共享对象的私有拷贝，每个拷贝停留在不同的CPU缓存中。
 
-![https://img-blog.csdnimg.cn/20201101095524896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p1b2Rhb3lvbmc=,size_16,color_FFFFFF,t_70](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/8e98ab83a4546803764ee1895aa038a1.png)
+![https://img-blog.csdnimg.cn/20201101095524896.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p1b2Rhb3lvbmc=,size_16,color_FFFFFF,t_70](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/8e98ab83a4546803764ee1895aa038a1.png)
 
 
 
@@ -2328,7 +2328,7 @@ Java语言提供了volatile和synchronized两个关键字来保证线程之间�
 
 在执行程序时为了提高性能，编译器和处理器会对指令做重排序。
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/35464bd41da335f6c1cbbaf1bde88970.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/35464bd41da335f6c1cbbaf1bde88970.png)
 
 
 
@@ -2344,7 +2344,7 @@ Java语言提供了volatile和synchronized两个关键字来保证线程之间�
 
 从源码到最终执行的指令序列示意图：
 
-![preview](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/4d2e8e645025f150343a2d854d30c0a9.jpeg)
+![preview](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/4d2e8e645025f150343a2d854d30c0a9.jpeg)
 
 
 
@@ -2449,7 +2449,7 @@ synchronized关键字保证同一时刻只允许一条线程操作。
 
 每个处理器上的写缓冲区，仅仅对它所在的处理器可见。这会导致处理器执行内存操作的顺序可能会与内存实际的操作执行顺序不一致。由于现代的处理器都会使用写缓冲区，因此现代的处理器都会允许对写-读操作进行重排序：
 
-![https://pic4.zhimg.com/80/v2-f8a75081bcad888a7e73b4785a672e5b_720w.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/e419988c01bcf882b505e44e7d8f497c.jpeg)
+![https://pic4.zhimg.com/80/v2-f8a75081bcad888a7e73b4785a672e5b_720w.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/e419988c01bcf882b505e44e7d8f497c.jpeg)
 
 
 
@@ -2459,7 +2459,7 @@ synchronized关键字保证同一时刻只允许一条线程操作。
 
 数据依赖个人理解：定义完一个变量，接着立马就用。
 
-![https://pic4.zhimg.com/80/v2-36500a7455955c58d02138913d5c0cd7_720w.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/9d8d40df7b7668805bece29d3d0cd35f.jpeg)
+![https://pic4.zhimg.com/80/v2-36500a7455955c58d02138913d5c0cd7_720w.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/9d8d40df7b7668805bece29d3d0cd35f.jpeg)
 
 
 
@@ -2506,7 +2506,7 @@ Barriers，Intel称之为Memory Fence）指令，通过内存屏障指令来禁�
 
 为了保证内存可见性，Java编译器在生成指令序列的适当位置会插入内存屏障指令来禁止特定类型的处理器重排序。
 
-![https://pic2.zhimg.com/80/v2-6db326ce298332a673151117edcb1fcd_720w.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/dda9be553ee560d9bfd34e63d50e739a.jpeg)
+![https://pic2.zhimg.com/80/v2-6db326ce298332a673151117edcb1fcd_720w.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/dda9be553ee560d9bfd34e63d50e739a.jpeg)
 
 
 
@@ -2899,7 +2899,7 @@ public class ThreadLocalExample1 {
 
 它所对应的底层结构图为:
 
-![image](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/3646544a-cb57-451d-9e03-d3c4f5e4434a.png)
+![image](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/3646544a-cb57-451d-9e03-d3c4f5e4434a.png)
 
 
 
@@ -2996,7 +2996,7 @@ JVM基于进入和退出Monitor对象来实现方法同步和代码块同步。�
 
 
 
-![Java 对象头](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/Java%E5%AF%B9%E8%B1%A1%E5%A4%B4.png)
+![Java 对象头](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/Java%E5%AF%B9%E8%B1%A1%E5%A4%B4.png)
 
 
 
@@ -3321,7 +3321,7 @@ class VolatileExample {
 
 
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-volatile-1.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-volatile-1.png)
 
 
 
@@ -3339,13 +3339,13 @@ class VolatileExample {
 
 通过内存屏障指令来禁止特定类型的处理器重排序。
 
-![https://pic2.zhimg.com/80/v2-6db326ce298332a673151117edcb1fcd_720w.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/dda9be553ee560d9bfd34e63d50e739a.jpeg)
+![https://pic2.zhimg.com/80/v2-6db326ce298332a673151117edcb1fcd_720w.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/dda9be553ee560d9bfd34e63d50e739a.jpeg)
 
 
 
 JMM针对编译器制定volatile重排序规则表：
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-volatile-2.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-volatile-2.png)
 
 
 
@@ -3373,9 +3373,9 @@ JMM针对编译器制定volatile重排序规则表：
 
 
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/760201775d208118f569ccc7ba1c0101.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/760201775d208118f569ccc7ba1c0101.png)
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/676c24fcb5103d29f14cc80bf6b5812f.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/676c24fcb5103d29f14cc80bf6b5812f.png)
 
 
 
@@ -3786,7 +3786,7 @@ public class FinalDemo {
 
 来画下存在的一种可能执行时序图，如下：
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-1.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-1.png)
 
 
 
@@ -3808,7 +3808,7 @@ read()方法主要包含了三个操作：
 
 假设线程A写过程没有重排序，那么线程A和线程B有一种的可能执行时序为下图：
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-2.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-2.png)
 
 
 
@@ -3859,7 +3859,7 @@ public class FinalReferenceDemo {
 
 针对上面的实例程序，线程线程A执行wirterOne方法，执行完后线程B执行writerTwo方法，然后线程C执行reader方法。下图就以这种执行时序出现的一种情况来讨论(耐心看完才有收获)。
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-3.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-3.png)
 
 
 
@@ -3926,7 +3926,7 @@ public class FinalReferenceEscapeDemo {
 
 可能的执行时序如图所示：
 
-![img](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-4.png)
+![img](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/java-thread-x-key-final-4.png)
 
 
 
@@ -4489,7 +4489,7 @@ Synchronization）。CAS算法涉及到三个操作数：
 
 以电商下单扣减库存的过程说明一下悲观锁的使用：
 
-![https://upload-images.jianshu.io/upload_images/7038163-6cc15e52ffa4f893.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/b05aa0c63e572f125fc7dcdcf7cb8920.jpeg)
+![https://upload-images.jianshu.io/upload_images/7038163-6cc15e52ffa4f893.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/b05aa0c63e572f125fc7dcdcf7cb8920.jpeg)
 
 
 
@@ -4601,7 +4601,7 @@ synchronized监视器锁（Monitor）本质是**依赖于底层的操作系统�
 
 
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/4ad545427f7aef80d63c9f5b945385ef.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/4ad545427f7aef80d63c9f5b945385ef.png)
 
 
 
@@ -4676,7 +4676,7 @@ synchronized监视器锁（Monitor）本质是**依赖于底层的操作系统�
 
 #### 三大方法
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/a4a9e7c7a12fb3f58fc7804f6859557b.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/a4a9e7c7a12fb3f58fc7804f6859557b.png)
 
 
 
@@ -4749,7 +4749,7 @@ public ThreadPoolExecutor(int corePoolSize, // 线程池核心大小
 
 #### 四种拒绝策略
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/b6240994b2859dd104bd6565342fa7e3.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/b6240994b2859dd104bd6565342fa7e3.png)
 
 
 
@@ -4781,7 +4781,7 @@ ExecutorService createThreadPool() {
 
 #### 线程池大小设置
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/f74df7b927252245eb2996d8b1b3378b.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/f74df7b927252245eb2996d8b1b3378b.png)
 
 
 
@@ -4862,7 +4862,7 @@ awaitTermination方法接收timeout和TimeUnit两个参数，用于设定超时�
 
 ### Atomic 原子类型
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/91c2bf7a420a63944e35b1ca1b65c7cd.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/91c2bf7a420a63944e35b1ca1b65c7cd.png)
 
 
 
@@ -4938,7 +4938,7 @@ CAS通过调用sun.misc.unsafe类中JNI的代码实现（JNI：Java Native Inter
 
 业务逻辑流程图：
 
-![https://upload-images.jianshu.io/upload_images/7038163-498d724533e17e1e.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/4fe786bbd0a8d3d609a839deab0f11cf.jpeg)
+![https://upload-images.jianshu.io/upload_images/7038163-498d724533e17e1e.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/4fe786bbd0a8d3d609a839deab0f11cf.jpeg)
 
 
 
@@ -4956,7 +4956,7 @@ CAS通过调用sun.misc.unsafe类中JNI的代码实现（JNI：Java Native Inter
 
 **ABA 问题**
 
-![https://mmbiz.qpic.cn/mmbiz_jpg/C1uDMDqjn18lM0SlB7uloxBbKF4ddQG9NrXPgsORP0tPhicpKt081BDVsZsFslib8Qv3Fql7zGzIYcG0Z1wv6e8w/640?wx_fmt=jpeg&tp=jpg&wxfrom=5&wx_lazy=1&wx_co=1](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/0aeb48bdf370d33eaed23b111f8373d6.jpeg)
+![https://mmbiz.qpic.cn/mmbiz_jpg/C1uDMDqjn18lM0SlB7uloxBbKF4ddQG9NrXPgsORP0tPhicpKt081BDVsZsFslib8Qv3Fql7zGzIYcG0Z1wv6e8w/640?wx_fmt=jpeg&tp=jpg&wxfrom=5&wx_lazy=1&wx_co=1](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/0aeb48bdf370d33eaed23b111f8373d6.jpeg)
 
 
 
@@ -4991,7 +4991,7 @@ CAS 只对单个共享变量有效，当操作涉及跨多个共享变量时 CAS
 
 Java8 有一个新的类，**LongAdder**，它就是尝试使用分段 CAS 以及自动分段迁移的方式来大幅度提升多线程高并发执行 CAS 操作的性能，这个类具体是如何优化性能的呢？如图：
 
-![https://upload-images.jianshu.io/upload_images/7038163-d39dc7b044720746.jpg](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/1ec919704b51ebd7057f6026d5e43c8d.jpeg)
+![https://upload-images.jianshu.io/upload_images/7038163-d39dc7b044720746.jpg](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/1ec919704b51ebd7057f6026d5e43c8d.jpeg)
 
 
 
@@ -5106,7 +5106,7 @@ public final native boolean compareAndSwapLong(Object var1, long var2, long var4
 
 CountDownLatch允许一个或多个线程等待其他线程完成操作。也就是说通过使用CountDownLatch工具类，可以让一组线程等待彼此执行完毕后在共同执行下一个操作。具体流程如下图所示，箭头表示任务，矩形表示栅栏，当三个任务都到达栅栏时，栅栏后wait的任务才开始执行。
 
-![http://source.mycookies.cn/201912260037_709.jpg?ERROR](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/f54a545976177153e785688d59338b16.png)
+![http://source.mycookies.cn/201912260037_709.jpg?ERROR](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/f54a545976177153e785688d59338b16.png)
 
 
 
@@ -5234,7 +5234,7 @@ public class RunningRaceTest {
 
 CyclicBarrier可以实现CountDownLatch一样的功能，不同的是CountDownLatch属于一次性对象，声明后只能使用一次，而CyclicBarrier可以循环使用。
 
-![http://source.mycookies.cn/201912260131_739.jpg?ERROR](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/17b9effb1685146ee8c50eb806aff325.png)
+![http://source.mycookies.cn/201912260131_739.jpg?ERROR](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/17b9effb1685146ee8c50eb806aff325.png)
 
 
 
@@ -5377,13 +5377,13 @@ public static void main(String[] args) {
 
 这种思想和大数据里面的MapReduce很像（input --\> split --\> map --\> reduce --\> output）
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/6f121f67f9359a8db0e1470f77673ecb.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/6f121f67f9359a8db0e1470f77673ecb.png)
 
 
 
 ForkJoin 特点：工作窃取。内部使用双端队列。
 
-![](http://m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/1aeef88354755d2f9d7db58aeee59aaf.png)
+![](https://www.m1yellow.cn/doc-img/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B.assets/1aeef88354755d2f9d7db58aeee59aaf.png)
 
 
 

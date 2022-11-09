@@ -75,9 +75,9 @@ D:\\\Dev\apache-maven-3.6.3\\conf\\settings.xml
 
 file-settings 搜索 maven
 
-![image-20220705185017490](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20220705185017490.png)
+![image-20220705185017490](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20220705185017490.png)
 
-![image-20220705185650666](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20220705185650666.png)
+![image-20220705185650666](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20220705185650666.png)
 
 
 
@@ -90,7 +90,7 @@ java.lang.RuntimeException: java.lang.RuntimeException: org.codehaus.plexus.comp
 
 网上都说的是版本太高，咱也无可奈何，老老实实退回低版本
 
-![img](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20220705191012148.png)
+![img](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20220705191012148.png)
 
 
 
@@ -180,7 +180,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 #### Maven 工程约定目录结构
 
-![https://img-blog.csdnimg.cn/20200703110657358.PNG](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/e19f0d2ab0043ef39d43b81a38502faa.png)
+![https://img-blog.csdnimg.cn/20200703110657358.PNG](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/e19f0d2ab0043ef39d43b81a38502faa.png)
 
 
 
@@ -211,7 +211,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 依赖的范围：compile、test、provided，默认采用 compile。
 
-![](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/d1c49adf3b384d06628c73ce14486c3f.png)
+![](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/d1c49adf3b384d06628c73ce14486c3f.png)
 
 
 
@@ -219,7 +219,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 只有 compile 打包具有传递性。
 
-![https://img-blog.csdnimg.cn/20200703112636387.PNG](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/14bace8997106d281ff723a821e6ed91.png)
+![https://img-blog.csdnimg.cn/20200703112636387.PNG](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/14bace8997106d281ff723a821e6ed91.png)
 
 
 
@@ -229,7 +229,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 
 
-![https://img-blog.csdnimg.cn/20200703112846771.PNG\#pic_center](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/b552f9cb15dc7886035e4d465edf14e8.png)
+![https://img-blog.csdnimg.cn/20200703112846771.PNG\#pic_center](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/b552f9cb15dc7886035e4d465edf14e8.png)
 
 
 
@@ -253,7 +253,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 
 
-![在这里插入图片描述](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/b892a9d771edbebc5c9f7c79305389b4.png)
+![在这里插入图片描述](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/b892a9d771edbebc5c9f7c79305389b4.png)
 
 
 
@@ -282,7 +282,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 ##### 依赖的原则：解决 jar 包冲突
 
-![https://img-blog.csdnimg.cn/20200703114601200.PNG](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/b4bcc388211d3542b3558157d6a91427.png)
+![https://img-blog.csdnimg.cn/20200703114601200.PNG](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/b4bcc388211d3542b3558157d6a91427.png)
 
 
 
@@ -292,7 +292,7 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 #### 生命周期
 
-![](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/d5fb2cefe6a3a3d4336683b507963564.png)
+![](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/d5fb2cefe6a3a3d4336683b507963564.png)
 
 
 
@@ -306,9 +306,9 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 由于非 compile 范围的依赖信息是不能在“依赖链”中传递的，所以有需要的工程只能单独配置。例如：
 
-![https://img-blog.csdnimg.cn/20200703121249317.PNG](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/f3fda70af57fe90eb58b589935a5ad5c.png)
+![https://img-blog.csdnimg.cn/20200703121249317.PNG](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/f3fda70af57fe90eb58b589935a5ad5c.png)
 
-![https://img-blog.csdnimg.cn/20200703121312942.png](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/7b55998c98bd9290009b78243fed4c58.png)
+![https://img-blog.csdnimg.cn/20200703121312942.png](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/7b55998c98bd9290009b78243fed4c58.png)
 
 
 
@@ -508,9 +508,9 @@ IDEA启动程序按钮和maven的build使用的jar包环境不一样，如果不
 
 解决办法：File \| Settings \| Build, Execution, Deployment \| Build Tools \| Maven \| Runner----\>勾选delegate ide build/run actions to maven
 
-![](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/ca952ac20a76f60190daecfec3b9a9a1.png)
+![](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/ca952ac20a76f60190daecfec3b9a9a1.png)
 
-![](http://m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/3736e1c1913ebf9c1b41df17602b51c4.png)
+![](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/3736e1c1913ebf9c1b41df17602b51c4.png)
 
 注意，每新建 maven 项目，都需再次要进行设置。
 

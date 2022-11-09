@@ -553,7 +553,7 @@ ps -ef|grep docker
 
 ps -elf 命令，将以长格式显示系统的进程信息，包含更丰富的内容。
 
-![image-20210501215953831](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/ps-elf-detail.png)
+![image-20210501215953831](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/ps-elf-detail.png)
 
 
 
@@ -829,7 +829,7 @@ nameserver 8.8.8.8
 
 遇到的坑：
 
-![image-20210502110431422](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/vmware-network-bridge.png)
+![image-20210502110431422](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/vmware-network-bridge.png)
 
 
 
@@ -1778,7 +1778,7 @@ cat /etc/passwd|grep root
 
 ```
 
-![image-20210502142502406](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/user-group-info.png)
+![image-20210502142502406](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/user-group-info.png)
 
 
 
@@ -1831,7 +1831,7 @@ cat /etc/group|grep 组名，用于查找某个用户组
 
 
 
-![image-20210502143005708](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/group-info.png)
+![image-20210502143005708](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/group-info.png)
 
 
 
@@ -1923,11 +1923,11 @@ tommy:x:0:500:tommy:/home/tommy:/bin/bash
 
 ##### 文件目录结构
 
-![image-20210502143818427](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/file-path-structure.png)
+![image-20210502143818427](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/file-path-structure.png)
 
 
 
-![image-20210502143831714](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/file-path-structure-02.png)
+![image-20210502143831714](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/file-path-structure-02.png)
 
 
 
@@ -2503,7 +2503,7 @@ group和others：具有可读、可执行
 
 
 
-![image-20210502144505200](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/x-permission.png)
+![image-20210502144505200](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/x-permission.png)
 
 
 
@@ -3023,7 +3023,7 @@ sed -n '4801845,5833926p' 2017060401 >log20170604
 
 
 
-![image-20210502145005305](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/split-usage.png)
+![image-20210502145005305](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/split-usage.png)
 
 
 
@@ -3033,7 +3033,7 @@ sed -n '4801845,5833926p' 2017060401 >log20170604
 
 
 
-![img](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/vi-vim-cheat-sheet-sch.gif)
+![img](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/vi-vim-cheat-sheet-sch.gif)
 
 
 
@@ -3946,7 +3946,7 @@ drwxrws---. 2 root web 4096 Feb 22 02:04 /usr/web
 
 
 
-![img](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/jdk8-version-download.png)
+![img](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/jdk8-version-download.png)
 
 
 
@@ -4406,7 +4406,7 @@ JAVA_OPTS="-server -Xms256m -Xmx256m -Xmn128m -Xss512K -XX:MetaspaceSize=128m -X
 
 修改 Tomcat  catalina.sh 文件
 
-![img](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/tomcat-catalina.sh.png)
+![img](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/tomcat-catalina.sh.png)
 
 
 
@@ -5142,7 +5142,7 @@ https://repo.huaweicloud.com/jenkins/updates/update-center.json
 
 #### jenkins 部署流程
 
-![img](http://m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/jenkins-work-process.png)
+![img](https://www.m1yellow.cn/doc-img/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95.assets/jenkins-work-process.png)
 
 
 

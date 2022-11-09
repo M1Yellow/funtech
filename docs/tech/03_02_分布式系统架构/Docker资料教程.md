@@ -26,7 +26,7 @@ Docker镜像的设计，`使得Docker得以打破过去「程序即应用」的�
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker.jpeg)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker.jpeg)
 
 
 
@@ -96,7 +96,7 @@ Linux 容器技术的出现就解决了这样一个问题，而 Docker 就是在
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200630162457580.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200630162457580.png)
 
 
 
@@ -112,7 +112,7 @@ Linux 容器技术的出现就解决了这样一个问题，而 Docker 就是在
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200630162621319.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200630162621319.png)
 
 
 
@@ -146,7 +146,7 @@ Docker是内核级虚拟化，其不像传统的虚拟化技术一样需要额�
 
 ### Docker 的基本组成
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/9893541.jpg)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/9893541.jpg)
 
 
 
@@ -525,7 +525,7 @@ For more examples and ideas, visit:
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-run.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-run.png)
 
 
 
@@ -537,7 +537,7 @@ Docker 是一个 Client-Server 结构的系统，Docker 的守护进程运行在
 
 Docker-Server 接收到 Docker-Client 的指令，就会执行这个命令。
 
-![image-20201228194054383](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201228194054383.png)
+![image-20201228194054383](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201228194054383.png)
 
 
 
@@ -550,7 +550,7 @@ docker 利用的是宿主机的内核，而不需要 Guest OS。
 >
 > HostOS：物理机里的系统（OS）
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-vm.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-vm.png)
 
 
 
@@ -560,7 +560,7 @@ docker 利用的是宿主机的内核，而不需要 Guest OS。
 
 ## Docker 常用命令
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/59618-20170519215116432-38667527.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/59618-20170519215116432-38667527.png)
 
 
 
@@ -996,7 +996,7 @@ Docker 的镜像实际上由一层一层的文件系统组成，这种层级的�
 boots(boot file system）主要包含 bootloader 和 Kernel, bootloader 主要是引导加 kernel, Linux 刚启动时会加 bootfs 文件系统，在 Docker 镜像的最底层是 boots。这一层与典型的 Linux/Unix 系统是一样的，包含 boot 加载器和内核。当 boot 加载完成之后整个内核就都在内存中了，此时内存的使用权已由 bootfs 转交给内核，此时系统也会卸载 bootfs。
 rootfs（root file system),在 bootfs 之上。包含的就是典型 Linux 系统中的 /dev,/proc,/bin,/etc 等标准目录和文件。rootfs 就是各种不同的操作系统发行版，比如 Ubuntu, Centos 等等。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-image-work.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-image-work.png)
 
 
 
@@ -1052,13 +1052,13 @@ docker.io/library/redis:latest
 举一个简单的例子，假如基于 Ubuntu Linux16.04 创建一个新的镜像，这就是新镜像的第一层；如果在该镜像中添加 Python 包，
 就会在基础镜像层之上创建第二个镜像层；如果继续添加一个安全补丁，就会创健第三个镜像层该像当前已经包含3个镜像层，如下图所示（这只是一个用于演示的很简单的例子）。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155237947.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155237947.png)
 
 
 
 在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合，理解这一点非常重要。下图中举了一个简单的例子，每个镜像层包含 3 个文件，而镜像包含了来自两个镜像层的 6 个文件。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155305110.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155305110.png)
 
 
 
@@ -1066,7 +1066,7 @@ docker.io/library/redis:latest
 
 下图中展示了一个稍微复杂的三层镜像，在外部看来整个镜像只有 6 个文件，这是因为最上层中的文件7 是文件 5 的一个更新版本。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155322163.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155322163.png)
 
 
 
@@ -1080,7 +1080,7 @@ Docker 在 Windows 上仅支持 windowsfifilter 一种存储引擎，该引擎�
 
 下图展示了与系统显示相同的三层镜像。所有镜像层堆叠并合并，对外提供统一的视图。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155350469.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704155350469.png)
 
 
 
@@ -1090,7 +1090,7 @@ Docker镜像都是只读的，当容器启动时，一个新的可写层被加�
 
 这一层就是通常说的容器层，容器之下的都叫镜像层！
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704161245573.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704161245573.png)
 
 
 
@@ -1172,7 +1172,7 @@ hello-world           latest              bf756fb1ae65        4 months ago      
 
 卷就是目录或者文件，存在一个或者多个容器中，由docker挂载到容器，但不属于联合文件系统，因此能够绕过 Union File System ， 提供一些用于持续存储或共享数据的特性：卷的设计目的就是数据的持久化，完全独立于容器的生存周期，因此Docker不会在容器删除时删除其挂载的数据卷。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704180607848.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704180607848.png)
 
 
 
@@ -1208,13 +1208,13 @@ docker run -it -v 宿主机绝对路径目录:容器内目录 镜像名
 
 查看数据卷是否挂载成功 **`docker inspect 容器id`**
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704181850032.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704181850032.png)
 
 
 
 测试文件的同步
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704182225381.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704182225381.png)
 
 
 
@@ -1228,7 +1228,7 @@ docker run -it -v 宿主机绝对路径目录:容器内目录 镜像名
 
 4. 容器内的数据依旧是同步的
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704182950246.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704182950246.png)
 
 
 
@@ -1377,13 +1377,13 @@ $ docker run -it f4a6b0d4d948 /bin/bash	#运行自己写的镜像
 $ ls -l 								#查看目录
 ```
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704220615428.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704220615428.png)
 
 
 
 这个卷和外部一定有一个同步的目录！
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704220711639.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704220711639.png)
 
 
 
@@ -1396,7 +1396,7 @@ $ docker inspect ca3b45913df5
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704221227521.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704221227521.png)
 
 
 
@@ -1414,7 +1414,7 @@ $ docker inspect ca3b45913df5
 
 命名的容器挂载数据卷！
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704221931787.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200704221931787.png)
 
 
 
@@ -1444,11 +1444,11 @@ etc  lib64  mnt		root  srv   usr  volume02
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-volume.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-volume.png)
 
 
 
-![在这里插入图片描述](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20200524154539606.png)
+![在这里插入图片描述](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20200524154539606.png)
 
 
 
@@ -1463,7 +1463,7 @@ docker01.txt
 #测试发现：数据依旧保留在docker02和docker03中没有被删除
 ```
 
-![image-20200705105609708](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705105609708.png)
+![image-20200705105609708](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705105609708.png)
 
 
 
@@ -1493,7 +1493,7 @@ $ docker run -d -p 3310:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql02 --volu
 
 > 实际项目开发基本上是参照已有的项目案例配置，死记硬背只是应付面试，久了不用，还是会忘得一干二净！
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200710191931055.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200710191931055.png)
 
 
 
@@ -1519,11 +1519,11 @@ $ docker run -d -p 3310:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql02 --volu
 
 官方镜像地址：https://hub.docker.com/_/centos
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705113444073.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705113444073.png)
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705113921348.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705113921348.png)
 
 
 
@@ -1545,7 +1545,7 @@ $ docker run -d -p 3310:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql02 --volu
 
 
 
-![image-20200705114834702](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705114834702.png)
+![image-20200705114834702](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705114834702.png)
 
 
 
@@ -1610,7 +1610,7 @@ EXPOSE 暴露端口
 
 Docker Hub种99%镜像都是从基础镜像过来的FROM scratch，然后配置需要的软件和配置来进行的构建。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705170314507.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705170314507.png)
 
 
 
@@ -1672,19 +1672,19 @@ $ docker build -f mydockerfile-centos -t mycentos:0.1 .
 
 对比：之前的原生centos
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705193805715.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705193805715.png)
 
 
 
 增加命令之后的镜像
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705203058920.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705203058920.png)
 
 
 
 列出本地镜像的变更历史
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705204533675.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200705204533675.png)
 
 
 
@@ -1906,7 +1906,7 @@ eb29745b8228: Mounted from library/centos
 
 5. 到自己的仓库查看
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200711192715523.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200711192715523.png)
 
 
 
@@ -1938,7 +1938,7 @@ $ docker rmi -f $(docker images -aq)
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200710200411741.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200710200411741.png)
 
 
 
@@ -1946,7 +1946,7 @@ $ docker rmi -f $(docker images -aq)
 
 问题：docker是如何处理容器给网络访问的？
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200710200840340.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200710200840340.png)
 
 
 
@@ -1990,13 +1990,13 @@ veth-pair 参考：https://www.cnblogs.com/bakari/p/10613710.html
 
 再次测试 ip addr
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-network-pair-1.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-network-pair-1.png)
 
 
 
 再启动一个容器测试，发现又多了一对网络
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-network-pair-2.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-network-pair-2.png)
 
 
 
@@ -2056,7 +2056,7 @@ PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.
 
 网络模型
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-net-model.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-net-model.png)
 
 
 
@@ -2072,7 +2072,7 @@ Docker使用Linux桥接，在宿主机虚拟一个Docker容器网桥(docker0)，
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200711215648899.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200711215648899.png)
 
 
 
@@ -2080,7 +2080,7 @@ Docker中所有的网络接口都是虚拟的，虚拟的转发效率高，（�
 
 只要删除容器，对应的一对网桥就没了。
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200711222505329.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200711222505329.png)
 
 
 
@@ -2125,19 +2125,19 @@ ping: tomcat03: Name or service not known
 
 docker network inspect 网络id 网段相同
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-tomcat-net-01.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-tomcat-net-01.png)
 
 
 
 docker inspect tomcat03
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-net-tomcat-03.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-net-tomcat-03.png)
 
 
 
 查看tomcat03里面的/etc/hosts发现有tomcat02的配置
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-net-tomcat-02.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-net-tomcat-02.png)
 
 
 
@@ -2326,7 +2326,7 @@ mysql：不同的集群使用不同的网络，保证集群是安全和健康的
 
 ### 网络连通
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200712111753824.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200712111753824.png)
 
 
 
@@ -2455,7 +2455,7 @@ PING tomcat01-net-02 (192.168.0.2) 56(84) bytes of data.
 
 ### redis 集群部署实战
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200712112907471.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20200712112907471.png)
 
 
 
@@ -2810,7 +2810,7 @@ CI/CD再用。
 >
 > 第二个大坑：==**杀毒软件联网防护！**==硬生生坑了一个晚上！！
 >
-> ![image-20201230041438879](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201230041438879.png)
+> ![image-20201230041438879](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201230041438879.png)
 >
 > 
 >
@@ -3126,7 +3126,7 @@ mysql> flush privileges;
 
 测试将包含mysql的容器删除：
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-mysql-volume-data.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/docker-mysql-volume-data.png)
 
 
 
@@ -3820,7 +3820,7 @@ sudo rm -rf nginx.conf/
 sudo docker cp nginx01:/etc/nginx/nginx.conf /home/web/nginx/nginx01
 sudo docker cp nginx01:/etc/nginx/conf.d /home/web/nginx/nginx01
 #【注意！！！】有可能挂载了目录没生效，需要手动复制到容器内
-docker cp /home/nginx/nginx01/conf.d/* nginx01:/etc/nginx/conf.d
+sudo docker cp /home/nginx/nginx01/conf.d/ nginx01:/etc/nginx/
 
 #查看挂载目录
 docker inspect nginx01
@@ -3832,6 +3832,9 @@ sudo docker run -d -p 80:80 --name nginx01 -v /home/web/nginx/nginx01/html:/usr/
 
 #丫的，被 docker 的端口映射坑了一天！nginx 配置了 ssl，443 端口一直未启动监听
 sudo docker run -d -p 80:80 -p 443:443 --name nginx01 -v /home/nginx/nginx01/html:/usr/share/nginx/html -v /home/nginx/nginx01/conf.d:/etc/nginx/conf.d -v /home/nginx/nginx01/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/nginx01/logs:/var/log/nginx --privileged=true nginx
+
+#conf.d/default.conf 配置了 ssl 相关文件地址，但容器中还没有，导致启动报错。先只监听80，启动成功后，再把ssl key文件复制到容器，再监听 443 ssl
+#可以查看logs/error.log，准确定位问题
 
 
 #查看正在启动的镜像
@@ -4119,7 +4122,7 @@ server {
 
 **宿主机端口** 和 **容器内部端口** 以及端口暴露：
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201229010232723.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201229010232723.png)
 
 **问题：**每次改动nginx配置文件，都需要进入容器内部？十分麻烦，要是可以在容器外部提供一个映射路径，达到在容器外部修改文件名，容器内部就可以自动修改？-v 数据卷 技术！
 
@@ -4350,11 +4353,11 @@ ENTRYPOINT ["java","-jar","/app.jar", "--spring.profiles.active=dev"]
 
 ##### 配置启动命令
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/idea-set-docker-01.jpg)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/idea-set-docker-01.jpg)
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/idea-set-docker-02.jpg)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/idea-set-docker-02.jpg)
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/idea-set-docker-03.jpg)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/idea-set-docker-03.jpg)
 
 
 
@@ -4388,11 +4391,11 @@ curl http://127.0.0.1:2375/info
 
 File->Settings->Build,Execution,Deployment->Docker 打开配置界面
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210412001158233.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210412001158233.png)
 
 
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210412001254817.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210412001254817.png)
 
 
 
@@ -4476,15 +4479,15 @@ IDEA 设置里添加 Maven 环境变量，告知 Docker Host 地址，具体操�
 1. 找到 Preference -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner
 2. 在 Environment variables 中填写 DOCKER_HOST=tcp://192.168.3.151:2375
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210412012051894.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210412012051894.png)
 
 
 
 ##### 运行容器
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/hQ7KBXTAGf6FMpl.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/hQ7KBXTAGf6FMpl.png)
 
-![img](http://m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/8SsoM3VpTJnjIOv.png)
+![img](https://www.m1yellow.cn/doc-img/Docker%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/8SsoM3VpTJnjIOv.png)
 
 
 

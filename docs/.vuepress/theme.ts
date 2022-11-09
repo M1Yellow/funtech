@@ -16,7 +16,7 @@ export default hopeTheme({
 
     logo: "/logo.svg",
 
-    repo: "https://github.com/m1yellow/mypages",
+    repo: "https://github.com/m1yellow",
 
     docsDir: "docs",
 
@@ -89,6 +89,7 @@ export default hopeTheme({
             align: true,
             // 启用图片懒加载
             //imageLazyload: true, // 不在配置项
+            lazyLoad: true,
             // 启用图片标记
             imageMark: true,
             // 启用图片大小
