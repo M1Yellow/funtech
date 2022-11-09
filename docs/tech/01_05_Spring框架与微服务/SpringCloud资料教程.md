@@ -49,13 +49,13 @@ Spring Cloud 本身不开发项目，只做项目的管理者。
 
 Spring Cloud architecture highlights
 
-![image-20210605134714050](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210605134714050.png)
+![image-20210605134714050](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210605134714050.png)
 
 
 
 **各大功能组件**
 
-![image-20210604175345208](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604175345208.png)
+![image-20210604175345208](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604175345208.png)
 
 
 
@@ -182,7 +182,7 @@ https://github.com/spring-cloud
 
 
 
-![image-20210602172827008](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210602172827008.png)
+![image-20210602172827008](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210602172827008.png)
 
 
 
@@ -205,7 +205,7 @@ https://github.com/spring-cloud
 
 https://github.com/macrozheng/mall-swarm
 
-![img](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/project-learn.png)
+![img](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/project-learn.png)
 
 
 
@@ -213,13 +213,13 @@ https://github.com/macrozheng/mall-swarm
 
 从 [官网](https://spring.io/projects/spring-cloud) 确认 SpringCloud 的版本信息
 
-![image-20210604172132578](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604172132578.png)
+![image-20210604172132578](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604172132578.png)
 
 
 
 点击版本信息下方的 `LEARN` 便签
 
-![image-20210604172315373](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604172315373.png)
+![image-20210604172315373](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604172315373.png)
 
 
 
@@ -229,7 +229,7 @@ https://github.com/macrozheng/mall-swarm
 
 点击 `Hoxton.SR11` 右侧的 `Reference Doc`，即可看到官方推荐的搭配版本
 
-![image-20210604172938407](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604172938407.png)
+![image-20210604172938407](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604172938407.png)
 
 
 
@@ -418,7 +418,7 @@ sudo systemctl restart firewalld
 
 访问 http://192.168.137.151:8848/nacos
 
-![image-20210604212050338](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604212050338.png)
+![image-20210604212050338](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210604212050338.png)
 
 
 
@@ -446,7 +446,7 @@ Sentinel 控制台默认运行在 8080 端口上，登录账号密码均为`sent
 
 访问 http://192.168.137.151:8080
 
-![image-20210712204816425](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210712204816425.png)
+![image-20210712204816425](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210712204816425.png)
 
 
 
@@ -468,7 +468,7 @@ Sentinel 控制台默认运行在 8080 端口上，登录账号密码均为`sent
 
 ### SpringCloud 组件升级
 
-![springcloud 升级](./SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/springcloud%E5%8D%87%E7%BA%A7.png)
+![springcloud 升级](http://m1yellow.cn/doc-img/SpringCloud%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/springcloud%E5%8D%87%E7%BA%A7.png)
 
 
 

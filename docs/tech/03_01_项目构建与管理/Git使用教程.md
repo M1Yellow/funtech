@@ -35,7 +35,7 @@ tag:
 
 安装完成
 
-![image-20210410233926204](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20210410233926204.png)
+![image-20210410233926204](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20210410233926204.png)
 
 
 
@@ -261,7 +261,7 @@ git config --global --unset https.proxy
 
 ### ★工作流程
 
-![img](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/1229247-20180607090351818-24720413.jpg)
+![img](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/1229247-20180607090351818-24720413.jpg)
 
 
 - 当对工作区修改（或新增）的文件执行 **git add .** 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。
@@ -483,7 +483,7 @@ git rebase -i origin/master    合并本地提交记录
 
 #### 文件的状态变化
 
-![img](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/1204574-20180425163547215-1719844952.png)
+![img](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/1204574-20180425163547215-1719844952.png)
 
 
 
@@ -1395,11 +1395,11 @@ $ git branch -vv
 
 
 
-![分叉的提交历史。](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-1.png)
+![分叉的提交历史。](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-1.png)
 
 整合分支最容易的方法是 `merge` 命令。 它会把两个分支的最新快照（`C3` 和 `C4`）以及二者最近的共同祖先（`C2`）进行三方合并，合并的结果是生成一个新的快照（并提交）。
 
-![通过合并操作来整合分叉了的历史。](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-2.png)
+![通过合并操作来整合分叉了的历史。](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-2.png)
 
 通过**变基（rebase）**合并，可以检出 `experiment` 分支，然后将它变基到 `master` 分支上：
 
@@ -1412,7 +1412,7 @@ Applying: added staged command
 
 它的原理是首先找到这两个分支（即当前分支 `experiment`、变基操作的目标基底分支 `master`） 的最近共同祖先 `C2`，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 `C3`, 最后以此将之前另存为临时文件的修改依序应用。 （译注：写明了 commit id，以便理解，下同）
 
-![将 `C4` 中的修改变基到 `C3` 上。](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-3.png)
+![将 `C4` 中的修改变基到 `C3` 上。](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-3.png)
 
 将 `C4` 中的修改变基到 `C3` 上
 
@@ -1423,7 +1423,7 @@ $ git checkout master
 $ git merge experiment
 ```
 
-![`master` 分支的快进合并。](./Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-4.png)
+![`master` 分支的快进合并。](http://m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-4.png)
 
 
 

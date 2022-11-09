@@ -9,7 +9,7 @@ tag:
     - 性能调优
 ---
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/jvm-overview.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/jvm-overview.png)
 
 ## 一、前言
 
@@ -51,7 +51,7 @@ tag:
 
 
 
-![image-20210925215411512](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20210925215411512.png)
+![image-20210925215411512](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20210925215411512.png)
 
 
 
@@ -77,7 +77,7 @@ tag:
 
 解释器与JIT编译器工作原理示意图
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/4bedfbc862eb842ac2d1054933acd094.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/4bedfbc862eb842ac2d1054933acd094.png)
 
 
 
@@ -158,7 +158,7 @@ tag:
 
 
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/java-jvm-class-1.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/java-jvm-class-1.png)
 
 
 
@@ -174,7 +174,7 @@ Class文件采用一种伪结构来存储数据，它有两种类型：无符号
 
 java字节码文件包含了哪些类型的数据：
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/java-jvm-class-2.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/java-jvm-class-2.png)
 
 
 
@@ -602,7 +602,7 @@ public int foo();
 
 类的生命周期示意图
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/8f43e895db3d2cf043f4d09dceae6c09.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/8f43e895db3d2cf043f4d09dceae6c09.png)
 
 
 
@@ -698,7 +698,7 @@ ClassLoader.getSystemClassLoader().loadClass("T1.Parent"); //显式加载，但�
 
 
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/51c45e515e450d59932a65325af8c8cf.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/51c45e515e450d59932a65325af8c8cf.png)
 
 
 
@@ -722,7 +722,7 @@ ClassLoader.getSystemClassLoader().loadClass("T1.Parent"); //显式加载，但�
 
 链接分为三个子阶段：验证 --\> 准备 --\> 解析
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/6b2ca30828dc924e68b0480c48b86e34.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/6b2ca30828dc924e68b0480c48b86e34.png)
 
 
 
@@ -740,7 +740,7 @@ ClassLoader.getSystemClassLoader().loadClass("T1.Parent"); //显式加载，但�
 
 验证的步骤比较复杂，实际要验证的项目也很繁多，大体上Java虚拟机需要做以下检查，如图所示。
 
-![https://img-blog.csdnimg.cn/20201008174452684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FkbWluNzQxYWRtaW4=,size_16,color_FFFFFF,t_70\#pic_center](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/90d1debb5e9e59ca0389dad32f9704e2.png)
+![https://img-blog.csdnimg.cn/20201008174452684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FkbWluNzQxYWRtaW4=,size_16,color_FFFFFF,t_70\#pic_center](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/90d1debb5e9e59ca0389dad32f9704e2.png)
 
 
 
@@ -797,7 +797,7 @@ ClassLoader.getSystemClassLoader().loadClass("T1.Parent"); //显式加载，但�
 
 当一个类验证通过时，虚拟机就会进入准备阶段。在这个阶段，虚拟机就会为这个类分配相应的内存空间，并设置默认初始值。Java虚拟机为各类型变量默认的初始值如表所示。
 
-![https://img-blog.csdnimg.cn/20201008211920804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FkbWluNzQxYWRtaW4=,size_16,color_FFFFFF,t_70\#pic_center](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f5f1aee74e0641f239b523121240dfa1.png)
+![https://img-blog.csdnimg.cn/20201008211920804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FkbWluNzQxYWRtaW4=,size_16,color_FFFFFF,t_70\#pic_center](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f5f1aee74e0641f239b523121240dfa1.png)
 
 
 
@@ -1080,7 +1080,7 @@ System.out.println(parent.getClass().getClassLoader()); // 类的加载器
 
 一个类何时结束生命周期，取决于代表它的Class对象何时结束生命周期。
 
-![在这里插入图片描述](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/273a7be409e93169a68e956a835e3567.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/273a7be409e93169a68e956a835e3567.png)
 
 
 
@@ -1128,9 +1128,9 @@ Java虚拟机被允许对满足上述三个条件的无用类进行回收，这�
 
 ### 类加载器
 
-![https://imgconvert.csdnimg.cn/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTQ1MzIxMjIyLnBuZw?x-oss-process=image/format,png](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f1ca6c83b5b831cf747f8971524b4492.png)
+![https://imgconvert.csdnimg.cn/aHR0cDovL2hleWdvLm9zcy1jbi1zaGFuZ2hhaS5hbGl5dW5jcy5jb20vaW1hZ2VzL2ltYWdlLTIwMjAwNzI3MTQ1MzIxMjIyLnBuZw?x-oss-process=image/format,png](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f1ca6c83b5b831cf747f8971524b4492.png)
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/1b9510ec1f0d06c120b5bf22efe10948.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/1b9510ec1f0d06c120b5bf22efe10948.png)
 
 
 
@@ -1261,7 +1261,7 @@ Java虚拟机对class文件采用的是**按需加载的方式**，也就是说�
 
 
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/232a8756cbb84c1bdf063f69fc67a59b.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/232a8756cbb84c1bdf063f69fc67a59b.png)
 
 
 
@@ -1364,7 +1364,7 @@ Java虚拟机对class文件采用的是**按需加载的方式**，也就是说�
 
 
 
-![在这里插入图片描述](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/2a2812f56f8a97dd26a321c015c54c2a.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/2a2812f56f8a97dd26a321c015c54c2a.png)
 
 
 
@@ -1422,7 +1422,7 @@ IBM公司主导的JSR-291(即OSGiR4.2)实现模块化热部署的关键是它自
 
 根据这个特点，可以用来模拟热替换的实现，基本思路如下图所示：
 
-![在这里插入图片描述](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/2fc23a283f0badc4d4dc169d627a5999.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/2fc23a283f0badc4d4dc169d627a5999.png)
 
 
 
@@ -1631,7 +1631,7 @@ clinit() 方法和 init() 方法）。
 >
 > 理论概念看着云里雾里的，建议结合面试题，加以理解。
 
-![天天在用volatile，你知道它的底层原理吗？](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/1460000037486490.png)
+![天天在用volatile，你知道它的底层原理吗？](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/1460000037486490.png)
 
 
 
@@ -1674,15 +1674,15 @@ JVM为了优化指令的执行效率，会对一些代码指令进行重排序�
 
 
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg9kuge8ovj32150tt7cd.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg9kuge8ovj32150tt7cd.jpg)
 
 
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/6370ba4acabfd1a67202aeeef7b7ca4b.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/6370ba4acabfd1a67202aeeef7b7ca4b.png)
 
 
 
-![](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f7f448deadef4fde5efb40a124d9dc41.png)
+![](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f7f448deadef4fde5efb40a124d9dc41.png)
 
 
 
@@ -1690,11 +1690,11 @@ JVM为了优化指令的执行效率，会对一些代码指令进行重排序�
 
 多个结构图对比，各有各的可取之处。
 
-![image-20200705112416101](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/8b168998dd6f4ba9a9c5e3a7a441d134.png)
+![image-20200705112416101](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/8b168998dd6f4ba9a9c5e3a7a441d134.png)
 
 
 
-![jvm-framework](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc6fz21n8kj30u00wpn5v.jpg)
+![jvm-framework](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc6fz21n8kj30u00wpn5v.jpg)
 
 
 
@@ -1719,7 +1719,7 @@ Java 虚拟机定义了若干种程序运行期间会使用到的运行时数据
 
 PC 寄存器用来存储指向**下一条指令的地址**，即将要执行的指令代码。由执行引擎读取下一条指令。
 
-![jvm-pc-counter](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc5kmznm1sj31m50u0wph.jpg)
+![jvm-pc-counter](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc5kmznm1sj31m50u0wph.jpg)
 
 
 
@@ -1801,7 +1801,7 @@ Java 虚拟机规范允许 **Java虚拟机栈的大小是动态的或者是固�
 
 IDEA 在 debug 时候，可以在 debug 窗口看到 Frames 中各种方法的压栈和出栈情况
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc9lezaxrbj319v0u0k4w.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc9lezaxrbj319v0u0k4w.jpg)
 
 
 
@@ -1815,7 +1815,7 @@ IDEA 在 debug 时候，可以在 debug 窗口看到 Frames 中各种方法的�
 - 方法返回地址（Return Address）：方法正常退出或异常退出的地址
 - 一些附加信息
 
-![jvm-stack-frame](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc8tjehg8bj318m0lbtbu.jpg)
+![jvm-stack-frame](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc8tjehg8bj318m0lbtbu.jpg)
 
 
 
@@ -1843,7 +1843,7 @@ IDEA 在 debug 时候，可以在 debug 窗口看到 Frames 中各种方法的�
 - 如果当前帧是由构造方法或实例方法创建的，那么该对象引用 this 将会存放在 index 为 0 的 Slot 处，其余的参数按照参数表顺序继续排列（这里就引出一个问题：静态方法中为什么不可以引用 this，就是因为this 变量不存在于当前方法的局部变量表中）
 - **栈帧中的局部变量表中的槽位是可以重用的**，如果一个局部变量过了其作用域，那么在其作用域之后申明的新的局部变量就很有可能会复用过期局部变量的槽位，从而**达到节省资源的目的**。（下图中，this、a、b、c 理论上应该有 4 个变量，c 复用了 b 的槽）
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc9s12g5wlj31li0owdm9.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gc9s12g5wlj31li0owdm9.jpg)
 
 - 在栈帧中，与性能调优关系最为密切的就是局部变量表。在方法执行时，虚拟机使用局部变量表完成方法的传递
 - **局部变量表中的变量也是重要的垃圾回收根节点，只要被局部变量表中直接或间接引用的对象都不会被回收**
@@ -1886,7 +1886,7 @@ HotSpot 的执行引擎采用的并非是基于寄存器的架构，但这并不
 - **每一个栈帧内部都包含一个指向运行时常量池中该栈帧所属方法的引用**。包含这个引用的目的就是为了支持当前方法的代码能够实现动态链接(Dynamic Linking)。
 - 在 Java 源文件被编译到字节码文件中时，所有的变量和方法引用都作为**符号引用**（Symbolic Reference）保存在 Class 文件的常量池中。比如：描述一个方法调用了另外的其他方法时，就是通过常量池中指向方法的符号引用来表示的，那么**动态链接的作用就是为了将这些符号引用转换为调用方法的直接引用**
 
-![jvm-dynamic-linking](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gca4k4gndgj31d20o2td0.jpg)
+![jvm-dynamic-linking](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0082zybply1gca4k4gndgj31d20o2td0.jpg)
 
 
 
@@ -2015,7 +2015,7 @@ Java 使用起来非常方便，然而有些层次的任务用 Java 实现起来
 
 
 
-![https://img-blog.csdn.net/20171008111931983](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/a9424eb5f163d76469425325fa102847.png)
+![https://img-blog.csdn.net/20171008111931983](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/a9424eb5f163d76469425325fa102847.png)
 
 
 
@@ -2077,7 +2077,7 @@ Java 虚拟机规范规定，Java 堆可以是处于物理上不连续的内存�
 
 
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg06065oa9j31kw0u0q69.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg06065oa9j31kw0u0q69.jpg)
 
 
 
@@ -2505,7 +2505,7 @@ JVM 必须保存所有方法的
 
 **栈、堆、方法区的交互关系**
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/db050d0052a44605a13043a0bec204f0.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/db050d0052a44605a13043a0bec204f0.png)
 
 
 
@@ -2527,7 +2527,7 @@ JVM 必须保存所有方法的
 
 如下，通过 jclasslib 查看一个只有 Main 方法的简单类，字节码中的 #2 指向的就是 Constant Pool
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg9i91ze2gj320i0riahe.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg9i91ze2gj320i0riahe.jpg)
 
 
 
@@ -2561,7 +2561,7 @@ JVM 必须保存所有方法的
 
 http://openjdk.java.net/jeps/122
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg04ve34c2j30z00u0dp7.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/007S8ZIlly1gg04ve34c2j30z00u0dp7.jpg)
 
 
 
@@ -2615,13 +2615,13 @@ Java 虚拟机被允许堆满足上述三个条件的无用类进行回收，这
 
 引用计数存在循环引用问题。
 
-![image-20200712103230349](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f5fd06e6ebd9c79ef973003a609511a8.png)
+![image-20200712103230349](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f5fd06e6ebd9c79ef973003a609511a8.png)
 
 
 
 #### ★可达性分析算法
 
-![image-20200712104149246](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/553384ce8e64cf5882638e4a371f0863.png)
+![image-20200712104149246](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/553384ce8e64cf5882638e4a371f0863.png)
 
 
 
@@ -2633,7 +2633,7 @@ Java 虚拟机被允许堆满足上述三个条件的无用类进行回收，这
 
 
 
-![image-20210926101048021](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20210926101048021.png)
+![image-20210926101048021](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20210926101048021.png)
 
 
 
@@ -2730,7 +2730,7 @@ obj = null;
 
 #### 标记-清除算法（Mark-Sweep）
 
-![image](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/a4248c4b-6c1d-4fb8-a557-86da92d3a294.jpg)
+![image](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/a4248c4b-6c1d-4fb8-a557-86da92d3a294.jpg)
 
 
 
@@ -2747,7 +2747,7 @@ obj = null;
 
 #### 复制算法（Copying）
 
-![image](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/e6b733ad-606d-4028-b3e8-83c3a73a3797.jpg)
+![image](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/e6b733ad-606d-4028-b3e8-83c3a73a3797.jpg)
 
 
 
@@ -2768,7 +2768,7 @@ obj = null;
 
 #### 标记-整理（压缩）算法（Mark-Compact）
 
-![image](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/902b83ab-8054-4bd2-898f-9a4a0fe52830.jpg)
+![image](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/902b83ab-8054-4bd2-898f-9a4a0fe52830.jpg)
 
 
 
@@ -2822,7 +2822,7 @@ obj = null;
 
 #### 分区算法
 
-![image-20200713215133839](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/3c4cc794a8b76e7ddb3a583397e743aa.png)
+![image-20200713215133839](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/3c4cc794a8b76e7ddb3a583397e743aa.png)
 
 
 
@@ -2838,7 +2838,7 @@ obj = null;
 
 并发回收器：CMS、G1
 
-![image-20200713093551365](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/a8c8c24da72cf761385df6d24a28d7f2.png)
+![image-20200713093551365](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/a8c8c24da72cf761385df6d24a28d7f2.png)
 
 
 
@@ -2880,7 +2880,7 @@ obj = null;
 
 4.  [青色虚线]JDK14中：删除CMS垃圾回收器（JEP363）。
 
-![image-20200713094745366](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0aa6f273f20c8678fe878f567f80bf72.png)
+![image-20200713094745366](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/0aa6f273f20c8678fe878f567f80bf72.png)
 
 
 
@@ -2938,7 +2938,7 @@ GC发展阶段：Serial =\> Parallel（并行）=\> CMS（并发）=\> G1 =\> ZG
 
 ### Serial & Serial Old
 
-![image-20200713100703799](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/8a78506bdb4b7fc36e4e71d829cb5028.png)
+![image-20200713100703799](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/8a78506bdb4b7fc36e4e71d829cb5028.png)
 
 
 
@@ -2963,7 +2963,7 @@ Client 模式下的默认新生代收集器，因为在用户的桌面应用场�
 
 ### ParNew
 
-![image-20200713102030127](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/4d9ddf727249b5dda46f7a9baf5bdec6.png)
+![image-20200713102030127](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/4d9ddf727249b5dda46f7a9baf5bdec6.png)
 
 
 
@@ -2973,7 +2973,7 @@ Server 模式下的虚拟机首选新生代收集器，除了性能原因外，�
 
 ### ▲Parallel Scavenge & Parallel Old
 
-![image-20200713110359441](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f9177de86c740ec58e61c4ae287ea9c3.png)
+![image-20200713110359441](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f9177de86c740ec58e61c4ae287ea9c3.png)
 
 
 
@@ -3027,7 +3027,7 @@ HotSpot 的年轻代中除了拥有 ParNew 收集器是基于并行回收的以�
 
 - `-XX:ParallelGCThreads` 设置年轻代并行收集器的线程数。一般地，最好与 CPU 数量相等，以避免过多的线程数影响垃圾收集性能。
 
-  ![image-20210926235911474](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20210926235911474.png)
+  ![image-20210926235911474](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20210926235911474.png)
 
 - `-XX:MaxGCPauseMillis` 设置垃圾收集器最大停顿时间（即 STW 的时间）。单位是毫秒。
 
@@ -3089,7 +3089,7 @@ Parallel 收集器在 JDK1.6 时提供了用于执行老年代垃圾收集的 Pa
 
 ### ★CMS
 
-![image-20200713205154007](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/73daaf167cf944b40515b8ea8837ddbf.png)
+![image-20200713205154007](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/73daaf167cf944b40515b8ea8837ddbf.png)
 
 
 
@@ -3188,7 +3188,7 @@ CMS 收集器的垃圾收集算法采用的是标记清除算法，这意味着�
 
 ### ★G1
 
-![image-20200713225100632](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/013dfa4047fee478e7f01531ca55be3f.png)
+![image-20200713225100632](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/013dfa4047fee478e7f01531ca55be3f.png)
 
 
 
@@ -3239,7 +3239,7 @@ G1（Garbage-First）是一款面向服务端应用的垃圾收集器，主要�
 
 
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20200922184709753.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20200922184709753.png)
 
 
 
@@ -3251,7 +3251,7 @@ G1（Garbage-First）是一款面向服务端应用的垃圾收集器，主要�
 
 **Region 空间**
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20200922184834632.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20200922184834632.png)
 
 每个 Region 都是通过指针碰撞来分配空间。
 
@@ -3288,7 +3288,7 @@ G1（Garbage-First）是一款面向服务端应用的垃圾收集器，主要�
 
 
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/da2c96802932bc45c83b103d3633a263.png)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/da2c96802932bc45c83b103d3633a263.png)
 
 
 
@@ -3354,7 +3354,7 @@ G1（Garbage-First）是一款面向服务端应用的垃圾收集器，主要�
 
 
 
-![image-20200713224113996](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/e8f79c3cdeb0969981703f7a026cf581.png)
+![image-20200713224113996](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/e8f79c3cdeb0969981703f7a026cf581.png)
 
 
 
@@ -3425,7 +3425,7 @@ GC root - 更新 RSet - 处理 RSet - 清理复制
 
 
 
-![img](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f99ee771-c56f-47fb-9148-c0036695b5fe.jpg)
+![img](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/f99ee771-c56f-47fb-9148-c0036695b5fe.jpg)
 
 
 
@@ -3479,7 +3479,7 @@ CMS 并发标记过程中的
 
 
 
-![image-20200713225810871](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/766b882cba7e709202005a3baeb596d0.png)
+![image-20200713225810871](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/766b882cba7e709202005a3baeb596d0.png)
 
 
 
@@ -3670,7 +3670,7 @@ G1 中提供了三种垃圾回收模式：Young GC、Mixed GC 和 Full GC，在�
 
 对象分配与晋升时何时会触发GC的详细流程图可以参考下图（参考了《码出高效：Java开发手册》第四章走进JVM中的图）：
 
-![image-20220309140055547](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20220309140055547.png)
+![image-20220309140055547](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/image-20220309140055547.png)
 
 
 
@@ -4082,7 +4082,7 @@ java -XX:+PrintFlagsFinal -version > ﬂags.txt ## 将参数打印到 flag.txt �
 
 ```
 
-![在这里插入图片描述](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20201023161557848.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20201023161557848.png)
 
 
 
@@ -4100,7 +4100,7 @@ java -XX:+PrintFlagsFinal -version > ﬂags.txt ## 将参数打印到 flag.txt �
 12341234
 ```
 
-![在这里插入图片描述](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20201023161523786.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20201023161523786.png)
 
 
 
@@ -4115,7 +4115,7 @@ java -XX:+PrintFlagsFinal -version > ﬂags.txt ## 将参数打印到 flag.txt �
 123123
 ```
 
-![在这里插入图片描述](./JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20201023161535645.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/JVM%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.assets/20201023161535645.png)
 
 
 

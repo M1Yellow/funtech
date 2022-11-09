@@ -74,14 +74,35 @@ export default hopeTheme({
             autoExcerpt: true,
         },
         feed: {
+            atom: true,
             json: true,
+            rss: true,
         },
-        // comment: {
-        //   type: "giscus",
-        //   repo: "Snailclimb/JavaGuide",
-        //   repoId: "MDEwOlJlcG9zaXRvcnkxMzI0NjQzOTU=",
-        //   category: "Announcements",
-        //   categoryId: "DIC_kwDOB-U_C84COYQF",
-        // },
+        mdEnhance: {
+            // 开启标记
+            mark: true,
+            // 启用任务列表
+            tasklist: true,
+            // 脚注
+            footnote: true,
+            // 自定义对齐
+            align: true,
+            // 启用图片懒加载
+            //imageLazyload: true, // 不在配置项
+            // 启用图片标记
+            imageMark: true,
+            // 启用图片大小
+            imageSize: true,
+            // 启用 TeX 支持
+            tex: true,
+            // 启用下角标功能
+            sub: true,
+            // 启用上角标
+            sup: true,
+            // 代码块分组
+            codetabs: true,
+            // 代码演示
+            demo: true,
+          },
     },
 });

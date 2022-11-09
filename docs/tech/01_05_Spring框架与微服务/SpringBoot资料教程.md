@@ -59,7 +59,7 @@ Spring Boot 可以选择内嵌 Tomcat 、Jetty 或者其他容器，这样就无
 
 Spring 提供了一系列的 starter pom 来简化 Maven 的依赖加载，例如，当你使用 spring-boot-starter-web 时，会自动加入 Spring 的核心依赖和 Web 依赖。
 
-![image-20201224173936722](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224173936722-1608821676371.png)
+![image-20201224173936722](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224173936722-1608821676371.png)
 
 
 
@@ -104,7 +104,7 @@ Spring 4.x 提倡使用 Java 配置和注解配置组合，而 Spring Boot 不�
 
 #### 使用 Spring Initializr 的 Web 页面创建项目
 
-![image-20201222202453487](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201222202453487-1608821711002.png)
+![image-20201222202453487](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201222202453487-1608821711002.png)
 
 
 
@@ -118,9 +118,9 @@ Spring 4.x 提倡使用 Java 配置和注解配置组合，而 Spring Boot 不�
 
 #### 使用 IDEA 直接创建项目
 
-![image-20201224170054213](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224170054213-1608821859718.png)
+![image-20201224170054213](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224170054213-1608821859718.png)
 
-![image-20201224170340951](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224170340951-1608821862669.png)
+![image-20201224170340951](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224170340951-1608821862669.png)
 
 
 
@@ -139,7 +139,7 @@ Spring 4.x 提倡使用 Java 配置和注解配置组合，而 Spring Boot 不�
 
 创建完项目后，检查项目编码：
 
-![image-20201224231825352](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224231825352.png)
+![image-20201224231825352](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224231825352.png)
 
 
 
@@ -147,25 +147,25 @@ Spring 4.x 提倡使用 Java 配置和注解配置组合，而 Spring Boot 不�
 
 在项目名称右键，选择 New -> Module
 
-![image-20210225120142635](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210225120142635.png)
+![image-20210225120142635](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210225120142635.png)
 
 
 
 创建 Spring 项目，设置模块信息
 
-![image-20210225120549303](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210225120549303.png)
+![image-20210225120549303](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210225120549303.png)
 
 
 
 选择基础的 web 依赖即可，后续再手动加入
 
-![image-20210225115813554](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210225115813554.png)
+![image-20210225115813554](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20210225115813554.png)
 
 
 
 ### **项目结构分析**
 
-![image-20201224184508882](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224184508882.png)
+![image-20201224184508882](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224184508882.png)
 
 
 
@@ -272,17 +272,17 @@ public class TestController {
 
 编写完毕后，从主程序启动项目，浏览器发起请求，看页面显示结果。（Tomcat 的端口号在控制台打印了，默认是8080）
 
-![image-20201224191603590](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224191603590.png)
+![image-20201224191603590](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224191603590.png)
 
 ### 将项目打成 jar 包
 
 双击右侧栏 maven 的 package。
 
-![image-20201224192032943](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224192032943.png)
+![image-20201224192032943](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224192032943.png)
 
-![image-20201224192239030](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224192239030.png)
+![image-20201224192239030](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224192239030.png)
 
-![image-20201224192320681](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224192320681.png)
+![image-20201224192320681](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224192320681.png)
 
 
 
@@ -337,7 +337,7 @@ public class TestController {
 </parent>
 ```
 
-![image-20201224211725020](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224211725020.png)
+![image-20201224211725020](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224211725020.png)
 
 
 
@@ -426,7 +426,7 @@ public SpringApplication(ResourceLoader resourceLoader, Class... primarySources)
 
 跟着源码和流程图就可以一探究竟了。
 
-![Spring Boot run 方法流程分析](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/SpringBoot-run-%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90.jpg)
+![Spring Boot run 方法流程分析](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/SpringBoot-run-%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90.jpg)
 
 
 
@@ -545,9 +545,9 @@ Booelan检查
 除此以外，我们还可以自定义一些数据校验规则
 ```
 
-![img](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/3145530-8ae74d19e6c65b4c.webp)
+![img](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/3145530-8ae74d19e6c65b4c.webp)
 
-![img](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/3145530-10035c6af8e90a7c.webp)
+![img](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/3145530-10035c6af8e90a7c.webp)
 
 
 
@@ -667,7 +667,7 @@ spring:
 
 官方外部配置文件说明：
 
-![外部加载配置文件的路径](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E5%A4%96%E9%83%A8%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84.png)
+![外部加载配置文件的路径](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E5%A4%96%E9%83%A8%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84.png)
 
 优先级1：项目路径下的config文件夹配置文件
 优先级2：项目路径下配置文件
@@ -866,7 +866,7 @@ private static Map<String, List<String>> loadSpringFactories(ClassLoader classLo
 
 发现一个多次出现的文件：spring.factories，`Ctrl + Shift + F` 全局搜索它，因为在依赖包里面，可能搜不到，直接到 Spring Boot 的依赖包下去找。
 
-![image-20201224230327368](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224230327368.png)
+![image-20201224230327368](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224230327368.png)
 
 
 
@@ -874,7 +874,7 @@ private static Map<String, List<String>> loadSpringFactories(ClassLoader classLo
 
 打开 spring.factories， 看到了很多自动配置的类信息，这就是自动配置根源所在。
 
-![image-20201224230548975](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224230548975.png)
+![image-20201224230548975](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201224230548975.png)
 
 （只截了一部分）
 
@@ -1191,7 +1191,7 @@ public class HttpProperties {
 
 去配置文件里面试试前缀，看提示即可。
 
-![image-20201225023605743](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201225023605743.png)
+![image-20201225023605743](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201225023605743.png)
 
 
 
@@ -1239,7 +1239,7 @@ class MyPageApplicationTests {
 
 
 
-![image-20201225024801121](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201225024801121.png)
+![image-20201225024801121](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20201225024801121.png)
 
 
 
@@ -1387,7 +1387,7 @@ Spring Boot 2.0+ 默认使用 HikariDataSource 数据源，而以前版本，如
 
 2. druid 功能最为全面，sql拦截等功能，统计数据较为全面，具有良好的扩展性。
 
-![img](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/db-pool.png)
+![img](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/db-pool.png)
 
 
 
@@ -1639,7 +1639,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 然后在浏览器中输入http://serverip:port/manager/html，此时会弹出要求输入用户名和密码对话框，输入manager-gui对应的用户和密码登录管理控制台(其中serverip为服务器ip，如果服务器在本地就是localhost，端口为tomcat端口，默认8080)。
 
-![img](./SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/661702-20180626220642306-220143454.png)
+![img](http://m1yellow.cn/doc-img/SpringBoot%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/661702-20180626220642306-220143454.png)
 
 
 

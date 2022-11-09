@@ -125,8 +125,8 @@ tag:
 
 ## 23种设计模式
 
--   [Java设计模式：23种设计模式全面解析](http://c.biancheng.net/design_pattern/)
--   [设计模式详解](https://www.pdai.tech/md/dev-spec/pattern/1_overview.html)
+- [Java设计模式：23种设计模式全面解析](http://c.biancheng.net/design_pattern/)
+- [设计模式详解](https://www.pdai.tech/md/dev-spec/pattern/1_overview.html)
 
 
 
@@ -231,7 +231,7 @@ tag:
 
 ### UML中的类图及类图之间的关系
 
--   [UML中的类图及类图之间的关系](http://c.biancheng.net/view/1319.html)
+- [UML中的类图及类图之间的关系](http://c.biancheng.net/view/1319.html)
 
 
 

@@ -33,7 +33,7 @@ tag:
 
 
 
-![img](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%B5%B0%E8%BF%B7%E5%AE%AB%E7%9A%84%E4%BA%BA.png)
+![img](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%B5%B0%E8%BF%B7%E5%AE%AB%E7%9A%84%E4%BA%BA.png)
 
 
 海量的框架源码，就像一座座迷宫，并且迷宫的中心藏有财富的密码。
@@ -121,7 +121,7 @@ GitHub：
 
 ### Spring 模块
 
-![https://www.zlennon.com/userfiles/ckeditor/images/articles/spring-framwork.png](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/40d21cdfc59cb8a652614cc7cfe0fd87.jpeg)
+![https://www.zlennon.com/userfiles/ckeditor/images/articles/spring-framwork.png](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/40d21cdfc59cb8a652614cc7cfe0fd87.jpeg)
 
 
 
@@ -241,7 +241,7 @@ DI 依赖注入，在程序运行期间，由 spring 容器动态地将依赖对
 
 File – New – Project，选择Maven项目，**不建议勾选“create from archetype”**，直接下一步，创建最原始的Maven项目即可。“create from archetype”（从典型案例中创建），会到中央仓库下载一些pom文件已经默认配置的依赖，部分依赖可能用不到。
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/e61ac2b8714c48dafe2057ac5c2fe0e2.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/e61ac2b8714c48dafe2057ac5c2fe0e2.png)
 
 
 
@@ -249,7 +249,7 @@ File – New – Project，选择Maven项目，**不建议勾选“create from a
 
 删除src目录，使当前project称为一个工作空间，只用来存放接下创建的Module项目即可。这是个开发习惯，工作空间通常不写代码，代码都在具体的项目里面。
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/097d592b3315bbcee5a564509a7c9e0b.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/097d592b3315bbcee5a564509a7c9e0b.png)
 
 
 
@@ -269,7 +269,7 @@ File – New – Project，选择Maven项目，**不建议勾选“create from a
 
 
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/4a67dc0a9e5a02424db001ef5a319a46.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/4a67dc0a9e5a02424db001ef5a319a46.png)
 
 
 
@@ -801,7 +801,7 @@ Spring加载ApplicationContext.xml配置文件初始化容器时，会先创建�
 
 #### 自动装配规则
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/841c2695481d827bc10e000c58554c3b.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/841c2695481d827bc10e000c58554c3b.png)
 
 
 
@@ -815,7 +815,7 @@ Spring加载ApplicationContext.xml配置文件初始化容器时，会先创建�
 
 ##### byName 方式自动注入
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/5d62af8c431ec31f81d3e130f02b76f9.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/5d62af8c431ec31f81d3e130f02b76f9.png)
 
 byName需要保证所有bean的id唯一，并且这个bean id需要和自动注入属性（字段）的名称一致。
 
@@ -823,7 +823,7 @@ byName需要保证所有bean的id唯一，并且这个bean id需要和自动注�
 
 ##### byType 方式自动注入
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/5007f56b9892de715f3943920ef4e10d.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/5007f56b9892de715f3943920ef4e10d.png)
 
 byType需要保证所有bean的class唯一，并且这个bean需要和自动注入属性的类型一致。
 
@@ -839,11 +839,11 @@ byType需要保证所有bean的class唯一，并且这个bean需要和自动注�
 
 多个配置文件中有一个总文件，总配置文件将各其它子文件通过\<import/\>引入。在Java代码中只需要使用总配置文件对容器进行初始化即可。
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/b1f465d4478165ef2c931e556b1ac3f7.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/b1f465d4478165ef2c931e556b1ac3f7.png)
 
 也可使用通配符。但此时要求父配置文件名不能满足所能匹配的格式，否则将出现循环递归包含。就本例而言，父配置文件不能匹配spring-\*.xml的格式，即不能起名为spring-total.xml。
 
-![多配置文件包含](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E5%A4%9A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB.png)
+![多配置文件包含](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E5%A4%9A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB.png)
 
 
 
@@ -897,7 +897,7 @@ byType需要保证所有bean的class唯一，并且这个bean需要和自动注�
 
 需要在类上使用注解@Component，该注解的value属性用于指定该bean的id值。
 
-![定义Bean的注解@Component](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E5%AE%9A%E4%B9%89Bean%E7%9A%84%E6%B3%A8%E8%A7%A3@Component.png)
+![定义Bean的注解@Component](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E5%AE%9A%E4%B9%89Bean%E7%9A%84%E6%B3%A8%E8%A7%A3@Component.png)
 
 
 
@@ -933,7 +933,7 @@ byType需要保证所有bean的class唯一，并且这个bean需要和自动注�
 
 使用该注解完成属性注入时，类中无需setter。当然，若属性有setter，则也可将其加到setter上。
 
-![简单类型属性注入@Value](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E7%AE%80%E5%8D%95%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5@Value.png)
+![简单类型属性注入@Value](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E7%AE%80%E5%8D%95%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E6%B3%A8%E5%85%A5@Value.png)
 
 
 
@@ -943,7 +943,7 @@ byType需要保证所有bean的class唯一，并且这个bean需要和自动注�
 
 使用该注解完成属性注入时，类中无需setter。当然，若属性有setter，则也可将其加到setter上。
 
-![byType自动注入@Autowired](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/byType%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5@Autowired.png)
+![byType自动注入@Autowired](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/byType%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5@Autowired.png)
 
 
 
@@ -953,11 +953,11 @@ Qualifier 预选
 
 **当多个对象类型相同时，可以再指定对象id。**在引用属性上联合使用注解@Autowired与@Qualifier。@Qualifier的value属性用于指定要匹配的Bean的id值。类中无需set方法，也可加到set方法上。
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/244bf55ade747919d57cbd8b9079f58f.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/244bf55ade747919d57cbd8b9079f58f.png)
 
 @Autowired还有一个属性required，默认值为true，表示当匹配失败后，会终止程序运行。若将其值设置为false，则匹配失败，将被忽略，未匹配的属性值为null。
 
-![@Autowired-required](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/@Autowired-required.png)
+![@Autowired-required](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/@Autowired-required.png)
 
 
 
@@ -1023,7 +1023,7 @@ Spring提供了对jdk中@Resource注解的支持。@Resource注解既可以按�
 
 #### Spring IOC 容器初始化过程
 
-![img](https://img-blog.csdn.net/20150724202916051)
+![img](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/spring-ioc-init.jfif)
 
 （长图不用怕，标识分段很清晰，每一段对应具体步骤。至于其中的方法名称，眼熟一下就好，记不住很正常。记住了也是应付面试，过不了多久全都忘光！）
 
@@ -1161,7 +1161,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 
 
-![image-20220707231429065](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20220707231429065.png)
+![image-20220707231429065](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20220707231429065.png)
 
 
 
@@ -1172,13 +1172,13 @@ public void refresh() throws BeansException, IllegalStateException {
 
 
 
-![image-20221021180916837](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20221021180916837.png)
+![image-20221021180916837](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20221021180916837.png)
 
 
 
 #### BeanFactory 与 ApplicationContext 的区别
 
-![image-20221021181412308](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20221021181412308.png)
+![image-20221021181412308](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20221021181412308.png)
 
 
 
@@ -1303,7 +1303,7 @@ Spring上下文中的Bean也类似，【Spring上下文的生命周期】
 
 #### 生命周期
 
-![image-20221021184358202](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20221021184358202.png)
+![image-20221021184358202](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20221021184358202.png)
 
 
 
@@ -1330,7 +1330,7 @@ Spring框架中，一旦把一个Bean纳入Spring IOC容器之中，这个Bean�
 
 #### 作用域
 
-![](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/c90d52b950b6ce012aaf510f7a8ac5d4.png)
+![](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/c90d52b950b6ce012aaf510f7a8ac5d4.png)
 
 
 
@@ -1417,7 +1417,7 @@ Spring框架中，一旦把一个Bean纳入Spring IOC容器之中，这个Bean�
 
 
 
-![面向切面编程](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B.png)
+![面向切面编程](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B.png)
 
 
 
@@ -1449,7 +1449,7 @@ Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动�
 
 ### AOP面向切面编程术语
 
-![img](https://img-blog.csdnimg.cn/2020120700443256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2E3NDUyMzM3MDA=,size_16,color_FFFFFF,t_70)
+![img](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/aop-desc-word.png)
 
 
 
@@ -1779,7 +1779,7 @@ public class RentMethodInterceptor implements MethodInterceptor {
 
 #### Spring AOP 的底层实现原理
 
-![image-20220707191519557](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20220707191519557.png)
+![image-20220707191519557](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20220707191519557.png)
 
 
 
@@ -1844,7 +1844,7 @@ throws-pattern 抛出异常类型
 
 execution(访问权限 方法返回值 方法声明（参数） 异常类型)
 
-![execution表达式](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/execution%E8%A1%A8%E8%BE%BE%E5%BC%8F.png)
+![execution表达式](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/execution%E8%A1%A8%E8%BE%BE%E5%BC%8F.png)
 
 
 
@@ -2270,7 +2270,7 @@ null
 - 例子：
   - 典型的例子有spring与mybatis的结合。
   - 代码示例
-    ![这里写图片描述](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20180422155550286.jpeg)
+    ![这里写图片描述](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20180422155550286.jpeg)
   - 说明：
     看上面该bean，因为实现了FactoryBean接口，所以返回的不是 SqlSessionFactoryBean 的实例，而是她的 SqlSessionFactoryBean.getObject() 的返回值。
 
@@ -2284,7 +2284,7 @@ null
 
 - getSingleton()过程图
   ps：spring依赖注入时，使用了 **双重判断加锁** 的单例模式
-  ![这里写图片描述](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20180422155736938.jpeg)
+  ![这里写图片描述](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20180422155736938.jpeg)
 - 总结
 - 单例模式定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。
 - spring对单例的实现：spring中的单例模式完成了后半句话，即提供了全局的访问点BeanFactory。但没有从构造器级别去控制单例，这是因为spring管理的是任意的java对象。
@@ -2427,7 +2427,7 @@ null
 
 **事务传播特性举例**
 
-![image-20220707185218431](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20220707185218431.png)
+![image-20220707185218431](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/image-20220707185218431.png)
 
 
 
@@ -2644,9 +2644,9 @@ Spring 提供了以下5种标准的事件：
 
 查看源码中使用的 gradle 版本
 
-![在这里插入图片描述](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210301074536967.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210301074536967.png)
 
-![在这里插入图片描述](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210409080848178.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210409080848178.png)
 
 
 
@@ -2662,9 +2662,9 @@ Spring 提供了以下5种标准的事件：
 
 新建 `GRADLE_USER_HOME` 环境变量，指定 Gradle 用户/仓库目录（默认为USER_HOME/.gradle），用作存放 Gradle  下载的 Jar 包等文件，目录位置、名称自己定义即可（注意不能指向和Maven相同的仓库，他们并不兼容）
 
-![img](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/webp.webp)
+![img](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/webp.webp)
 
-![在这里插入图片描述](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210409081324706.png)
+![在这里插入图片描述](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/20210409081324706.png)
 
 
 
@@ -2878,7 +2878,7 @@ allprojects {
 
 注意：mavenLocal() 会从以下路径查找 setting.xml 从而找到本地的 maven 仓库具体路径
 
-![img](./Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/webp.webp)
+![img](http://m1yellow.cn/doc-img/Spring%E8%B5%84%E6%96%99%E6%95%99%E7%A8%8B.assets/webp.webp)
 
 - 举例第三种方式：新建环境 `M2_HOME`，路径指向本地的 maven 存放路径，mavenLocal() 即可正常查找到本地已下载的 jar 包
 
