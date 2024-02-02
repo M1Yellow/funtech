@@ -101,6 +101,8 @@ funtech -- 项目目录
 
 - `npm run docs:build` 编译打包
 
+- `npm run docs:build --clean-temp --clean-cache` 清除缓存，编译打包
+
 <br/>
 
 

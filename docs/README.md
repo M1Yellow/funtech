@@ -9,6 +9,10 @@ actions:
     - text: 💡 预览体验
       link: https://www.m1yellow.cn/mypages
       type: primary
+    
+    - text: 📱 小游戏项目
+      link: https://www.m1yellow.cn/collide-try
+      type: secondary
 
 features:
   - title: mypages

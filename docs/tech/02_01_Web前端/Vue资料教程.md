@@ -126,17 +126,26 @@ C:\Users\fanmi>vue list
 ### 安装 Node.js 淘宝镜像加速器（cnpm）
 
 ```shell
+#查看配置
+npm config list
+
+#【全局配置】
+npm config set registry https://registry.npmmirror.com
+#解除镜像并恢复到官方源
+npm config set registry https://registry.npmjs.org
+
+#【单次有效】
 #-g 就是全局安装
-npm install -g cnpm --registry=https://registry.npm.taobao.org
+npm install -g cnpm --registry=https://registry.npmmirror.com
 
 #或使用如下语句解决 npm 速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
+npm install --registry=https://registry.npmmirror.com
 
 #后续可能出现安装不了或者网速很慢的情况，可以使用 cnpm 代替 npm，当然能用 npm 最好。
 
 ```
 
-详细参考：https://developer.aliyun.com/mirror/NPM
+详细参考：https://developer.aliyun.com/article/868238
 
 
 

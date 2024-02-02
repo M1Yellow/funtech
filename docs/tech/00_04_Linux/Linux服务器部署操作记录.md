@@ -2534,7 +2534,7 @@ setfacl -R -b tomcat
 
 
 
-##### 文件与目录的增删改查
+##### 文件与目录的CRUD
 
 新建文件
 
@@ -3717,11 +3717,13 @@ systemctl restart systemd-journald
 
 ### 云服务器部署
 
-
 #### 重置实例密码
 
 
+
 #### RAM 子账户
+
+
 
 
 #### 使用 xshell 远程登录
@@ -4170,6 +4172,133 @@ sudo update-alternatives --config javac
 选择序号，回车即可；
 
 然后java -version,javac -version查看当前jdk版本
+
+
+
+
+
+### 安装 Python3
+
+- [python在centos下安装以及配置](https://blog.csdn.net/wtt234/article/details/128172281)
+- [CentOS 7 安装 Python 3.X版本](https://www.cnblogs.com/Magiclala/p/15474456.html)
+
+
+
+#### 查看是否已经安装 Python
+
+Centos7默认安装了python2.7.5 因为一些命令要用它比如yum 它使用的是python2.7.5。
+
+使用python -V命令查看一下是否安装Python：
+
+```py
+python -V
+Python 2.7.5
+```
+
+然后查看Python可执行文件的位置：
+
+```python
+which python
+/usr/bin/python
+```
+
+
+
+#### 下载 Python3
+
+官网：https://www.python.org/downloads/source/
+
+> 如果下载速度很慢，可以试用IDM或者迅雷下载
+
+```python
+cd ~
+wget https://www.python.org/ftp/python/3.11.2/Python-3.11.2.tgz
+#解压
+tar -zxvf Python-3.11.2.tgz
+
+```
+
+
+
+#### 安装
+
+安装相关依赖
+
+```python
+sudo yum -y  install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel gcc make
+
+```
+
+
+
+创建安装目录 /usr/local/python3.11
+
+
+
+配置指定python的安装目录
+
+```python
+cd ~/Python-3.11.2
+./configure --prefix=/usr/local/python3.11
+```
+
+
+
+切换到root，sudo会报错
+
+```python
+make && make install
+```
+
+
+
+建立软连接（类似windows的快捷方式）
+
+```python
+ln -s /usr/local/python3.11/bin/python3.11 /usr/bin/python3
+ln -s /usr/local/python3.11/bin/pip3.11 /usr/bin/pip3
+```
+
+
+
+配置$PATH环境变量
+
+```python
+cd ~
+vim .bash_profile
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/python3.11/bin
+
+source ~/.bash_profile
+```
+
+
+
+#### 验证安装
+
+```python
+python3 -V
+Python 3.11.2
+```
+
+
+
+#### 配置pip镜像源
+
+```py
+su
+pip3 config --global set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/
+```
+
+
+
+#### pip升级
+
+```py
+pip3 install --upgrade pip
+```
+
+
 
 
 
