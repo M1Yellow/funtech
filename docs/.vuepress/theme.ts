@@ -1,6 +1,7 @@
 import {hopeTheme} from "vuepress-theme-hope";
-import navbar from "./navbar";
+import {zhNavbar} from './navbar/index';
 import {sidebarConfig} from "./sidebar";
+import {searchProPlugin} from "vuepress-plugin-search-pro";
 
 export default hopeTheme({
     hostname: "https://www.m1yellow.cn",
@@ -8,11 +9,14 @@ export default hopeTheme({
     author: {
         name: "Ming1",
         url: "https://www.m1yellow.cn",
+        email: "m1yellow@163.com",
     },
 
     lastUpdated: true,
 
-    iconAssets: "iconfont",
+    iconAssets: 'https://at.alicdn.com/t/font_2410206_a0xb9hku9iu.css',
+    //iconAssets: "iconfont",
+    iconPrefix: "iconfont icon-",
 
     logo: "/logo.svg",
 
@@ -21,7 +25,7 @@ export default hopeTheme({
     docsDir: "docs",
 
     // navbar
-    navbar: navbar,
+    navbar: zhNavbar,
 
     // sidebar
     sidebar: sidebarConfig,
@@ -34,14 +38,15 @@ export default hopeTheme({
     //docsDir: 文档在仓库中的目录，默认为根目录
     //docsBranch: 文档存放的分值，默认为 "main"
 
+    // 版权信息，默认就是false
+    //copyright: false,
+    //copyright: "基于 MIT 协议，© 2019-至今 Mr.Hope",
 
-    copyright: false,
-
-    footer: "<a href=\"https://beian.miit.gov.cn/\" rel=\"noopener noreferrer\" target=\"_blank\">湘ICP备2022015684号-1</a> | 主题使用 <a href=\"https://vuepress-theme-hope.github.io/v2/zh/\" rel=\"noopenner noreferrer \" target=\"_blank\">vuepress-theme-hope</a>",
+    footer: "<a href=\"https://beian.miit.gov.cn/\" rel=\"noopener noreferrer\" target=\"_blank\">湘ICP备2022015684号-1</a> | 主题使用 <a href=\"https://theme-hope.vuejs.press/zh/\" rel=\"noopenner noreferrer \" target=\"_blank\">vuepress-theme-hope</a>",
 
     displayFooter: true,
 
-    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
+    pageInfo: ["Author", "Category", "Date", "Original", "Tag", "ReadingTime", "Word", "PageView"],
 
     blog: {
         description: "兴趣成果驱动",
@@ -58,26 +63,41 @@ export default hopeTheme({
         },
     },
 
-    themeColor: {
-        blue: "#087CFA",
-        red: "#FE2857",
-        green: "#21D789",
-        orange: "#FC801D",
-        pink: "#FF318C",
-        lightBlue: "#07C3F2",
-    },
-
+    // 主题色选择器
+    themeColor: true,
+    // 显示全屏按钮
     fullscreen: true,
+    navbarAutoHide: 'always',
 
     plugins: {
+        copyright: false,
+        copyCode: {},
+        searchPro: searchProPlugin({
+            // 搜索建议
+            autoSuggestions: false,
+            // 索引全部内容
+            indexContent: true,
+            // 为分类和标签添加索引
+            customFields: [
+                {
+                    getter: (page: any) => page.frontmatter.category,
+                    formatter: "分类：$content",
+                },
+                {
+                    getter: (page) => page.frontmatter.tag,
+                    formatter: "标签：$content",
+                },
+            ],
+        }),
         blog: {
-            autoExcerpt: true,
+            excerptLength: 200,
         },
         feed: {
             atom: true,
             json: true,
             rss: true,
         },
+        // Markdown 增强
         mdEnhance: {
             // 开启标记
             mark: true,
@@ -87,23 +107,33 @@ export default hopeTheme({
             footnote: true,
             // 自定义对齐
             align: true,
+            // 选项卡
+            tabs: true,
+            // 代码块分组
+            codetabs: true,
+            // 启用 GFM 警告
+            alert: true,
+            // 提示容器
+            hint: true,
+            // 图片相关
+            // 启用 figure
+            figure: true,
             // 启用图片懒加载
-            //imageLazyload: true, // 不在配置项
-            lazyLoad: true,
+            imgLazyload: true,
             // 启用图片标记
-            imageMark: true,
+            imgMark: true,
             // 启用图片大小
-            imageSize: true,
-            // 启用 TeX 支持
-            tex: true,
+            imgSize: true,
+            // 使用 KaTeX 启用 TeX 支持
+            katex: true,
+            // 使用 mathjax 启用 TeX 支持
+            mathjax: true,
             // 启用下角标功能
             sub: true,
             // 启用上角标
             sup: true,
-            // 代码块分组
-            codetabs: true,
             // 代码演示
             demo: true,
-          },
+        },
     },
 });

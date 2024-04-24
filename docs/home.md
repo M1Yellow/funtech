@@ -1,6 +1,6 @@
 ---
 home: true
-layout: Blog
+layout: BlogHome
 icon: overflow
 title: 博客主页
 heroImage: /logo.svg

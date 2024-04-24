@@ -1,6 +1,6 @@
-import {navbar} from "vuepress-theme-hope";
+import {navbar} from 'vuepress-theme-hope';
 
-export default navbar([
+export const zhNavbar = navbar([
     //"/",
     "/home",
     {
@@ -42,7 +42,7 @@ export default navbar([
                 text: "Java",
                 icon: "java",
                 prefix: "01_01_Java/",
-                link: "01_01_Java/java基础"
+                link: "01_01_Java/Java基础"
             },
             {
                 text: "数据结构与算法",
