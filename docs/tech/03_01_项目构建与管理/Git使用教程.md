@@ -49,6 +49,14 @@ Git GUI：图形界面的Git，不建议初学者使用，先熟悉常用命令
 
 
 
+## 在线练习
+
+https://learngitbranching.js.org/?locale=zh_CN
+
+
+
+
+
 ## 配置操作
 
 ### 常用 Linux 命令
@@ -158,38 +166,11 @@ user.email=M1Yellow@163.com
 
 
 
-1. 先查看当前安装的git版本
+**重新下载新版本安装包，覆盖安装即可**
 
-git --version
+Git官网下载：https://git-scm.com/download/win
 
-
-
-2. 更新
-
-git版本是2.17.1之前的，使用
-
-git update
-
-
-
-git版本是2.17.1之后的，使用
-
-git update-git-for-windows
-
-
-
-3. 版本是2.14.1的，会提示
-
-git: 'update' is not a git command
-git: 'update-git-for-windows' is not a git command
-
-
-
-解决方法：重新下载新版本安装包，覆盖安装即可
-
-git官网下载：https://git-scm.com/download/win   （特别慢！！）
-
-> 官网更新地址下载速度真的很慢！！可以尝试使用代理（梯子）、IDM多线程下载，或者非官方下载地址（注意资源校验）
+> 官网地址下载速度可能很慢！可以尝试使用代理（梯子）、IDM多线程下载，或者非官方下载地址（注意资源校验）
 
 
 
@@ -267,7 +248,7 @@ git config --global --unset https.proxy
 - 当对工作区修改（或新增）的文件执行 **git add .** 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。
 - 当执行提交操作（git commit -m）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。
 - 当执行 **git reset HEAD** 命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。
-- 当执行 **git rm --cached file>** 命令时，会直接从暂存区删除文件，工作区则不做出改变。
+- 当执行 **git rm --cached file** 命令时，会直接从暂存区删除文件，工作区则不做出改变。
 - 当执行 **git checkout .** 或者 **git checkout -- file** 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。
 - 当执行 **git checkout HEAD .** 或者 **git checkout HEAD file** 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。
 
@@ -617,7 +598,10 @@ git merge origin/dev ## 将更新同步到本地仓库
 
 ```
 git pull <远程主机名> <远程分支名>:<本地分支名>
+git pull origin <source>:<destination>
 ```
+
+`git pull --rebase` 就是 fetch 和 rebase 的简写
 
 
 
@@ -1099,17 +1083,30 @@ dc443fad (M1Yellow 2021-04-12 14:01:00 +0800   3) **我的主页我定义！**<b
 
 
 
-#### ▲撤销操作
+#### ★撤销操作
 
 - [Git 基础 - 撤消操作](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C)
+- [Git 工具 - 重置揭密](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E7%BD%AE%E6%8F%AD%E5%AF%86)
 
 
 
+##### git reset
+
+> `git reset` 通过把分支记录回退几个提交记录来实现撤销改动。会改动提交记录。`git reset` 向上移动分支，原来指向的提交记录就跟从来没有提交过一样。
+>
+> reset 对已push到远程的提交无效，远程分支使用 `git revert`
+>
 > git reset、git checkout 需谨慎，会覆盖文件修改，导致修改内容丢失
 
 ```bash
 【修改注释】
 git commit --amend
+git commit -m 'initial commit'
+git add forgotten_file
+git commit --amend
+
+amend 修补提交，由于疏忽遗漏了文件，及时弥补
+
 
 【git 取消文件追踪】
 1、当被跟踪的文件里面有不想跟踪的文件时，使用命令git rm删除文件。如：
@@ -1141,12 +1138,22 @@ git reset [ --mixed | --soft | --hard] [<commit ID>]
 1.使用参数--mixed(默认参数)，如git reset --mixed <commit ID>或git reset <commit ID>
 撤销git commit，撤销git add，保留编辑器改动代码
 git reset --mixed HEAD^
+保留工作区，回退暂存区、本地仓库
 
 2.使用参数--soft，如git reset --soft<commit ID>
 撤销git commit，不撤销git add，保留编辑器改动代码
+只回退本地仓库HEAD修改，工作区和暂存区不回退
 
 3.使用参数--hard，如git reset --hard <commit ID>——此方式非常暴力，全部撤销，慎用
 撤销git commit，撤销git add，删除编辑器改动代码
+工作区、暂存区、本地仓库全部回退，会导致本地修改丢失！！
+
+4.使用参数--keep
+工作区、本地仓库HEAD回退，暂存区保留，可能需要处理工作区和暂存区的冲突
+
+
+详细回退原理细节，可以看官方文档：
+[Git 工具 - 重置揭密](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E7%BD%AE%E6%8F%AD%E5%AF%86)
 
 
 HEAD 说明：
@@ -1162,9 +1169,51 @@ HEAD~1 上一个版本
 HEAD~2 上上一个版本
 HEAD~3 上上上一个版本
 以此类推...
+
 ```
 
 
+
+##### git revert
+
+- [git-revert](https://git-scm.com/docs/git-revert/zh_HANS-CN)
+
+- [【git revert】使用以及理解（详解）](https://blog.csdn.net/allanGold/article/details/111372750)
+- [git-revert 如何撤销提交（回滚）](https://zhuanlan.zhihu.com/p/556113321)
+
+
+
+```shell
+revert 常规 commit
+git revert <commit id>
+
+revert merge commit
+git revert -m <parent-number> <commit id>
+git revert -m 1 C6
+
+git revert HEAD 撤销前一次 commit
+git revert HEAD^ 撤销前前一次 commit
+git revert commit id 撤销指定的版本，撤销操作会产生提交记录
+
+git revert -n C1..C4 连续撤销多个提交(C1, C4]，`-n` 不用确认提交信息
+
+revert 冲突处理后
+git revert --abort 啥也不干，回到原始状态
+git revert --quit 退出，保留冲突现场
+git revert --continue 继续往下
+
+合并后解决冲突，继续操作
+git add .
+git commit -m "xxxx"
+
+```
+
+
+
+##### 两者区别
+
+- git reset 回退到指定的 commit-id，相当于删除了 commit-id 以后的所有的提交，并且不会产生新的 commit-id 记录，提交远程仓库需要加上 `-f` 强制推送
+- git revert 反做撤销指定的commit-id，不影响其他commit-id提交，会重新生成一个commit-id，提交远程仓库不需要强制推送
 
 
 
@@ -1255,7 +1304,7 @@ git branch -d (branchname)
 git branch -d test
 
 ## 删除远程分支
-git push origin --delete [branch-name]
+git push --delete origin [branch-name]
 ## 或者
 git branch -r -d origin/分支名
 git push origin :分支名
@@ -1264,8 +1313,8 @@ git branch -r -d origin/test
 git push origin :test
 
 ## git 删除缓存的远程分支列表
-#使用git 部署代码，git branch -a 里面列出的很多远程的分支，其实都是已经被删除了的。
-#可在git pull，他们仍旧是存在
+使用git 部署代码，git branch -a 里面列出的很多远程的分支，其实都是已经被删除了的。
+可在git pull，他们仍旧是存在
 
 git remote prune origin
 ## 或者
@@ -1277,15 +1326,165 @@ git fetch -p
 
 #### 修改分支
 
+##### 合并分支
+
+###### git merge 常规合并
+
+> 保留原有提交点和分支结构，新增一个提交点
+
 ```shell
 ## 合并指定分支到当前分支
-git merge [branch]
+git merge <source>
 git checkout master
 git merge dev
 git log
 git push
 
+合并中断，回到合并前的状态
+git merge --abort
+合并退出，保留“车祸”冲突现场
+git merge --quit
+
 ```
+
+
+
+###### git rebase 变基合并
+
+- [Git 分支 - 变基](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA)
+
+
+
+> Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。
+>
+> Rebase 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 Rebase 的话，代码库的提交历史将会变得异常清晰。
+>
+> https://learngitbranching.js.org/?locale=zh_CN
+
+
+
+```shell
+git rebase <destination> 把当前分支变基合并到目标分支
+git checkout bugFix
+git rebase main
+
+```
+
+
+
+![image-20240424071943615](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20240424071943615.png)
+
+
+
+整理一个分支的提交到另一个分支上，只保留主要分支，让分支看起来更简洁。
+
+在 Git 中整合来自不同分支的修改主要有两种方法：`merge` 以及 `rebase`。
+
+可以使用 `rebase` 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。
+
+
+
+![分叉的提交历史。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-1.png)
+
+整合分支最容易的方法是 `merge` 命令。 它会把两个分支的最新快照（`C3` 和 `C4`）以及二者最近的共同祖先（`C2`）进行三方合并，合并的结果是生成一个新的快照（并提交）。
+
+![通过合并操作来整合分叉了的历史。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-2.png)
+
+通过**变基（rebase）**合并，可以检出 `experiment` 分支，然后将它变基到 `master` 分支上：
+
+```bash
+$ git checkout experiment
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: added staged command
+```
+
+它的原理是首先找到这两个分支（即当前分支 `experiment`、变基操作的目标基底分支 `master`） 的最近共同祖先 `C2`，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 `C3`, 最后以此将之前另存为临时文件的修改依序应用。 （译注：写明了 commit id，以便理解，下同）
+
+![将 `C4` 中的修改变基到 `C3` 上。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-3.png)
+
+将 `C4` 中的修改变基到 `C3` 上
+
+现在回到 `master` 分支，进行一次快进合并。
+
+```bash
+$ git checkout master
+$ git merge experiment
+```
+
+![`master` 分支的快进合并。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-4.png)
+
+
+
+**C4' 是一个新的提交id吗？**
+
+不是，**变基（rebase）**最终没有产生新的提交。
+
+
+
+实际项目开发，为了保留开发记录，通常不会进行变基操作。
+
+如果是个人开发，为了保证分支的简洁性，一般都会进行变基（合并分支）操作。
+
+
+
+变基的目的是为了确保在向远程分支推送时能保持提交历史的整洁——例如向某个其他人维护的项目贡献代码时。 在这种情况下，你首先在自己的分支里进行开发，当开发完成时你需要先将你的代码变基到 `origin/master` 上，然后再向主项目提交修改。 这样的话，该项目的维护者就不再需要进行整合工作，只需要快进合并便可。
+
+
+
+**rebase 会自动关联分支上的提交点**
+
+![image-20240423170605858](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20240423170605858.png)
+
+```shell
+git rebase bugFix side 会把 C4 C5 C6 合并到 C3'
+
+```
+
+
+
+###### 交互式 rebase
+
+弹出提交记录框，以便选择提交记录和顺序。
+
+`cherry-pick` 可以指定提交记录和顺序，但需要提前知道提交ID
+
+交互式 rebase 指的是使用带参数 `--interactive` 的 rebase 命令, 简写为 `-i`
+
+如果你在命令后增加了这个选项, Git 会打开一个 UI 界面并列出将要被复制到目标分支的备选提交记录，它还会显示每个提交记录的哈希值和提交说明，提交说明有助于你理解这个提交进行了哪些更改。
+
+
+
+##### 重命名分支
+
+- [Git 分支重命名 git rename branch](https://blog.csdn.net/qq_37148270/article/details/107106392)
+
+
+
+```shell
+【本地分支】
+在当前分支时
+git branch -m new_branch_name
+
+当不在当前分支时
+git branch -m old_branch_name new_branch_name
+
+【远程分支】
+重命名远端分支（假设是在当前分支，并且远端分支与本地分支名是一致的）
+重命名本地分支
+git branch -m new_branch_name
+
+删除远程分支
+git push --delete origin old_branch_name
+
+上传新命名的本地分支
+git push origin new_branch_name
+
+关联修改后的本地分支与远程分支
+git branch --set-upstream-to origin/new_branch_name
+
+```
+
 
 
 
@@ -1293,6 +1492,7 @@ git push
 
 ```shell
 git checkout (branchname)
+git checkout dev
 
 ```
 
@@ -1315,6 +1515,34 @@ git branch -r
 git branch -r -v
 
 ```
+
+
+
+#### 查看和移动分支 HEAD
+
+```shell
+`cat .git/HEAD` 查看 HEAD 指向
+
+`git symbolic-ref HEAD` 查看 HEAD 指向的引用
+
+`git checkout CID` 指定提交id，即可移动 HEAD 指向
+
+## 移动 HEAD
+git checkout HEAD^^
+git checkout HEAD~2
+git checkout HEAD~^2~2	`^2`指定第二个父节点
+
+## 分支强制将 HEAD 往前移动指定位置
+git branch -f main CID
+git branch -f main HEAD~3
+
+```
+
+
+
+[Level 两个 parent 节点](https://learngitbranching.js.org/?locale=zh_CN)
+
+![image-20240424074719985](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/image-20240424074719985.png)
 
 
 
@@ -1378,69 +1606,6 @@ $ git branch -vv
 * serverfix f8674d9 [teamone/server-fix-good: ahead 3, behind 1] this should do it
   testing   5ea463a trying something new
 ```
-
-
-
-#### 变基（rebase）
-
-- [Git 分支 - 变基](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA)
-
-
-
-整理一个分支的提交到另一个分支上，只保留主要分支，让分支看起来更简洁。
-
-在 Git 中整合来自不同分支的修改主要有两种方法：`merge` 以及 `rebase`。
-
-可以使用 `rebase` 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。
-
-
-
-![分叉的提交历史。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-1.png)
-
-整合分支最容易的方法是 `merge` 命令。 它会把两个分支的最新快照（`C3` 和 `C4`）以及二者最近的共同祖先（`C2`）进行三方合并，合并的结果是生成一个新的快照（并提交）。
-
-![通过合并操作来整合分叉了的历史。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-2.png)
-
-通过**变基（rebase）**合并，可以检出 `experiment` 分支，然后将它变基到 `master` 分支上：
-
-```bash
-$ git checkout experiment
-$ git rebase master
-First, rewinding head to replay your work on top of it...
-Applying: added staged command
-```
-
-它的原理是首先找到这两个分支（即当前分支 `experiment`、变基操作的目标基底分支 `master`） 的最近共同祖先 `C2`，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 `C3`, 最后以此将之前另存为临时文件的修改依序应用。 （译注：写明了 commit id，以便理解，下同）
-
-![将 `C4` 中的修改变基到 `C3` 上。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-3.png)
-
-将 `C4` 中的修改变基到 `C3` 上
-
-现在回到 `master` 分支，进行一次快进合并。
-
-```bash
-$ git checkout master
-$ git merge experiment
-```
-
-![`master` 分支的快进合并。](https://www.m1yellow.cn/doc-img/Git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/basic-rebase-4.png)
-
-
-
-**C4' 是一个新的提交id吗？**
-
-不是，**变基（rebase）**最终没有产生新的提交。
-
-
-
-实际项目开发，为了保留开发记录，通常不会进行变基操作。
-
-如果是个人开发，为了保证分支的简洁性，一般都会进行变基（合并分支）操作。
-
-
-
-变基的目的是为了确保在向远程分支推送时能保持提交历史的整洁——例如向某个其他人维护的项目贡献代码时。 在这种情况下，你首先在自己的分支里进行开发，当开发完成时你需要先将你的代码变基到 `origin/master` 上，然后再向主项目提交修改。 这样的话，该项目的维护者就不再需要进行整合工作，只需要快进合并便可。
-
 
 
 #### 仓库分支复制到另一个仓库分支

@@ -211,13 +211,19 @@ Maven 是目前最流行的自动化构建工具，对于生产环境下多框�
 
 依赖的范围：compile、test、provided，默认采用 compile。
 
+compile : 编译，所有范围有效
+
+test : 测试，只对测试范围有效
+
+provided : 提供，不加入打包部署
+
 ![](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/d1c49adf3b384d06628c73ce14486c3f.png)
 
 
 
 ##### 依赖的传递性
 
-只有 compile 打包具有传递性。
+**只有 compile 打包具有传递性。**
 
 ![https://img-blog.csdnimg.cn/20200703112636387.PNG](https://www.m1yellow.cn/doc-img/Maven%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.assets/14bace8997106d281ff723a821e6ed91.png)
 

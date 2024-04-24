@@ -48,6 +48,14 @@ C:\Users\fanmi>npm -v
 
 ### 更新版本
 
+#### nodejs 版本更新
+
+从 https://nodejs.org/en/download 安装最新的 msi，不用卸载，覆盖之前的安装即可
+
+
+
+#### vue 项目依赖库更新
+
 
 
 
@@ -128,9 +136,17 @@ C:\Users\fanmi>vue list
 ```shell
 #查看配置
 npm config list
+npm config get registry
 
 #【全局配置】
+# 淘宝源
+# 旧
+npm config set registry https://registry.npm.taobao.org
+# 新
 npm config set registry https://registry.npmmirror.com
+# 设置不验证ssl证书
+npm config set strict-ssl false
+
 #解除镜像并恢复到官方源
 npm config set registry https://registry.npmjs.org
 
@@ -149,7 +165,24 @@ npm install --registry=https://registry.npmmirror.com
 
 
 
-### 安装 vue-cli
+### 打包工具
+
+- [如果能重来，你要选 Vite 还是 Webpack ？](https://juejin.cn/post/7106136866381889573)
+- [Webpack vs Vite：编译器之争，谁才是你的最爱？](https://blog.csdn.net/m0_49768044/article/details/131640237)
+
+#### Webpack
+
+
+
+#### Vite
+
+
+
+
+
+### 使用 vue-cli 创建基于 Webpack 的 Vue 项目
+
+#### 安装 vue-cli
 
 ```shell
 #在命令台输入
@@ -163,7 +196,7 @@ vue -V
 
 
 
-### 安装 webpack 
+#### 安装 webpack 
 
 WebPack 是一款**模块加载器兼打包工具**，它能把各种资源，如 JS、JSX、ES6、SASS、LESS、图片等**都作为模块来处理和使用。**
 
@@ -176,6 +209,47 @@ webpack -v
 webpack-cli -v
 
 ```
+
+
+
+### 使用 create-vue 创建基于 Vite 的 Vue 项目
+
+```shell
+#进入工作目录，在此目录下执行
+npm create vue@latest
+
+Need to install the following packages:
+create-vue@3.10.2
+Ok to proceed? (y)
+
+Vue.js - The Progressive JavaScript Framework
+
+√ 请输入项目名称： ... collide-try
+√ 是否使用 TypeScript 语法？ ... 否 / 是
+√ 是否启用 JSX 支持？ ... 否 / 是
+√ 是否引入 Vue Router 进行单页面应用开发？ ... 否 / 是
+√ 是否引入 Pinia 用于状态管理？ ... 否 / 是
+√ 是否引入 Vitest 用于单元测试？ ... 否 / 是
+√ 是否要引入一款端到端（End to End）测试工具？ » 不需要
+√ 是否引入 ESLint 用于代码质量检测？ ... 否 / 是
+√ 是否引入 Prettier 用于代码格式化？ ... 否 / 是
+√ 是否引入 Vue DevTools 7 扩展用于调试? (试验阶段) ... 否 / 是
+
+正在初始化项目 E:\DevRes\Projects\collide-try\collide-try...
+
+项目初始化完成，可执行以下命令：
+
+  cd collide-try
+  npm install
+  npm run format
+  npm run dev
+
+
+
+
+```
+
+
 
 
 

@@ -56,7 +56,38 @@ CentOS-7维护期限：2024-06-30
 
 8.0发布时间：2019.09.25
 
-CentOS-8维护期限：--
+CentOS-8维护期限：2021-12-31
+
+
+
+### CentOS Linux 停止维护后如何应对？
+
+- [CentOS Linux 停止维护后如何应对？](https://help.aliyun.com/zh/ecs/user-guide/options-for-dealing-with-centos-linux-end-of-life)
+- [AlmaLinux 和 Rocky Linux有什么区别](https://www.zhihu.com/question/503401806)
+
+
+
+- CentOS Linux 7作为RHEL 7的复刻版本于2020年08月06日停止更新，但会延续当前的支持计划，于2024年06月30日停止维护（EOL）。
+- CentOS Linux 8作为RHEL 8的复刻版本，生命周期缩短，于2021年12月31日停止更新并停止维护（EOL）。
+- CentOS官方不再提供CentOS Linux 9及后续版本，而是提供CentOS Stream版本。
+
+
+
+用 Red Hat Enterprise Linux 企业版，花钱省事
+
+用 CentOS Stream 滚动升级版本，其实就是发行版之前的开发版，可能存在稳定性、兼容性等未知风险
+
+用第三方维护的版本，Alibaba Cloud Linux、Anolis OS、Rocky Linux、AlmaLinux
+
+
+
+>Alibaba Cloud Linux由阿里云官方提供，完全兼容RHEL/CentOS生态和操作方式。该操作系统针对阿里云做了大量优化，并由阿里云免费提供长期支持和维护（LTS）。
+>
+>Anolis OS由龙蜥社区（OpenAnolis）提供，100%兼容CentOS 8软件生态，且兼容其他主流Linux发行版。该操作系统是完全开源、中立且开放的发行版，具备企业级的高性能、稳定性、安全性以及可靠性。
+>
+>Rocky Linux是一个社区化的企业级操作系统，位于Red Hat Enterprise Linux（RHEL）下游。Rocky Linux与CentOS一样，提供了适用于服务器的稳定版本，旨在作为CentOS完全兼容的替代版本。
+>
+>AlmaLinux是CloudLinux团队宣布构建的一个稳定版CentOS社区分支。
 
 
 
