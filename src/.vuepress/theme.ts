@@ -37,6 +37,8 @@ export default hopeTheme({
     //docsDir: 文档在仓库中的目录，默认为根目录
     //docsBranch: 文档存放的分值，默认为 "main"
 
+    headerDepth: 4, // 标题渲染深度，默认2
+
     // 版权信息，默认就是false
     //copyright: false,
     //copyright: "基于 MIT 协议，© 2019-至今 Mr.Hope",

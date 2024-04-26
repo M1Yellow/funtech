@@ -27,6 +27,13 @@ export default defineUserConfig({
     dest: "funtech",
     //shouldPrefetch: false,
 
+    // 右侧目录级别，放 theme 配置不生效
+    markdown: {
+        headers: {
+            level: [2, 3, 4, 5],
+        },
+    },
+
     // 主题配置
     theme,
     // 插件配置，会警告不让在 config 主文件下使用，提示在 theme 配置文件使用

@@ -1,6 +1,6 @@
 {
   "name": "funtech",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "兴趣成果驱动，理论概念驱不动。",
   "license": "MIT",
   "type": "module",
@@ -15,6 +15,7 @@
     "@vuepress/plugin-docsearch": "2.0.0-rc.26",
     "@vuepress/plugin-feed": "2.0.0-rc.26",
     "@vuepress/plugin-search": "2.0.0-rc.26",
+    "axios": "^1.6.8",
     "katex": "^0.16.10",
     "vue": "^3.4.25",
     "vuepress": "2.0.0-rc.9",

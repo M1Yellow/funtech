@@ -87,9 +87,12 @@ funtech -- 项目目录
 │   │       └── Redis资料教程.md
 │   ├── home.md -- 博客主页
 │   └── README.md -- 项目首页
-├── package-lock.json
+├── .gitignore
+├── LICENSE
 ├── package.json
+├── pnpm-lock.yaml
 └── README.md
+└── tsconfig.json
 ```
 
 

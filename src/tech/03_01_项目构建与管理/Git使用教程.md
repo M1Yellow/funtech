@@ -1,10 +1,12 @@
 ---
 title: Git使用教程
-date: 2024-04-24 14:56:21
+date: 2024-04-26 17:45:05
 category:
     - 项目构建管理
 tag:
     - Git
+star: 8.8
+sticky: 8.8
 ---
 
 > 官方资料教程：[Git Pro](https://git-scm.com/book/zh/v2)
@@ -1324,6 +1326,7 @@ git push origin :test
 使用git 部署代码，git branch -a 里面列出的很多远程的分支，其实都是已经被删除了的。
 可在git pull，他们仍旧是存在
 
+## 修剪本地分支/清理无效的远程追踪分支
 git remote prune origin
 ## 或者
 git fetch -p
@@ -1502,6 +1505,23 @@ git branch -m master main
 git fetch origin
 git branch -u origin/main main -> branch 'main' set up to track 'origin/main'.
 git remote set-head origin -a -> origin/HEAD set to main
+
+重命名之后，查看分支情况
+git remote -v
+git branch -a
+
+$ git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+  remotes/origin/master
+
+发现还有原来的分支信息残留
+修剪本地分支/清理无效的远程追踪分支
+git remote prune origin
+or
+git fetch -p
+
 
 git pull 报错
 fatal: refusing to merge unrelated histories

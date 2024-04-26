@@ -94,7 +94,7 @@ export const zhNavbar = navbar([
         prefix: "/note/", // 每个一级菜单，需要重新设置 path 前缀，否则会继承上面菜单设置的 path 前缀
         children: [
             {text: "关于博客", icon: "creative", link: "关于博客"},
-            {text: "生活感悟", icon: "blog", link: "2022生活感悟摘要"},
+            {text: "生活感悟", icon: "blog", link: "生活感悟记录"},
         ],
     },
 ]);

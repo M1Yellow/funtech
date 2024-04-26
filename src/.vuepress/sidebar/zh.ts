@@ -3,7 +3,7 @@ import {sidebar} from "vuepress-theme-hope";
 export const sideBar = sidebar({
     "/note/": [
         {text: "关于博客", icon: "creative", link: "关于博客"},
-        {text: "生活感悟", icon: "blog", link: "2022生活感悟摘要"},
+        {text: "生活感悟", icon: "blog", link: "生活感悟记录"},
     ],
     "/tech/": [
         {
