@@ -7,7 +7,5 @@ dist/
 funtech/
 .cache/
 .temp/
-docs/.vuepress/.cache/
-docs/.vuepress/.temp/
-docs/.vuepress/dist/
-docs/.vuepress/funtech/
+.vp-cache/
+.vp-temp/

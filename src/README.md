@@ -11,7 +11,7 @@ actions:
       type: primary
     
     - text: 📱 小游戏项目
-      link: https://www.m1yellow.cn/collide-try
+      link: https://www.m1yellow.cn/collide-try-demo
       type: secondary
 
 features:
@@ -34,6 +34,16 @@ features:
     icon: study
     details: 工作和学习整理的技术知识结构体系。【兴趣成果驱动，理论概念驱不动】
     link: https://github.com/M1Yellow/funtech
+
+  - title: collide-try
+    icon: javascript
+    details: collide-try 是一个基于原生 html+js+css、canvas 开发的，模拟带速度和质量球体碰撞的单页小应用。
+    link: https://github.com/M1Yellow/collide-try
+
+  - title: collide-try-vue
+    icon: ability
+    details: collide-try-vue 是 collide-try 的 Vue 版本，主要区别在于 Vue 版本可以降级适配 ES5，兼容低版本浏览器。
+    link: https://github.com/M1Yellow/collide-try-vue
 
 ---
 

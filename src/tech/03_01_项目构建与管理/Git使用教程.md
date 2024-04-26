@@ -1277,13 +1277,21 @@ git remote show [remote] ## 显示某个远程仓库的信息
 ## 本地仓库创建分支
 git branch (branchname)
 git checkout -b (branchname) ## 创建新分支并立即切换到该分支下
+git checkout -b main
 
 ## 创建空的远程分支
 git checkout -b 分支名;  #创建分支
 git push --set-upstream origin 分支名;  #提交分支到远程仓库，--set-upstream 提交新分支，并建立分支跟踪
+git push --set-upstream origin main
 #例如创建远程分支master_branch
 git checkout -b master_branch
 git push --set-upstream origin master_branch
+git push --set-upstream main main
+
+## 本地仓库添加远程仓库地址
+git remote add origin git@github.com:M1Yellow/collide-try-vue.git
+## 跟踪分支
+git push --set-upstream origin main
 
 ## 以已有的远程分支为源创建新的远程分支
 git checkout -b 分支名 origin/已有的远程分支; #创建分支
@@ -1482,6 +1490,37 @@ git push origin new_branch_name
 
 关联修改后的本地分支与远程分支
 git branch --set-upstream-to origin/new_branch_name
+git branch --set-upstream-to origin/main
+
+【GitHub 分支重命名】
+The default branch has been renamed!
+master is now named main
+
+If you have a local clone, you can update it by running the following commands.
+
+git branch -m master main
+git fetch origin
+git branch -u origin/main main -> branch 'main' set up to track 'origin/main'.
+git remote set-head origin -a -> origin/HEAD set to main
+
+git pull 报错
+fatal: refusing to merge unrelated histories
+
+原因是两个分支是两个不同的版本，具有不同的提交历史
+git pull origin main --allow-unrelated-histories
+可以允许不相关历史提，强制合并
+
+
+远程仓库重命名后，本地push报错
+git push -u origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+git remote -v	查看远程仓库详细信息，可以看到仓库名称，关联地址
+git remote remove master	删除改名之前的仓库
+git remote add origin 仓库地址：重新添加远程仓库地址
+git remote add origin git@github.com:M1Yellow/collide-try.git 注意 `.com` 后面是 `:`，一不小心搞错就排查很久
+git push -u origin main		提交到远程仓库的main主干
 
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Vue资料教程
-date: 2022-11-08 07:08:41
+date: 2024-04-26 15:41:53
 category:
     - Web前端
 tag:
@@ -162,6 +162,75 @@ npm install --registry=https://registry.npmmirror.com
 ```
 
 详细参考：https://developer.aliyun.com/article/868238
+
+
+
+### npm 切换到 pnpm
+
+- [官方文档](https://pnpm.io/zh/)
+
+
+
+```bash
+建议先配置国内镜像
+npm config set registry https://registry.npmmirror.com
+npm config list
+npm config get registry
+
+全局安装
+npm install -g pnpm
+npm i -g pnpm
+
+查看版本
+pnpm -v
+pnpm --version
+
+查看设置
+pnpm c list
+
+配置pnpm环境变量
+在系统变量，手动添加
+PNPM_HOME
+值为指定的目录，比如 E:\DevRes\pnpmRepository
+系统Path追加%PNPM_HOME%
+
+也可以使用 `pnpm setup` 自动配置环境变量
+注意：
+1. 这个自动配置的是用户级别的环境变量，不是系统变量
+2. 用户变量优先级高于系统变量
+3. 环境变量配置完成后，CMD窗口需要重新打开
+
+
+修改默认的安装包存储路径（配置了 PNPM_HOME 基本上不修改也行）
+https://pnpm.io/zh/npmrc#store-dir
+
+On Windows: ~/AppData/Local/pnpm/store
+On macOS: ~/Library/pnpm/store
+On Linux: ~/.local/share/pnpm/store
+
+全局bin目录
+pnpm config set global-bin-dir "E:\DevRes\pnpmRepository"
+
+cache缓存目录，不设置的话，还是在默认路径下
+pnpm config set cache-dir "E:\DevRes\pnpmRepository\pnpm-cache"
+
+state状态目录，不设置的话，还是在默认路径下
+pnpm config set state-dir "E:\DevRes\pnpmRepository\pnpm-state"
+
+指定储存全局依赖的目录，会在 PNPM_HOME 下自动生成
+pnpm config set global-dir "E:\DevRes\pnpmRepository\global"
+
+所有包被保存在磁盘上的位置，会在 PNPM_HOME 下自动生成
+pnpm config set store-dir "E:\DevRes\pnpmRepository\store"
+
+更新 pnpm
+pnpm add -g pnpm to update
+
+
+
+```
+
+
 
 
 

@@ -16,7 +16,7 @@
 ## 结构
 ```
 funtech -- 项目目录
-├── docs -- 文档目录
+├── src -- 资源目录
 │   ├── .vuepress
 │   │   ├── public -- 公共资源
 │   │   │   ├── bg00.png
@@ -96,12 +96,23 @@ funtech -- 项目目录
 <br/>
 
 ## 使用
+```bash
+# 使用 pnpm
+npm install -g pnpm
 
-- `npm run docs:dev` 本地运行
+# 安装依赖
+pnpm install
 
-- `npm run docs:build` 编译打包
+# 更新依赖
+pnpm run update
 
-- `npm run docs:build --clean-temp --clean-cache` 清除缓存，编译打包
+# 本地运行
+pnpm run dev
+
+# 编译打包
+pnpm run build
+```
+
 
 <br/>
 
@@ -109,6 +120,8 @@ funtech -- 项目目录
 - [升级主题和 VuePress 版本](https://theme-hope.vuejs.press/zh/get-started/command.html#%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC)
 - [升级常见问题](https://vuepress.github.io/zh/guide/troubleshooting.html)
 - [升级项目参考](https://theme-hope.vuejs.press/zh/demo/projects.html#%E4%BD%BF%E7%94%A8-vuepress-theme-hope-%E7%9A%84%E5%8D%9A%E5%AE%A2)
+    - [Mr.Hope](https://mister-hope.com/)
+    - [墨七](https://blog.mo7.cc/)
 
 ```bash
 pnpm dlx vp-update

@@ -1,6 +1,6 @@
 import {hopeTheme} from "vuepress-theme-hope";
-import {zhNavbar} from './navbar/index';
-import {sidebarConfig} from "./sidebar";
+import {zhNavbar} from './navbar';
+import {sideBar} from "./sidebar";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 
 export default hopeTheme({
@@ -14,7 +14,8 @@ export default hopeTheme({
 
     lastUpdated: true,
 
-    iconAssets: 'https://at.alicdn.com/t/font_2410206_a0xb9hku9iu.css',
+    // https://mister-hope.com/ Mister-Hope.github.io
+    iconAssets: "//at.alicdn.com/t/font_2410206_vuzkjonf4s9.css",
     //iconAssets: "iconfont",
     iconPrefix: "iconfont icon-",
 
@@ -22,13 +23,11 @@ export default hopeTheme({
 
     repo: "https://github.com/m1yellow",
 
-    docsDir: "docs",
-
     // navbar
     navbar: zhNavbar,
 
     // sidebar
-    sidebar: sidebarConfig,
+    sidebar: sideBar,
 
     // 编辑此页链接
     //lastUpdated: 是否显示页面最后更新时间
@@ -67,7 +66,7 @@ export default hopeTheme({
     themeColor: true,
     // 显示全屏按钮
     fullscreen: true,
-    navbarAutoHide: 'always',
+    //navbarAutoHide: 'always',
 
     plugins: {
         copyright: false,

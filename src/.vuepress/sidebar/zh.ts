@@ -1,6 +1,6 @@
 import {sidebar} from "vuepress-theme-hope";
 
-export const sidebarConfig = sidebar({
+export const sideBar = sidebar({
     "/note/": [
         {text: "关于博客", icon: "creative", link: "关于博客"},
         {text: "生活感悟", icon: "blog", link: "2022生活感悟摘要"},
@@ -97,7 +97,7 @@ export const sidebarConfig = sidebar({
             icon: "customize",
             prefix: "03_01_项目构建与管理/",
             collapsible: true,
-            children: ['Maven使用教程', 'Git使用教程'],
+            children: ['Git使用教程', 'Maven使用教程'],
         },
         {
             text: "分布式",

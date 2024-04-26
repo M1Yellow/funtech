@@ -78,7 +78,7 @@ export const zhNavbar = navbar([
                 text: "项目管理",
                 icon: "customize",
                 prefix: "03_01_项目构建与管理/",
-                link: "03_01_项目构建与管理/Maven使用教程"
+                link: "03_01_项目构建与管理/Git使用教程"
             },
             {
                 text: "分布式",
