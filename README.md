@@ -22,16 +22,17 @@ funtech -- 项目目录
 │   │   │   ├── bg00.png
 │   │   │   ├── favicon.ico
 │   │   ├── styles -- 公共样式
-│   │   │   ├── index.scss -- 在这里覆盖原有的样式
-│   │   │   └── palette.scss -- 在这里新增样式
+│   │   │   ├── index.scss -- 新增自定义样式
+│   │   │   └── palette.scss -- 颜色相关样式
+│   │   ├── navbar -- 顶部导航栏配置
+│   │   ├── sidebar -- 左侧菜单栏配置
+│   │   ├── client.ts -- 客户端配置文件
 │   │   ├── config.ts -- 全局配置文件
-│   │   ├── navbar.ts -- 顶部导航栏配置
-│   │   ├── sidebar.ts -- 左侧菜单栏配置
 │   │   └── theme.ts -- 主题配置
 │   ├── note
 │   │   ├── 关于博客.assets
 │   │   ├── 生活感悟.assets
-│   │   ├── 2022生活感悟摘要.md
+│   │   ├── 生活感悟记录.md
 │   │   └── 关于博客.md
 │   ├── tech
 │   │   ├── 00_01_计算机基础原理
