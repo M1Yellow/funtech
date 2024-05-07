@@ -933,27 +933,39 @@ nameserver 8.8.8.8
 
  
 
-https://www.cnblogs.com/jike369/articles/6971314.html
-
-[centos 6.5下安装、配置并启动SSH远程访问](file:///E:/工作技术领域/工作资料/【参考资料】/%2301-技术书籍资料/Linux/%2300-技术资料参考/Linux服务器部署/centos 6.5下安装、配置并启动SSH远程访问.pdf)
-
-登录centos 6.5系统，使用root用户登录，如果为非root用户则执行su或su - 或su root或su - root切换为root用户；
-
-查看SSH是否安装（检查是否装了SSH包），输入命令：rpm -qa | grep ssh，如显示ssh相关软件版本，则说明centos 6.5系统已经为我们默认安装了SSH包；
-
-查看SSH服务是否正在运行。输入命令：/etc/init.d/sshd status，会显示运行状态；
-
-若centos 6.5系统中SSH服务处于非运行状态则使用（service sshd start）命令开启SSH服务；停止SSH服务命令（service sshd stop）；重启SSH服务命令（service sshd restart）。为了演示效果，我这里先停止SSH服务，然后启动SSH服务，再接着重启SSH服务。[service sshd stop] -> [/etc/init.d/sshd status] -> [service sshd start]-> [service sshd restart] ->[重启后可输入：netstat -antp | grep sshd 查看是否启动22端口]
-
-检查SSHD是否在本运行级别下设置为开机启动。输入命令：chkconfig --list sshd，如2345状态为on，则centos 6.5系统中SSH服在本运行级别下已经设置为开机启动,如果没设置启动就使用如下命令[chkconfig --level 2345 sshd on]设置下即可。
-
-设置SSH服务为开机启动。输入命令：chkconfig sshd on 即可。注：若是chkconfig sshd off则禁止SSH开机启动。
-
-下载xshell工具，新建连接。
 
 
+##### 开启SSH免密登录
 
-##### 普通用户配置 sudo 免密
+\# 注意请务必要将服务器上
+
+~/.ssh权限设置为700
+
+~/.ssh/authorized_keys的权限设置为600
+
+\# 这是linux的安全要求，如果权限不对，自动登录将不会生效！
+
+ 
+
+xshell 远程登陆CentOS7 免密登陆
+
+https://www.cnblogs.com/jacob-08-19/p/11830483.html
+
+xshell先用用户名、密码登录
+
+使用xshell生成秘钥，xshell -工具-**用户秘钥管理者**，在右侧选项行中选择“生成”，密钥类型和长度默认，生成公钥对，密钥名称随意起，**密钥的加密密码**（给密钥加密用的，不是登录密码哦）测试环境或个人测试可以不设置，避免后续忘记密码麻烦。正式环境需要设置，密码记下来就行。
+
+接着往下操作，保存公钥文件
+
+将保存下来的公钥文件上传到服务器中的.ssh文件夹中
+
+最后将公钥中的内容添加到 authorized_keys中（authorized_keys存储公钥），cat test.pub >> authorized_keys，如果有多个公钥内容，**记住要换行**，否则不能识别
+
+ 
+
+
+
+##### 配置 sudo 免密
 
 vim /etc/sudoers 修改配置文件，将下列第三或第四行添加到文件中：
 
@@ -997,33 +1009,7 @@ sudo cat /etc/sudoers
 
 
 
-##### 开启SSH免密登录
 
-\# 注意请务必要将服务器上
-
-~/.ssh权限设置为700
-
-~/.ssh/authorized_keys的权限设置为600
-
-\# 这是linux的安全要求，如果权限不对，自动登录将不会生效！
-
- 
-
-xshell 远程登陆CentOS7 免密登陆
-
-https://www.cnblogs.com/jacob-08-19/p/11830483.html
-
-xshell先用用户名、密码登录
-
-使用xshell生成秘钥，xshell -工具-**用户秘钥管理者**，在右侧选项行中选择“生成”，密钥类型和长度默认，生成公钥对，密钥名称随意起，**密钥的加密密码**（给密钥加密用的，不是登录密码哦）测试环境或个人测试可以不设置，避免后续忘记密码麻烦。正式环境需要设置，密码记下来就行。
-
-接着往下操作，保存公钥文件
-
-将保存下来的公钥文件上传到服务器中的.ssh文件夹中
-
-最后将公钥中的内容添加到 authorized_keys中（authorized_keys存储公钥），cat test.pub >> authorized_keys，如果有多个公钥内容，**记住要换行**，否则不能识别
-
- 
 
 ##### 安装 vim
 
@@ -3774,7 +3760,12 @@ tcp6       0      0 ::1:25                  :::*                    LISTEN      
 
 #### 创建特定开发用户
 线上项目尽可能使用普通用户运行，除特殊软件程序安装需要临时 root 权限。
+
 普通用户可以对应项目，也可以对应开发人员。
+
+
+
+
 
 
 ### 项目更新流程以及相关命令
@@ -4417,6 +4408,8 @@ useradd -r -g mysql mysql -d /usr/local/mysql
 passwd mysql
 
 密码：123456
+
+
 
 
 

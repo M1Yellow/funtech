@@ -1,6 +1,6 @@
 ---
 title: Nginx资料教程
-date: 2022-11-02 19:46:51
+date: 2024-05-06 22:44:23
 category:
     - 分布式架构
 tag:
@@ -606,6 +606,200 @@ regular expression：正则表达式，以“~”开头，在“http://”或"ht
 #### 通过 secure_link 模块实现
 
 详细参考：https://segmentfault.com/a/1190000022927612
+
+
+
+### 访问控制（并发、访问频率、流量）
+
+- [Nginx - 限制并发、限制访问速率、限制流量](https://www.cnblogs.com/hukey/p/10498544.html)
+
+- [ngx_http_limit_conn_module](https://nginx.org/en/docs/http/ngx_http_limit_conn_module.html)
+
+- [ngx_http_limit_req_module](https://nginx.org/en/docs/http/ngx_http_limit_req_module.html)
+- [ngx_http_core_module -> limit_rate](https://nginx.org/en/docs/http/ngx_http_core_module.html#limit_rate)
+
+
+
+>limit_conn_zone 模块 - 限制同一 IP 地址并发连接数
+>
+>limit_request 模块 - 限制同一 IP 某段时间的访问量
+>
+>core 模块提供 - limit_rate 限制同一 IP 流量
+
+
+
+#### limit_conn_zone 限制并发
+
+- [Nginx 限制并发](https://www.w3cschool.cn/nginxsysc/nginxsysc-limit-conn.html)
+
+
+
+**1. 添加limit_conn_zone**
+
+这个变量只能在http使用
+
+
+
+```
+http{
+  ...
+  #定义一个名为one的limit_zone,大小10M内存来存储session，内存是启动后就立即占用
+  #以$binary_remote_addr 为key
+  #nginx 1.18以后用limit_conn_zone替换了limit_conn
+  #且只能放在http作用域
+  limit_conn_zone $binary_remote_addr zone=one:10m;
+```
+
+
+
+**2. 添加limit_conn**
+
+这个变量可以在http, server, location使用
+只限制一个站点，所以添加到server里面
+
+```
+server{
+    ...
+    location {
+      ...
+       limit_conn one 20;		  #连接数限制
+       #带宽限制,对单个连接限数，如果一个ip两个连接，就是500x2k
+       limit_rate 500k;		 
+      ...
+    }
+    ...
+  }
+```
+
+
+
+**3. 重启nginx**
+
+```
+service nginx restart
+#或者重新加载 /usr/local/nginx/sbin/nginx -s reload
+```
+
+
+
+#### limit_req_zone 限制访问频率
+
+- [Nginx 限制IP访问频率](https://w3cschool.cn/nginxsysc/nginxsysc-limit-req.html)
+
+
+
+**1. 添加limit_req_zone**
+
+这个变量只能在http使用
+
+
+
+```
+http{
+  ...
+  #定义一个名为allips的limit_req_zone用来存储session，大小是10M内存，
+  #以$binary_remote_addr 为key,限制平均每秒的请求为5个，
+  #1M能存储16000个状态，rete的值必须为整数，
+  #如果限制两秒钟一个请求，可以设置成30r/m
+  limit_req_zone $binary_remote_addr zone=allips:10m rate=5r/s;
+  ...
+```
+
+
+
+
+
+**2. 添加limit_req**
+
+这个变量可以在http, server, location使用
+只限制一个站点，所以添加到server里面
+
+
+
+```
+ ...
+  server{
+    ...
+    location {
+      ...
+      #限制每ip每秒不超过20个请求，漏桶数burst为5
+      #brust的意思就是，如果第1秒、2,3,4秒请求为19个，
+      #第5秒的请求为25个是被允许的。
+      #但是如果你第1秒就25个请求，第2秒超过20的请求返回503错误。
+      #nodelay，如果不设置该选项，严格使用平均速率限制请求数，
+      #第1秒25个请求时，5个请求放到第2秒执行，
+      #设置nodelay，25个请求将在第1秒执行。
+      limit_req zone=allips burst=5 nodelay;
+      ...
+    }
+    ...
+  }
+  ...
+```
+
+
+
+**3. 重启nginx**
+
+
+
+#### limit_rate 限制流量
+
+- [Nginx 限制IP带宽占用](https://www.w3cschool.cn/nginxsysc/nginxsysc-limit-rate.html)
+
+
+
+**1. 添加limit_conn_zone**
+
+这个变量只能在http使用
+
+
+
+```
+http{
+  ...
+  #定义一个名为one的limit_zone,大小10M内存来存储session，
+  #以$binary_remote_addr 为key
+  #nginx 1.18以后用limit_conn_zone替换了limit_conn
+  #且只能放在http作用域
+  limit_conn_zone $binary_remote_addr zone=one:10m;
+```
+
+
+
+**2. 添加limit_conn，limit_rate**
+
+这两个变量可以在http, server, location使用
+只限制一个站点，所以添加到server里面
+
+limit_conn one 2; #限制每个IP只能发起两个并发连接。
+
+limit_rate 300k; #对每个连接限速300k。
+
+注意，这里是对连接限速，而不是对IP限速。
+如果一个IP允许两个并发连接，那么这个IP就是限速limit_rate×limit_conn。比如 300k × 2 就是对ip的流量带宽控制
+
+示例：
+
+```
+server{
+    ...
+    location {
+      ...
+       limit_conn one 2;		  #连接数限制
+       #带宽限制,对单个连接限数，如果一个ip两个连接，就是300x2 k
+       limit_rate 300k;		 
+      ...
+    }
+    ...
+  }
+```
+
+
+
+**3. 重启nginx**
+
+
 
 
 

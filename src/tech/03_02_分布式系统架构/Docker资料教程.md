@@ -1,6 +1,6 @@
 ---
 title: Docker资料教程
-date: 2022-11-02 21:01:41
+date: 2024-05-06 12:23:40
 category:
     - 分布式架构
 tag:
@@ -358,18 +358,13 @@ yum -y remove docker-ce-rootless-extras.x86_64
 
 
 #需要的安装包
-yum install -y yum-utils
+sudo yum -y install yum-utils
 
 #设置镜像的仓库
 #上述方法默认是从国外的，不推荐
 
 #推荐使用国内的，这里安装的是最新版本
-sudo yum-config-manager \
-    --add-repo \
-    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-
-#如果 yum-config-manager 命令不存在，先安装
-sudo yum -y install yum-utils
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
 #查看可安装的版本
 $ yum list docker-ce --showduplicates | sort -r
@@ -384,9 +379,14 @@ docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable
 
 #更新yum软件包索引
 sudo yum makecache fast
+centos8
+sudo yum makecache
 
 #安装docker相关的 docker-ce 社区版 而ee是企业版，这里使用社区版即可
+#只安装docker核心组件
 sudo yum install docker-ce docker-ce-cli containerd.io
+#按需安装其他组件
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #添加用户到组
 默认安装完后系统中有docker组，但是没有用户在这个组中，普通用户想要使用需要加入到这个组中
@@ -463,6 +463,47 @@ systemctl disable docker
 
 
 
+阿里云ECS
+
+Alibaba Cloud Linux 3 (Soaring Falcon)
+
+- [安装Docker并使用（Linux）](https://help.aliyun.com/zh/ecs/use-cases/deploy-and-use-docker-on-alibaba-cloud-linux-2-instances)
+
+
+
+```shell
+添加docker-ce的dnf源
+sudo dnf config-manager --add-repo=https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+安装Alibaba Cloud Linux 3专用的dnf源兼容插件
+sudo dnf -y install dnf-plugin-releasever-adapter --repo alinux3-plus
+
+安装Docker
+sudo dnf -y install docker-ce --nobest
+
+安装docker-ce会自动安装以下组件
+docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+新买的ECS服务器，正常执行安装，如果有报错，具体细节参考阿里云官方docker安装教程。
+
+检查Docker是否安装成功
+sudo docker -v
+Docker version 26.1.1, build 4cf5afa
+
+启动Docker服务，并设置开机自启动
+sudo systemctl start docker
+sudo systemctl enable docker
+
+查看Docker是否启动
+sudo systemctl status docker
+
+
+```
+
+
+
+
+
 ##### 更新
 
 ```shell
@@ -472,8 +513,6 @@ Docker version 20.10.1, build 831ebea
 
 
 ```
-
-
 
 
 
@@ -2832,9 +2871,9 @@ CI/CD再用。
 #搜索 Mysql 镜像
 $ docker search mysql
 #注意，下载镜像之前，先设置镜像加速【龟速变秒速】
-#下载 Mysql 5.7 镜像，会默认下载 5.7 的最新版本。也可以自己指定小版本，比如5.7.32
+#下载 Mysql 5.7 镜像，会默认下载 5.7 的最新版本。也可以自己指定小版本，比如5.7.34
 #tag 标签可以在 docker hub 查看
-$ sudo docker pull mysql:5.7.34
+$ sudo docker pull mysql:5.7
 #查看下载镜像
 $ sudo docker images
 
@@ -2850,6 +2889,7 @@ $ docker run -d -p 127.0.0.1:3306:3306 --name mysql \
 -v /home/mysql/conf:/etc/mysql/conf.d \
 -v /home/mysql/data:/var/lib/mysql \
 -v /home/mysql/logs:/var/log/mysql \
+-v /etc/localtime:/etc/localtime \
 -e MYSQL_GENERAL_LOG=1 \
 -e MYSQL_ROOT_PASSWORD=123456 \
 mysql:5.7 \
@@ -2862,9 +2902,10 @@ mysql:5.7 \
 #外部主机，防火墙需要开启 3306 端口，否则连接不上！
 
 #简化版
-docker run -d -p 3306:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7 
+sudo docker run -d -p 3306:3306 -v /home/mysql/mysql01/conf:/etc/mysql/conf.d -v /home/mysql/mysql01/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7 
 
-docker run -d -p 3306:3306 -v /home/web/mysql/mysql01/conf:/etc/mysql/conf.d -v /home/web/mysql/mysql01/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456.a --name mysql01 mysql:5.7.34 --lower_case_table_names=1
+#提前准备目录和文件
+sudo docker run -d -p 3306:3306 -v /home/mysql/mysql01/conf:/etc/mysql/conf.d -v /home/mysql/mysql01/data:/var/lib/mysql -v /etc/localtime:/etc/localtime -e MYSQL_ROOT_PASSWORD=123456.a --privileged=true --name mysql01 mysql:5.7 --lower_case_table_names=1
 
 #停止容器运行
 #docker stop id/name
@@ -2905,6 +2946,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 -v $PWD/mysql/conf:/etc/mysql/conf.d #映射配置目录
 -v /home/mysql/data:/var/lib/mysql #映射数据目录
 -v /home/mysql/logs:/var/log/mysql #映射日志目录
+-v /etc/localtime:/etc/localtime #时区同步
 -e MYSQL_GENERAL_LOG=1 #开启日志
 --privileged=true #容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限
 
@@ -2938,7 +2980,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 
 #所以，参照 mysql 官方官方镜像映射目录，
 #修改 mysql 容器挂载出来的目录下的 my.cnf，因为是目录映射，两边文件实时同步修改
-vim /home/web/mysql/mysql01/conf/my.cnf
+vim /home/mysql/mysql01/conf/my.cnf
 
 ```
 
@@ -3262,7 +3304,7 @@ bind 0.0.0.0 将 bind 127.0.0.1 注释掉，或者写 bind 0.0.0.0，保证可�
 requirepass 密码	设置密码
 
 #创建 redis 容器并启动
-docker run --name redis01 -p 6379:6379 -v /home/web/redis/redis01/data:/data -v /home/web/redis/redis01/conf/redis.conf:/etc/redis/redis.conf -d redis:6.0.14 redis-server /etc/redis/redis.conf
+sudo docker run --name redis01 -p 6379:6379 -v /home/redis/redis01/data:/data -v /home/redis/redis01/conf/redis.conf:/etc/redis/redis.conf -v /etc/localtime:/etc/localtime -d redis:6.0.14 redis-server /etc/redis/redis.conf
 
 --name redis	启动容器的名字
 -d	后台运行
@@ -3285,7 +3327,6 @@ docker exec -it redis01 /bin/bash
 
 #通过密码进入Redis控制台
 redis-cli --raw -h 127.0.0.1 -p 6379 -a 123456.a
-redis-cli --raw -h 127.0.0.1 -p 6379 -a Ad234@RG4d87Ke
 #直接输入密码登录，提示不安全
 
 redis-cli --raw -h 127.0.0.1 -p 6379
@@ -3493,6 +3534,7 @@ sudo docker run -d -p 8081:8081 --name tomcat01 \
 -v /home/tomcat/tomcat01/conf/:/usr/local/tomcat/conf \
 -v /home/tomcat/tomcat01/webapps:/usr/local/tomcat/webapps \
 -v /home/tomcat/tomcat01/logs:/usr/local/tomcat/logs \
+-v /etc/localtime:/etc/localtime \
 --privileged=true tomcat:9.0.46-jdk8
 
 #排错启动
@@ -3506,6 +3548,7 @@ sudo docker run -d -p 8082:8082 --name tomcat02 \
 -v /home/tomcat/tomcat02/conf/:/usr/local/tomcat/conf \
 -v /home/tomcat/tomcat02/webapps:/usr/local/tomcat/webapps \
 -v /home/tomcat/tomcat02/logs:/usr/local/tomcat/logs \
+-v /etc/localtime:/etc/localtime \
 --privileged=true tomcat:9.0.46-jdk8
 
 
@@ -3808,17 +3851,18 @@ openresty 和 nginx 没有区别，配置文件格式也是一样。启动 openr
 [root@iz2zk7sgji7hrg862gft54d ~]# docker run -d --name nginx01 -p 3344:80 nginx
 aa664b0c8ed98f532453ce1c599be823bcc1f3c9209e5078615af416ccb454c2
 
+【先准备nginx运行所需的文件和目录，再运行容器，否则可能会各种报错】
 #复制容器内的配置文件到主机挂载目录。docker启动容器进行挂载的时候，如果路径不存在，docker会自动创建目录
 #也可以手动创建目录，mkdir -p ./nginx/{conf,html,logs} 目录名自定
 #【先简单挂载，复制配置文件到主机】
-sudo docker run -d -p 80:80 --name nginx01 -v /home/web/nginx/nginx01/html:/usr/share/nginx/html -v /home/web/nginx/nginx01/logs:/var/log/nginx --privileged=true nginx
+sudo docker run -d -p 80:80 --name nginx01 -v /home/nginx/nginx01/html:/usr/share/nginx/html -v /home/nginx/nginx01/logs:/var/log/nginx --privileged=true nginx
 
 
 #把默认生成的 nginx.conf 目录删掉，nginx.conf 是文件不是目录，否则会报错
 sudo rm -rf nginx.conf/
 
-sudo docker cp nginx01:/etc/nginx/nginx.conf /home/web/nginx/nginx01
-sudo docker cp nginx01:/etc/nginx/conf.d /home/web/nginx/nginx01
+sudo docker cp nginx01:/etc/nginx/nginx.conf /home/nginx/nginx01
+sudo docker cp nginx01:/etc/nginx/conf.d /home/nginx/nginx01
 #【注意！！！】有可能挂载了目录没生效，需要手动复制到容器内
 sudo docker cp /home/nginx/nginx01/conf.d/ nginx01:/etc/nginx/
 
@@ -3828,10 +3872,10 @@ docker inspect nginx01
 
 #挂载目录运行，注意，文件或文件夹都可以对应挂载
 #注意，这里会因为挂载的目录和文件不存在而报错，需要先准备宿主机的 nginx 配置文件
-sudo docker run -d -p 80:80 --name nginx01 -v /home/web/nginx/nginx01/html:/usr/share/nginx/html -v /home/web/nginx/nginx01/conf.d:/etc/nginx/conf.d -v /home/web/nginx/nginx01/nginx.conf:/etc/nginx/nginx.conf -v /home/web/nginx/nginx01/logs:/var/log/nginx --privileged=true nginx
+sudo docker run -d -p 80:80 --name nginx01 -v /home/nginx/nginx01/html:/usr/share/nginx/html -v /home/nginx/nginx01/conf.d:/etc/nginx/conf.d -v /home/nginx/nginx01/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/nginx01/logs:/var/log/nginx --privileged=true nginx
 
 #丫的，被 docker 的端口映射坑了一天！nginx 配置了 ssl，443 端口一直未启动监听
-sudo docker run -d -p 80:80 -p 443:443 --name nginx01 -v /home/nginx/nginx01/html:/usr/share/nginx/html -v /home/nginx/nginx01/conf.d:/etc/nginx/conf.d -v /home/nginx/nginx01/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/nginx01/logs:/var/log/nginx --privileged=true nginx
+sudo docker run -d -p 80:80 -p 443:443 --name nginx01 -v /home/nginx/nginx01/html:/usr/share/nginx/html -v /home/nginx/nginx01/conf.d:/etc/nginx/conf.d -v /home/nginx/nginx01/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/nginx01/logs:/var/log/nginx -v /etc/localtime:/etc/localtime --privileged=true nginx
 
 #conf.d/default.conf 配置了 ssl 相关文件地址，但容器中还没有，导致启动报错。先只监听80，启动成功后，再把ssl key文件复制到容器，再监听 443 ssl
 #可以查看logs/error.log，准确定位问题
@@ -4577,6 +4621,28 @@ docker compose down
 
 
 ```
+
+
+
+在 Alibaba Cloud Linux 3 上安装
+
+- [安装并使用docker-compose](https://help.aliyun.com/zh/ecs/use-cases/deploy-and-use-docker-on-alibaba-cloud-linux-2-instances#cf0f71c0der9g)
+
+
+
+```shell
+安装setuptools。
+sudo pip3 install -U pip setuptools
+
+安装docker-compose。
+sudo pip3 install docker-compose
+
+验证docker-compose是否安装成功。
+docker-compose --version
+
+```
+
+
 
 
 

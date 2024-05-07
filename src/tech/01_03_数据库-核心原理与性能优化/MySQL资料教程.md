@@ -1,6 +1,6 @@
 ---
 title: MySQL资料教程
-date: 2022-11-02 16:28:41
+date: 2024-05-06 12:22:13
 category:
     - 数据库
 tag:
@@ -74,6 +74,18 @@ tag:
 - 可适用于中小型甚至大型网站应用
 
 **官网 :** https://www.mysql.com
+
+
+
+## 版本选择
+
+- [【MySQL系列】我TM究竟应该选哪个版本的MySQL](https://zhuanlan.zhihu.com/p/144457223)
+
+
+
+核心业务选择主流且还在维护的版本会更好，出了问题能查得到解决办法。
+
+非核心业务，或者自己的小开源项目，可以尝鲜最新版或较新版，但要做好随时踩坑的心理准备，有的问题找遍全网都可能没有答案。
 
 
 
@@ -4970,7 +4982,7 @@ Query OK, 1 row affected
 
 ## 用户管理
 
-### 基本命令
+### CRUD
 
 ```mysql
 /* 用户和权限管理 */ ------------------
@@ -5011,6 +5023,8 @@ SHOW GRANTS FOR 用户名
 -- 撤消权限
 REVOKE 权限列表 ON 表名 FROM 用户名
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 用户名    -- 撤销所有权限
+
+
 ```
 
 
@@ -5058,6 +5072,64 @@ CHECK TABLE tbl_name [, tbl_name] ... [option] ...
 option = {QUICK | FAST | MEDIUM | EXTENDED | CHANGED}
 -- 整理数据文件的碎片
 OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...
+
+
+```
+
+
+
+### 创建新用户并授权数据库
+
+- [mysql 创建新用户并给授权指定的数据库权限](https://blog.csdn.net/wyq232417/article/details/88753365)
+
+
+
+```shell
+#root账号登录
+mysql -uroot -proot;
+
+#创建用户
+##低版本数据库 5.7.x
+create user '用户民'@'%' identified by '密码';
+create user 'mypages'@'%' identified by 'your passwd';
+##高版本数据库 没试过
+create user '用户名'@'%' identified with mysql_native_password by '密码';
+
+‘%’ - 所有情况都能访问
+‘localhost’ - 本机才能访问
+’111.222.33.44‘ - 指定 ip 才能访问
+
+#查看用户
+SELECT * FROM `mysql`.`user`;
+
+#修改密码
+alter user '用户名'@'%' identified by '密码';
+
+#未授权访问其他数据库，只能看到默认生成information_schema和test数据库
+
+#添加数据库访问权限
+##指定数据库
+grant all privileges on 想授权的数据库.* to '用户名'@'%';
+grant all privileges on mypages.* to 'mypages'@'%';
+##全部数据库
+grant all privileges on *.* to '用户名'@'%';
+
+all 可以替换为 select,delete,update,create,drop
+
+#查看用户权限
+show grants for 'mypages';
+
+select * from mysql.user where user='mypages'\G;
+\g 相当于’;’
+\G使每个字段打印到单独的行，也有 ’;' 的作用
+
+#刷新权限，否则不生效
+flush privileges;
+
+#删除用户
+delete from mysql.user where user='用户名';
+
+
 ```
 
 
@@ -5072,8 +5144,6 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...
 合适的，对项目有帮助的规范可以引入，不合适的，别管它！就好像公司是你的，项目是你的，却要你按照别人的规范要求约束自己，你受得了？！
 
 **没有绝对的规范**，不管是几大范式，都不是强行要求，如果业务确实需要，并且能提高业务性能，为什么非要死板按照规范来呢？
-
-你放心，是个正常人，按照正常逻辑创建的表和字段，基本上都符合要求！
 
 
 

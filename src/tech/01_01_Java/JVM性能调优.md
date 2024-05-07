@@ -1,6 +1,6 @@
 ---
 title: JVM性能调优
-date: 2022-11-02 16:11:10
+date: 2024-05-06 22:44:23
 category:
     - Java
 tag:
@@ -3756,6 +3756,8 @@ G1 中提供了三种垃圾回收模式：Young GC、Mixed GC 和 Full GC，在�
 
 - [JVM监控及诊断工具-命令行篇](https://gitee.com/vectorx/NOTE_JVM/tree/main/JVM%E4%B8%8B%E7%AF%87%EF%BC%9A%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E4%B8%8E%E8%B0%83%E4%BC%98%E7%AF%87/02-JVM%E7%9B%91%E6%8E%A7%E5%8F%8A%E8%AF%8A%E6%96%AD%E5%B7%A5%E5%85%B7-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AF%87)
 
+- [宋红康详解java虚拟机](https://www.bilibili.com/video/BV1PJ411n7xZ)
+
 
 
 ### ★JDK 命令行
@@ -3847,6 +3849,17 @@ no option 输出全部的参数和系统属性
 
 
 #### jstat：查看JVM统计信息
+
+```shell
+#jps查看Java进程，需要安装Java
+jps -v
+
+
+
+
+```
+
+
 
 
 
@@ -4057,7 +4070,10 @@ real：程序从开始到结束所用的时钟时间。这个时间包括其他�
 
 ```
 ## 主要业务模块 mypages-admin
-JAVA_OPTS="-server -Xms800m -Xmx800m -Xmn480m -XX:MetaspaceSize=300m -XX:MaxMetaspaceSize=300m -XX:CompressedClassSpaceSize=300m -XX:PermSize=300m -XX:MaxPermSize=300m -XX:MaxDirectMemorySize=300m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=7M"
+JAVA_OPTS="-server -Xms800m -Xmx800m -Xmn480m -XX:MetaspaceSize=300m -XX:MaxMetaspaceSize=300m -XX:CompressedClassSpaceSize=300m -XX:PermSize=300m -XX:MaxPermSize=300m -XX:MaxDirectMemorySize=300m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
+
+# 减少内存版
+JAVA_OPTS="-server -Xms512m -Xmx512m -Xmn300m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=300m -XX:PermSize=128m -XX:MaxPermSize=256m -XX:MaxDirectMemorySize=256m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=3 -XX:TargetSurvivorRatio=90 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
 
 ```
 

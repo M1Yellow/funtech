@@ -1,6 +1,6 @@
 import {hopeTheme} from "vuepress-theme-hope";
-import {zhNavbar} from './navbar';
-import {sideBar} from "./sidebar";
+import {zhNavbar} from './navbar/index.js';
+import {sideBar} from "./sidebar/index.js";
 import {searchProPlugin} from "vuepress-plugin-search-pro";
 
 export default hopeTheme({
@@ -117,13 +117,13 @@ export default hopeTheme({
             // 提示容器
             hint: true,
             // 图片相关
-            // 启用 figure
-            figure: true,
-            // 启用图片懒加载
+            // 描述
+            figure: false,
+            // 懒加载
             imgLazyload: true,
-            // 启用图片标记
+            // 标记
             imgMark: true,
-            // 启用图片大小
+            // 大小
             imgSize: true,
             // 使用 KaTeX 启用 TeX 支持
             katex: true,
