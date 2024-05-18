@@ -89,9 +89,22 @@ export const zhNavbar = navbar([
         ],
     },
     {
+        text: "开发工具",
+        icon: "software",
+        prefix: "/tool/",
+        children: [
+            {
+                text: "IDEA内存优化",
+                icon: "operate",
+                prefix: "10_01_开发环境和工具/",
+                link: "10_01_开发环境和工具/IDEA占用内存优化"
+            },
+        ],
+    },
+    {
         text: "随笔记录",
         icon: "note",
-        prefix: "/note/", // 每个一级菜单，需要重新设置 path 前缀，否则会继承上面菜单设置的 path 前缀
+        prefix: "/note/",
         children: [
             {text: "关于博客", icon: "creative", link: "关于博客"},
             {text: "生活感悟", icon: "blog", link: "生活感悟记录"},

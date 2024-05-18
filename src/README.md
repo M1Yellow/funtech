@@ -44,6 +44,11 @@ features:
     icon: ability
     details: collide-try-vue 是 collide-try 的 Vue 版本，主要区别在于 Vue 版本可以降级适配 ES5，兼容低版本浏览器。
     link: https://github.com/M1Yellow/collide-try-vue
+  
+  - title: doidea
+    icon: keyboard
+    details: 使用 Javaagent、Javassist 实现动态修改类方法，去除 IDEA Licenses 弹窗，不退出程序，继续愉快 Coding~⌨~
+    link: https://github.com/M1Yellow/doidea
 
 ---
 

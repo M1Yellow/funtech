@@ -1,10 +1,6 @@
 import {sidebar} from "vuepress-theme-hope";
 
 export const sideBar = sidebar({
-    "/note/": [
-        {text: "关于博客", icon: "creative", link: "关于博客"},
-        {text: "生活感悟", icon: "blog", link: "生活感悟记录"},
-    ],
     "/tech/": [
         {
             text: "计算机原理",
@@ -108,6 +104,19 @@ export const sideBar = sidebar({
         },
         //"c.md",
         //"python",
+    ],
+    "/tool/": [
+        {
+            text: "开发工具",
+            icon: "software",
+            prefix: "10_01_开发环境和工具/",
+            collapsible: true,
+            children: ['IDEA占用内存优化'],
+        },
+    ],
+    "/note/": [
+        {text: "关于博客", icon: "creative", link: "关于博客"},
+        {text: "生活感悟", icon: "blog", link: "生活感悟记录"},
     ],
 
 });

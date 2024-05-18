@@ -1,12 +1,11 @@
 ---
 title: Git使用教程
-date: 2024-04-26 17:45:05
+date: 2024-05-18 08:45:21
 category:
     - 项目构建管理
 tag:
     - Git
 star: 8.8
-sticky: 8.8
 ---
 
 > 官方资料教程：[Git Pro](https://git-scm.com/book/zh/v2)
@@ -1288,7 +1287,7 @@ git push --set-upstream origin main
 #例如创建远程分支master_branch
 git checkout -b master_branch
 git push --set-upstream origin master_branch
-git push --set-upstream main main
+git push --set-upstream origin main
 
 ## 本地仓库添加远程仓库地址
 git remote add origin git@github.com:M1Yellow/collide-try-vue.git
@@ -1303,6 +1302,29 @@ git checkout -b master_branch origin/master
 git push --set-upstream origin master_branch
 
 ```
+
+
+
+**GitHub 创建仓库后提示命令**
+
+```bash
+#…or create a new repository on the command line
+echo "# doidea" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:M1Yellow/doidea.git
+git push -u origin main
+
+#…or push an existing repository from the command line
+git remote add origin git@github.com:M1Yellow/doidea.git
+git branch -M main
+git push -u origin main
+
+```
+
+
 
 
 
