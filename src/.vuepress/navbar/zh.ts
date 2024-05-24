@@ -95,7 +95,7 @@ export const zhNavbar = navbar([
         children: [
             {
                 text: "IDEA内存优化",
-                icon: "config",
+                icon: "neicun",
                 prefix: "10_01_开发环境和工具/",
                 link: "10_01_开发环境和工具/IDEA占用内存优化"
             },

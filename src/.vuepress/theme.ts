@@ -15,7 +15,7 @@ export default hopeTheme({
     lastUpdated: true,
 
     // https://mister-hope.com/ Mister-Hope.github.io
-    iconAssets: "//at.alicdn.com/t/font_2410206_vuzkjonf4s9.css",
+    iconAssets: ["//at.alicdn.com/t/font_2410206_vuzkjonf4s9.css", "//at.alicdn.com/t/c/font_4524232_99v1wxn1x8j.css"],
     //iconAssets: "iconfont",
     iconPrefix: "iconfont icon-",
 
