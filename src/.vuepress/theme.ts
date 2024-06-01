@@ -37,15 +37,15 @@ export default hopeTheme({
     //docsDir: 文档在仓库中的目录，默认为根目录
     //docsBranch: 文档存放的分值，默认为 "main"
 
-    headerDepth: 4, // 标题渲染深度，默认2
+    // 文章侧边栏标题渲染深度，默认2
+    headerDepth: 4,
 
-    // 版权信息，默认就是false
-    //copyright: false,
-    //copyright: "基于 MIT 协议，© 2019-至今 Mr.Hope",
-
-    footer: "<a href=\"https://beian.miit.gov.cn/\" rel=\"noopener noreferrer\" target=\"_blank\">湘ICP备2022015684号-1</a> | 主题使用 <a href=\"https://theme-hope.vuejs.press/zh/\" rel=\"noopenner noreferrer \" target=\"_blank\">vuepress-theme-hope</a>",
-
+    // 是否显示 footer
     displayFooter: true,
+    footer: "<a href=\"https://beian.miit.gov.cn/\" rel=\"noopener noreferrer\" target=\"_blank\">湘ICP备2022015684号-1</a> | 主题使用 <a href=\"https://theme-hope.vuejs.press/zh/\" rel=\"noopenner noreferrer \" target=\"_blank\">vuepress-theme-hope</a>",
+    // 版权信息，默认为作者+许可信息
+    //copyright: "基于 MIT 协议，© 2019-至今 Mr.Hope",
+    copyright: false,
 
     pageInfo: ["Author", "Category", "Date", "Original", "Tag", "ReadingTime", "Word", "PageView"],
 
@@ -54,7 +54,7 @@ export default hopeTheme({
         intro: "/intro.html",
         medias: {
             GitHub: "https://github.com/m1yellow",
-            Gitee: "https://gitee.com/fa7x1a0y1",
+            Gitee: "https://gitee.com/m1yellow",
         },
     },
 

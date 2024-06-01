@@ -1,6 +1,6 @@
 ---
 title: IDEA占用内存优化
-date: 2024-05-28 11:43:42
+date: 2024-05-30 09:53:26
 category:
     - 开发工具
 tag:
@@ -105,8 +105,12 @@ reg delete "HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains" /f
 
 ::del dir
 rmdir /s/q "%USERPROFILE%\IdeaProjects"
-::cmd 不支持模糊删除目录，需手动删除
-rmdir /s/q "%USERPROFILE%\.IntelliJIdea*"
+::cmd 不支持模糊删除目录，手动修改
+::rmdir /s/q "%USERPROFILE%\.IntelliJIdea*"
+rmdir /s/q "%USERPROFILE%\.IntelliJIdea2017.3"
+rmdir /s/q "%USERPROFILE%\.IntelliJIdea2018.3"
+rmdir /s/q "%USERPROFILE%\.IntelliJIdea2019.3"
+::2020 版本开始，.IntelliJIdeaxxxx 目录改为了 JetBrains\IntelliJIdeaxxxx
 rmdir /s/q "%USERPROFILE%\AppData\Roaming\JetBrains"
 rmdir /s/q "%USERPROFILE%\AppData\Local\JetBrains"
 rmdir /s/q "C:\用户\公用\.jetbrains"
@@ -176,26 +180,27 @@ pause
 
 
 
-File | Settings | Plugins | installed 面板，大胆禁用，只保留跟自己项目相关的插件，以下是我个人保留的插件（18个）：
+File | Settings | Plugins | installed 面板，大胆禁用，只保留跟自己项目相关的插件，以下是我个人保留的插件（19个）：
 
 ```
-ASM Bytecode Viewer (9.7)
-Maven (241.17011.79)
-Maven Extension (241.17011.79)
+Chinese (Simplified) Language Pack / 中文语言包 (241.271)
 Jakarta EE Platform (241.17011.79)
 Jakarta EE: Web/Servlets (241.17011.79)
 JVM Microservices Frameworks (241.17011.79)
 Lombok (241.17011.79)
 Spring (241.17011.79)
 Spring Boot (241.17011.79)
+Spring Cloud (241.17011.79)
 Spring Initializr (241.17011.79)
 Spring Security (241.17011.79)
 Spring Web (241.17011.79)
+Maven (241.17011.79)
+Maven Extension (241.17011.79)
+CSS (241.17011.79)
+Git (241.17011.79)
 Markdown (241.17011.79)
 Properties (241.17011.79)
 YAML (241.17011.79)
-CSS (241.17011.79)
-Git (241.17011.79)
 Java Internationalization (241.17011.79)
 ```
 
@@ -221,9 +226,12 @@ File | Settings | Editor | Inspections 面板，去掉一些不需要的检查�
 
 ### 修改 IDEA 运行使用的 JDK
 
-**效果也不错**
+**效果不明显**
 
-- 尽量选跟 IDEA 自身运行环境（JBR）版本相同/相近的 JDK，版本可以高，但不能低太多。比如，IDEA 2023.3.6 自身用的是 open JDK 17，改成 JDK 8，版本差距太大，难免会出现兼容问题！
+- JetBrains Runtime 修复了各种已知的 OpenJDK 和 Oracle JDK 错误，并提供了更好的性能和稳定性。比如界面字体抗锯齿。
+- IDEA 的运行时跟应用程序使用的运行时不是同一个，可以在项目结构里面为每个项目指定 JDK。
+
+- 更改 IDEA JBR 可能会导致意外问题。尽量选跟 IDEA 自身运行环境（JBR）版本相同/相近的 JDK，版本可以高，但不能低太多。比如，IDEA 2023.3.6 自身用的是 open JDK 17，改成 JDK 8，版本差距太大，难免会出现兼容问题！
 
 
 
@@ -251,50 +259,53 @@ File | Settings | Editor | Inspections 面板，去掉一些不需要的检查�
 
 | 操作                                                         | 内存             |
 | :----------------------------------------------------------- | :--------------- |
-| 默认配置打开项目（IDEA 会根据电脑内存自动配置VM大小）        | ≈3G              |
-| 改小 VM 内存（帮助-编辑自定义虚拟机选项 -Xmx1024m）[立竿见影] | ≈2G              |
-| 停用大部分插件（新版本不用怕玩坏，重新启动后会提示建议开启哪些必要插件）[效果不错] | ≈1.6G            |
-| 关掉一些不用的语法检查 [作用貌似不大]                        | ≈1.5G            |
-| 修改IDEA运行时环境（IDEA 版本太新，JBR 建议 17、11，项目升级对应的 JDK 版本）[效果也不错] | ≈1.2+G           |
-| 正常使用（写代码，不跑项目）[不改 JBR vs 改用 Oracle JDK]    | ≈1.6+G \| ≈1.2+G |
-| 运行 SSM 小项目（IDEA 本身 JRE17 [91.6M]+ 项目 JRE8 [434.5M]）[不改 JBR vs 改用 Oracle JDK] | ≈2.2+G           |
+| 默认配置打开项目（IDEA 会根据电脑内存自动配置 VM 大小）      | ≈3+G             |
+| 改小 VM 内存（帮助-编辑自定义虚拟机选项 -Xmx1024m）[立竿见影] | ≈2+G             |
+| 停用大部分插件（新版本不用怕玩坏，重新启动后会提示建议开启哪些必要插件）[效果不错] | ≈1.4+G           |
+| 关掉一些不用的语法检查 [作用貌似不大]                        | ≈1.3+G           |
+| 修改 IDEA 运行时环境（IDEA 版本太新，JBR 可选 17、11）[效果不明显] | ≈1.3+G           |
+| 正常使用（写代码，不跑项目）[不改 JBR vs 改用 Oracle JDK]    | ≈1.6+G \| ≈1.6+G |
+| 运行 SSM 小项目（JBR17 [92M] + JRE8 [435M] \| JRE17 [104M] + JRE17 [505M]）[不改 JBR vs 改用 Oracle JDK] | ≈2.1+G \| ≈2.1+G |
 
 <br/>
 
-版本很新，新功能特性确实也多。但市面上公司主流项目的 JDK、Spring boot 版本都相差一大截，不太 “门当户对”，可能会导致跑 JDK 8 项目出现一些问题，比如，要用 `debug` 调试模式才能启动运行项目。
+版本很新，新功能特性确实也多。但市面上公司主流项目的 JDK、Spring Boot 版本都相差一大截，不太 “门当户对”，可能会导致跑 JDK 8 项目出现一些问题，比如，要用 `debug` 调试模式才能启动运行项目。
 
 适合初创开发新项目，但存在内存占用、CPU 消耗、项目兼容等方面的问题，硬件和技术门槛要求偏高。（电脑配置高请忽略）
 
 
 <br/>
 
-### 2020.3.4（待测）
+### 2020.3.4
 
-| 操作                         | 内存             |
-| :--------------------------- | :--------------- |
-| 默认配置打开项目             | ≈3G              |
-| 改小 VM 内存（-Xmx1024m）    | ≈2G              |
-| 停用大部分插件               | ≈1.6G            |
-| 关掉一些不用的语法检查       | ≈1.5G            |
-| 修改 IDEA 运行时环境         | ≈1.2+G           |
-| 正常使用（写代码，不跑项目） | ≈1.6+G \| ≈1.2+G |
-| 运行 SSM 小项目              | ≈2.2+G           |
+> 这个版本可能是兼顾【功能和性能】比较好的选择，支持官方中文插件。
 
+| 操作                         | 内存   |
+| :--------------------------- | :----- |
+| 默认配置打开项目             | ≈2.0+G |
+| 改小 VM 内存（-Xmx1024m）    | ≈1.5+G |
+| 停用大部分插件               | ≈1.3+G |
+| 关掉一些不用的语法检查       | ≈1.3+G |
+| 修改 IDEA 运行时环境         | ≈1.3+G |
+| 正常使用（写代码，不跑项目） | ≈1.5+G |
+| 运行 SSM 小项目              | ≈1.9+G |
 
 <br/>
 
-### 2019.3.5（待测）
+### 2019.3.5
 
-测了，但复制表格的时候，把之前的表格数据删了，又得重测一遍。
+> 启动速度和编程体验跟新版差距挺大，不支持官方中文插件，不太想回来用老版本了，噗哈哈哈~😂
 
-| 操作                         | 内存             |
-| :--------------------------- | :--------------- |
-| 默认配置打开项目             | ≈3G              |
-| 改小 VM 内存（-Xmx1024m）    | ≈2G              |
-| 停用大部分插件               | ≈1.6G            |
-| 关掉一些不用的语法检查       | ≈1.5G            |
-| 修改 IDEA 运行时环境         | ≈1.2+G           |
-| 正常使用（写代码，不跑项目） | ≈1.6+G \| ≈1.2+G |
-| 运行 SSM 小项目              | ≈2.2+G           |
+| 操作                         | 内存   |
+| :--------------------------- | :----- |
+| 默认配置打开项目             | ≈1.3+G |
+| 改小 VM 内存（-Xmx1024m）    | ≈1.2+G |
+| 停用大部分插件               | ≈1.0+G |
+| 关掉一些不用的语法检查       | ≈1.0+G |
+| 修改 IDEA 运行时环境         | ≈1.0+G |
+| 正常使用（写代码，不跑项目） | ≈1.2+G |
+| 运行 SSM 小项目              | ≈1.6+G |
+
+
 
 <br/>
