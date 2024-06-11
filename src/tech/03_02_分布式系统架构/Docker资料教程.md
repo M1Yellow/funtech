@@ -1,6 +1,6 @@
 ---
 title: Docker资料教程
-date: 2024-05-06 12:23:40
+date: 2024-06-08 18:02:35
 category:
     - 分布式架构
 tag:
@@ -472,35 +472,46 @@ Alibaba Cloud Linux 3 (Soaring Falcon)
 
 
 ```shell
-添加docker-ce的dnf源
+# 添加docker-ce的dnf源
 sudo dnf config-manager --add-repo=https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
-安装Alibaba Cloud Linux 3专用的dnf源兼容插件
+# 安装Alibaba Cloud Linux 3专用的dnf源兼容插件
 sudo dnf -y install dnf-plugin-releasever-adapter --repo alinux3-plus
 
-安装Docker
+# 安装Docker
 sudo dnf -y install docker-ce --nobest
 
-安装docker-ce会自动安装以下组件
+# 安装docker-ce会自动安装以下组件
 docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-新买的ECS服务器，正常执行安装，如果有报错，具体细节参考阿里云官方docker安装教程。
+#新买的ECS服务器，正常执行安装，如果有报错，具体细节参考阿里云官方docker安装教程。
 
-检查Docker是否安装成功
+#检查Docker是否安装成功
 sudo docker -v
 Docker version 26.1.1, build 4cf5afa
 
-启动Docker服务，并设置开机自启动
+#启动Docker服务，并设置开机自启动
 sudo systemctl start docker
 sudo systemctl enable docker
 
-查看Docker是否启动
+#查看Docker是否启动
 sudo systemctl status docker
+
+#卸载docker
+dnf list installed|grep docker
+sudo dnf remove docker-ce
+# 会提示卸载关联的依赖
+
+#停用docker服务
+sudo systemctl stop docker
+sudo systemctl disable docker
+
+#停用docker容器服务
+sudo systemctl stop containerd
+sudo systemctl disable containerd
 
 
 ```
-
-
 
 
 

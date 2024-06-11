@@ -1,6 +1,6 @@
 ---
 title: JVM性能调优
-date: 2024-05-06 22:44:23
+date: 2024-06-08 18:02:02
 category:
     - Java
 tag:
@@ -2089,9 +2089,8 @@ Java 虚拟机规范规定，Java 堆可以是处于物理上不连续的内存�
 
   设置持久代的大小，一般情况下推荐把-XX:PermSize 和 -XX:MaxPermSize 的值设置为相同的值，因为持久代大小调整会导致堆内存需要出发fgc
 
-- 存放 Class、Method
-  元信息、其大小与项目的规模、类、方法的数量有关。一般设置为128，足够，设置原则是预留30%的空间
-
+- 存放 Class、Method 元信息、其大小与项目的规模、类、方法的数量有关
+  
 - 持久代的回收方式
 
   常量、无用的类信息
@@ -3777,6 +3776,10 @@ jps -m ## main 方法
 jps -l xxx.xxx.xx.xx ## 远程查看
 -Joption：传递参数到vm,例如:-J-Xms512m
 
+jps
+4528 Jps
+12916
+
 ```
 
 
@@ -3789,13 +3792,23 @@ jps 原理
 
 #### jinfo：实时查看和修改JVM配置参数
 
-jinfo 是 JDK 自带的命令，可以用来查看正在运行的 java 应用程序的扩展参数，包括Java System属性和JVM命令行参数；也可以动态的修改正在运行的 JVM 一些参数。当系统崩溃时，jinfo可以从core文件里面知道崩溃的Java应用程序的配置信息。
+- [JDK 8 参数选项](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html)
+- [JDK 17 参数选项](https://docs.oracle.com/en/java/javase/17/docs/specs/man/java.html)
 
 
 
-jinfo常用命令:
+jinfo 是 JDK 自带的命令，可以用来查看正在运行的 java 应用程序的扩展参数，包括 Java System 属性和 JVM 命令行参数；也可以动态的修改正在运行的 JVM 一些参数。当系统崩溃时，jinfo 可以从 core 文件里面知道崩溃的 Java 应用程序的配置信息。
+
+
 
 ```bash
+no option 输出全部的参数和系统属性
+-flag name 输出对应名称的参数
+-flag [+|-]name 开启或者关闭对应名称的参数
+-flag name=value 设定对应名称的参数
+-flags 输出全部的参数
+-sysprops 输出系统属性
+
 ## 输出当前 jvm 进程的全部参数和系统属性
 jinfo 2815
 
@@ -3826,29 +3839,52 @@ jinfo -flag NewRatio 2622
 jinfo -flag SurvivorRatio 2622
 \-XX:SurvivorRatio=8
 
+# idea64 Open JDK 17
+jinfo -flags 12916
+VM Flags:
+-XX:CICompilerCount=2 -XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend -XX:ConcGCThreads=2 -XX:ErrorFile=C:\Users\fanmi\\java_error_in_idea64_%p.log -XX:+FlightRecorder -XX:G1ConcRefinementThreads=8 -XX:G1EagerReclaimRemSetThreshold=8 -XX:G1HeapRegionSize=1048576 -XX:GCDrainStackTargetSize=64 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=C:\Users\fanmi\\java_error_in_idea64.hprof -XX:+IgnoreUnrecognizedVMOptions -XX:InitialHeapSize=134217728 -XX:MarkStackSize=4194304 -XX:MaxHeapSize=1073741824 -XX:MaxNewSize=643825664 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=134217728 -XX:NonNMethodCodeHeapSize=5826188 -XX:NonProfiledCodeHeapSize=265522362 -XX:-OmitStackTraceInFastThrow -XX:ProfiledCodeHeapSize=265522362 -XX:ReservedCodeCacheSize=536870912 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=1073741824 -XX:SoftRefLRUPolicyMSPerMB=50 -XX:SweeperThreshold=0.234375 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:-UseLargePagesIndividualAllocation
+
+
+jinfo -flags 13336
+VM Flags:
+-XX:CICompilerCount=2 -XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend -XX:CompressedClassSpaceSize=436207616 -XX:ConcGCThreads=2 -XX:ErrorFile=C:\Users\fanmi\\java_error_in_idea64_%p.log -XX:G1ConcRefinementThreads=8 -XX:G1EagerReclaimRemSetThreshold=8 -XX:G1HeapRegionSize=1048576 -XX:GCDrainStackTargetSize=64 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=C:\Users\fanmi\\java_error_in_idea64.hprof -XX:+IgnoreUnrecognizedVMOptions -XX:InitialHeapSize=134217728 -XX:MarkStackSize=4194304 -XX:MaxHeapSize=838860800 -XX:MaxMetaspaceSize=536870912 -XX:MaxNewSize=503316480 -XX:MetaspaceSize=314572800 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=134217728 -XX:NonNMethodCodeHeapSize=5826188 -XX:NonProfiledCodeHeapSize=154373306 -XX:-OmitStackTraceInFastThrow -XX:ProfiledCodeHeapSize=154373306 -XX:ReservedCodeCacheSize=314572800 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=838860800 -XX:SoftRefLRUPolicyMSPerMB=50 -XX:SweeperThreshold=0.400000 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:-UseLargePagesIndividualAllocation
+
+
+-XX:CICompilerCount
+并发编译线程数量，根据CPU数量和可用内存自动设置，可设置 1/4 * CPUs
+-XX:CompileCommand
+额外编译配置，具体配置参数参考官方文档
+
+-XX:ConcGCThreads
+GC 线程数量，默认根据 CPUs 自动设置，官方建议 1/4 of the number of parallel garbage collection threads
+
+-XX:ErrorFile
+irrecoverable error 严重错误记录文件，相当于报错运行不了，或者闪退日志
+the current working directory and named hs_err_pidpid.log 默认生成位置
+
+-XX:+FlightRecorder
+开启飞行记录，用来记录和分析应用的运行情况，收集详细的性能数据和诊断信息。
+-XX:StartFlightRecording
+飞行记录具体配置
+
+-XX:G1ConcRefinementThread
+
+
+
+
 ```
 
 
-
-jinfo参数：
-
-```bash
-no option 输出全部的参数和系统属性
--flag name 输出对应名称的参数
--flag [+|-]name 开启或者关闭对应名称的参数
--flag name=value 设定对应名称的参数
--flags 输出全部的参数
--sysprops 输出系统属性
-
-```
-
-
-
-更多请参考：[jvm 性能调优工具之 jinfo](https://www.jianshu.com/p/8d8aef212b25)
 
 
 
 #### jstat：查看JVM统计信息
+
+- [jstat查看gc状态](https://www.cnblogs.com/architectforest/p/16029171.html)
+- [jstat查看类或编译器信息](https://www.cnblogs.com/architectforest/p/16029062.html)
+- [Jstat - Monitoring your JVMs Statistics](https://dev.java/learn/jvm/tools/monitoring/jstat/)
+
+
 
 ```shell
 #jps查看Java进程，需要安装Java
@@ -4072,8 +4108,26 @@ real：程序从开始到结束所用的时钟时间。这个时间包括其他�
 ## 主要业务模块 mypages-admin
 JAVA_OPTS="-server -Xms800m -Xmx800m -Xmn480m -XX:MetaspaceSize=300m -XX:MaxMetaspaceSize=300m -XX:CompressedClassSpaceSize=300m -XX:PermSize=300m -XX:MaxPermSize=300m -XX:MaxDirectMemorySize=300m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
 
-# 减少内存版
-JAVA_OPTS="-server -Xms512m -Xmx512m -Xmn300m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=300m -XX:PermSize=128m -XX:MaxPermSize=256m -XX:MaxDirectMemorySize=256m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=3 -XX:TargetSurvivorRatio=90 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
+# 减少内存 JDK1.8 CMS
+JAVA_OPTS="-server -Xms512m -Xmx512m -Xmn400m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=64m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
+
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT   
+68224.0 68224.0 55592.7  0.0   273152.0 69513.9   114688.0     0.0     90112.0 85311.5 11520.0 10658.2     10    0.266   0      0.000    0.266
+
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT   
+68224.0 68224.0 55592.7  0.0   273152.0 108841.5  114688.0     0.0     90112.0 85311.5 11520.0 10658.2     10    0.266   0      0.000    0.266
+
+
+# JDK1.8 G1 在默认配置的基础上，逐步加入需要的配置。新手小白几乎干不过默认配置，瞎改动配置反而导致负作用
+JAVA_OPTS="-server -Xms512m -Xmx512m -Xmn400m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=64m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M"
+
+
+jinfo -flags pid
+
+Non-default VM flags: -XX:CICompilerCount=2 -XX:CMSFullGCsBeforeCompaction=5 -XX:CMSInitiatingOccupancyFraction=70 -XX:CompressedClassSpaceSize=134217728 -XX:+ExplicitGCInvokesConcurrent -XX:GCLogFileSize=10485760 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=null -XX:InitialHeapSize=536870912 -XX:MaxDirectMemorySize=268435456 -XX:MaxHeapSize=536870912 -XX:MaxMetaspaceSize=268435456 -XX:MaxNewSize=314572800 -XX:MetaspaceSize=134217728 -XX:MinHeapDeltaBytes=196608 -XX:NewSize=314572800 -XX:NumberOfGCLogFiles=5 -XX:OldPLABSize=16 -XX:OldSize=222298112 -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -XX:SurvivorRatio=3 -XX:TargetSurvivorRatio=90 -XX:-UseAdaptiveSizePolicy -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:+UseFastUnorderedTimeStamps -XX:+UseGCLogFileRotation -XX:+UseParNewGC
+
+Command line: -Xms512m -Xmx512m -Xmn300m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=128m -XX:MaxDirectMemorySize=256m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=3 -XX:TargetSurvivorRatio=90 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:CMSFullGCsBeforeCompaction=5 -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/gc/mypages -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/gc/mypages/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M -Dspring.profiles.active=prod
+
 
 ```
 
@@ -4171,9 +4225,9 @@ b.非Boolean类型
 | -XX:SurvivorRatio           | 两个S区和Eden区比值        | 默认-XX:SurvivorRatio=8，也就是(S0+S1):Eden=2:8， 也就是一个S占整个新生代的1/10 |
 | -XX:PermSize                | 设置持久代(perm gen)初始值 | 物理内存的1/64，jdk8 已移除                                  |
 | -XX:MaxPermSize             | 设置持久代最大值           | 物理内存的1/4，jdk8 已移除                                   |
-| -XX:MetaspaceSize=50M       | 设置元空间（方法区）大小   | 默认不受限制，JVM Metaspace会进行动态扩展                    |
+| -XX:MetaspaceSize=50M       | 设置元空间（方法区）大小   | 默认不受限制，JVM Metaspace 会进行动态扩展                   |
 | -XX:MaxTenuringThreshold=15 | 提升年老代的最大临界值     | 默认值为 15                                                  |
-| -XX:CICompilerCount=3       | 最大并行编译数             | 如果设置大于1，虽然编译速度会提高，但会影响系统稳定性，增加JVM崩溃的可能 |
+| -XX:CICompilerCount=2       | 最大并行编译线程数量       | 默认根据 CPU 数量和可用内存自动设置。可设置 1/4 * CPUs       |
 
 
 

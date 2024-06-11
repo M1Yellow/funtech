@@ -1,6 +1,6 @@
 ---
 title: Linux服务器部署操作记录
-date: 2022-10-28 17:57:47
+date: 2024-06-08 18:01:36
 category:
     - Linux
 tag:
@@ -363,10 +363,28 @@ chmod 755 hcache && mv hcache /usr/local/bin/
 #hcache 常用命令
 #全局显示10个最大的被缓存文件
 sudo ./hcache -top 10
+sudo ./hcache --top 10  --bname
+
++----------------------+----------------+------------+-----------+---------+
+| Name                 | Size (bytes)   | Pages      | Cached    | Percent |
+|----------------------+----------------+------------+-----------+---------|
+| dockerd              | 106504952      | 26003      | 13551     | 052.113 |
+| mypages.jar          | 77571311       | 18939      | 11885     | 062.754 |
+| mysqld               | 255999520      | 62500      | 7620      | 012.192 |
+| aliyun-service       | 32705410       | 7985       | 5225      | 065.435 |
+| containerd           | 52520488       | 12823      | 4658      | 036.325 |
+| libjvm.so            | 16913696       | 4130       | 4130      | 100.000 |
+| rt.jar               | 67819894       | 16558      | 3488      | 021.065 |
+| locale-archive       | 223542144      | 54576      | 2059      | 003.773 |
+| system.journal       | 8388608        | 2048       | 2048      | 100.000 |
+| libmozjs-60.so.0.0.0 | 24232992       | 5917       | 1880      | 031.773 |
++----------------------+----------------+------------+-----------+---------+
 
 #定位到被缓存的最大文件后，然后可以使用lsof得到当前文件的一些进程信息
 #lsof 缓存文件 
 sudo lsof /var/log/journal/b2484c74346c44348d3a0db11e8da8d4/system.journal
+sudo lsof /usr/bin/dockerd
+ps aux|grep docker
 
 #查看指定进程所使用的缓存使用情况
 sudo ./hcache -pid 31840
@@ -3072,6 +3090,35 @@ sed -n '4801845,5833926p' 2017060401 >log20170604
 
 
 
+##### [Vim 查找命令及快捷键](https://blog.csdn.net/SuiXin_123/article/details/81319849)
+
+```
+shift + : 进入指令模式
+
+/keyword 向后查找
+
+?keyword 向前查找
+
+<key 匹配开头
+/>word 匹配结尾
+<for> 全词匹配
+^key 匹配行首
+$key 匹配行尾
+
+n/N 对匹配的词，前后跳转定位
+
+# 开始向文件头的方向搜索光标所在位置的单词的下一个出现位置
+* 开始向文件尾的方向搜索光标所在位置的单词的下一个出现位置
+
+取消高亮
+被查找到的单词会高亮显示，如想要去除该高亮显示，可使用命令:nohl （即no high light的意思）
+
+```
+
+
+
+
+
 #### 相关补充
 
 ##### 为什么 centos7 默认没有安装 ifconfig 及 netstat
@@ -4042,8 +4089,21 @@ PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
 export JAVA_HOME JRE_HOME PATH CLASSPATH
 
+# 简化
+JAVA_HOME=/usr/java/jdk1.8.0_401
+PATH=$PATH:$JAVA_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME CLASSPATH PATH
+
+# open JDK
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.372.b07-4.0.2.al8.x86_64
+PATH=$PATH:$JAVA_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME CLASSPATH PATH
+
 然后按 Esc，输入 :wq，保存修改并退出。
 
+# root 用户执行才会永久生效，普通用户执行只会临时生效
 $ source /etc/profile
 重新读取 profile 配置文件中的内容，让配置生效。
 
@@ -4326,88 +4386,699 @@ pip3 install --upgrade pip
 
 ### 安装 MySQL
 
-注意问题：
+#### Alibaba Cloud Linux 3 dnf 安装 mysql-server 8.0
 
-MySQL 以普通用户身份启动
+- [MySQL 5.7 参考手册](https://mysql.net.cn/doc/refman/5.7/en/)
+- [MySQL 8.0 参考手册](https://mysql.net.cn/doc/refman/8.0/en/)
 
-```shell
+- [在Linux实例中安装MySQL数据库](https://help.aliyun.com/zh/ecs/use-cases/manually-deploy-mysql-on-an-ecs-instance-that-runs-centos)
+- [实战--Alibaba Cloud Linux 3 在线安装 mysql 8.0.21](https://blog.csdn.net/zzulishulei/article/details/121404906)
+
+
+
+> **是否选择 8.0+ 版本？**
+>
+> 优点：
+>
+> 新功能、性能优化、bug修复、适配新系统
+>
+> 缺点：
+>
+> 性能开销增大，内存占用多个一两百兆，对开发者的小型服务器影响还是比较大
+>
+> 学习成本增加，又要研究新版本的新功能特性和性能调优
+>
+> 资料教程相对较少，找资料花费更多的时间
+
+
+
+**查看系统信息**
+
+```bash
+# 查看发行版本
+cat /etc/redhat-release
+Alibaba Cloud Linux release 3 (Soaring Falcon)
+
+# 查看内核版本，显示操作系统的发行版号
+uname -r
+5.10.134-16.3.al8.x86_64
+
+```
+
+
+
+**查看和卸载之前的版本**
+
+```bash
+dnf list installed|grep mysql
+mysql.x86_64                                       8.0.36-1.0.1.1.al8                  @alinux3-updates 
+mysql-common.x86_64                                8.0.36-1.0.1.1.al8                  @alinux3-updates 
+mysql-errmsg.x86_64                                8.0.36-1.0.1.1.al8                  @alinux3-updates 
+mysql-server.x86_64                                8.0.36-1.0.1.1.al8                  @alinux3-updates
+
+# 卸载之前版本
+dnf remove 包名
+
+# 清理残留文件
+find / -name mysql
+/var/lib/mysql
+/var/lib/mysql/mysql
+/var/log/mysql
+
+# rm -rf 目录/文件，注意不是所有带 mysql 的都要删除，主要删除安装目录下的
+sudo rm -rf /var/lib/mysql
+sudo rm -rf /var/lib/mysql/mysql
+sudo rm -rf /var/log/mysql
+
+
+# linux 使用yum安装或者rpm安装。(就是一个安装工具类似于applStore，brew不必在意)
+# 区别：yum会自动安装你要安装的东西的其他依赖，rpm不会但会提示你需要安装的东西，比较麻烦，所以采用yum安装
+yum list installed|grep mysql
+rpm -qa|grep mysql
+
+# 两个都查询一下，看一下是哪个工具installed，就用哪个工具卸载，防止rpm卸载不干净
+
+#对应的卸载命令
+yum remove mysql-server
+rpm -e mysql-server
+
+```
+
+
+
+**使用 dnf 安装**
+
+```bash
+# 搜索安装包
+dnf search mysql
+dnf search mysql-server
+
+# 查看安装包信息
+dnf info mysql-server
+
+# 安装
+dnf install -y mysql-server
+
+# 验证
+mysql -V
+mysql  Ver 8.0.36 for Linux on x86_64 (Source distribution)
+
+```
+
+
+
+**配置 my.cnf**
+
+```bash
+# 查找配置文件的读取位置
+mysql --help | grep my.cnf
+
+whereis my.cnf
+/etc/my.cnf
+
+```
+
+
+
+**8.0 my.cnf**
+
+- [服务器系统变量](https://mysql.net.cn/doc/refman/8.0/en/server-system-variables.html)
+
+
+
+```properties
+#
+# This group is read both both by the client and the server
+# use it for options that affect everything
+#
+[client-server]
+
+#
+# include all files from the config directory
+#
+!includedir /etc/my.cnf.d                
+
+```
+
+
+
+**8.0 mysql-server.cnf**
+
+```properties
+#
+# This group are read by MySQL server.
+# Use it for options that only the server (but not clients) should see
+#
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/en/server-configuration-defaults.html
+
+# Settings user and group are ignored when systemd is used.
+# If you need to run mysqld under a different user or group,
+# customize your systemd unit file for mysqld according to the
+# instructions in http://fedoraproject.org/wiki/Systemd
+
+[mysqld]
+###########################################################################
+# 服务端默认参数配置
+###########################################################################
+# mysql数据文件所在位置
+datadir=/var/lib/mysql
+# socke文件所在目录
+socket=/var/lib/mysql/mysql.sock
+# 错误日志目录
+log-error=/var/log/mysql/mysqld.log
+# pid
+pid-file=/run/mysqld/mysqld.pid
+
+
+###########################################################################
+# 服务端自定义参数配置
+###########################################################################
+# 服务端口，默认3306
+port=3306
+
+# mysql服务唯一编号
+server-id=1
+
+# 跳过密码登录，修改密码时，临时启用。注意，改完密码记得关闭
+#skip-grant-tables
+
+# 数据库默认字符集，主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）
+character-set-server=utf8mb4
+# 数据库字符集对应一些排序等规则，注意要和character-set-server对应
+collation-server=utf8mb4_general_ci
+
+# 设置 client 连接 mysql 时的字符集，防止乱码
+init_connect='SET NAMES utf8mb4'
+
+# 只用IP地址检查客户端的登录，不用主机名
+skip_name_resolve=1
+ 
+# 是否对 sql 语句大小写敏感，1 表示不敏感
+lower_case_table_names=1
+
+# 事务隔离级别，默认为可重复读（此级别下可能参数很多间隙锁，影响性能）
+#transaction_isolation=READ-COMMITTED
+
+# 最大连接数，默认151
+#max_connections=400
+# 最大错误连接数，默认100
+#max_connect_errors=1000
+
+
+#在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中
+#官方建议 back_log = 50 + (max_connections / 5)，封顶数为65535，默认max_connections
+back_log=80
+
+# 为所有线程打开的表的数量，默认4000
+# 例如，对于200个并发运行的连接，指定表缓存大小至少为200 * N 
+# 其中N是执行的任何查询中每个连接的最大表数 
+table_open_cache=200
+
+# 为了减少会话之间的争用，可以将opentables缓存划分为table_open_cache/table_open_cache_instances，默认16
+#table_open_cache_instances=64
+ 
+# 可以存储在定义缓存中的表定义数量，自动设置【可明显降低内存占用】
+# MIN(400 + table_open_cache / 2, 2000)
+table_definition_cache=400
+
+# 每个线程的堆栈大小 如果线程堆栈太小，则会限制执行复杂SQL语句
+#thread_stack=512K
+
+# 闲置连接超时时间，单位：秒。默认8小时，建议设置小一点，防止空闲连接过多
+interactive_timeout=1800
+# 超时等待时间，默认8小时，与 interactive_timeout 一起配置
+wait_timeout=1800
+
+# Metadata Lock最大时长（秒），一般用于控制 alter操作的最大时长sine mysql5.6
+# 执行DML操作时除了增加innodb事务锁外还增加Metadata Lock，其他alter（DDL）session将阻塞
+lock_wait_timeout=3600
+
+# 内部内存临时表的最大值，设置成128M
+# 比如大数据量的group by、order by时可能用到临时表
+# 超过了这个值将写入磁盘，系统IO压力增大
+#tmp_table_size=64M
+#max_heap_table_size=64M
+
+################################## 慢查询相关 ###############################
+# 慢查询sql日志设置
+#slow_query_log=1
+#slow_query_log_file=/var/log/mysql/slow.log
+
+# 检查未使用到索引的sql
+#log_queries_not_using_indexes=1
+# 针对log_queries_not_using_indexes开启后，记录慢sql的频次、每分钟记录的条数
+#log_throttle_queries_not_using_indexes=5
+# 作为从库时生效，从库复制中如果有慢sql也将被记录
+#log_slow_slave_statements=1
+# 慢查询执行的秒数
+#long_query_time=10
+# 检索的行数必须达到此值才可被记为慢查询
+#min_examined_row_limit=100
+
+
+################################# binlog 相关 ###############################
+# mysql binlog 日志文件保存的过期时间，过期后自动删除
+#expire_logs_days=5
+#binlog_expire_logs_seconds=604800
+
+```
+
+
+
+
+
+**5.7 my.cnf**
+
+```properties
+[client]
+port=3306
+socket=/var/lib/mysql/mysql.sock
+default-character-set=utf8mb4
+
+
+[mysqld]
+port=3306
+socket=/var/lib/mysql/mysql.sock
+character_set_server=utf8mb4
+collation_server=utf8mb4_general_ci
+
+
+[mysql]
+no-auto-rehash
+default-character-set=utf8mb4
+
+```
+
+
+
+**启动服务**
+
+```bash
+# 开机自启动
+systemctl enable mysqld
+systemctl disable mysqld
+# 启动服务
+systemctl start mysqld
+# 查看状态
+systemctl status mysqld
+
+```
+
+
+
+**初始化数据库**
+
+```
+mysql_secure_installation
+
+依次需要判断的内容：
+	配置验证密码组件，输入 y 
+  配置密码验证等级，可以输入 0 、1 、2 ，分别对应三个等级。
+  输入密码，需要输入两次，页面上不会显示出你输入的密码，输入完之后按回车即可
+  确认使用该密码，输入 y
+  是否移除匿名用户，输入 y
+  是否禁止root用户远程登录  如果需要远程登录，请输入 n
+  是否移除测试数据库，输入 y
+  是否重载权限表，输入 y
+
+```
+
+
+
+**配置数据库的连接信息**
+
+```bash
+mysql -uroot -p   通过新密码再次登陆
+create user 'root'@'%' identified by '新密码';    授予远程访问权限
+grant all privileges on *.* to 'root'@'%';  授予远程访问权限
+flush privileges;  授予远程访问权限
+alter user 'root' @'%' identified with mysql_native_password by '新密码'; 授权mysql_native客户端工具
+
+#指定某个用户关于具体表的权限
+grant all privileges on 数据库名.* to '用户名'@'%'; 
+```
+
+
+
+**远程访问需要开放端口**
+
+到云服务器的安全组配置中，开放 3306 外网访问。
+
+
+
+
+
+#### 安装指定版本
+
+- [MySQL官方仓库](https://repo.mysql.com/)
+- [MySQL5.7官方yum安装包下载](https://repo.mysql.com/yum/mysql-5.7-community/el/7/x86_64/)
+
+- [CentOS快速安装Mysql5.7（Alibaba Cloud Linux兼容）](https://blog.csdn.net/hhb442/article/details/135397540)
+- [阿里云 Alibaba Cloud Linux 3.2104 64位 自定义安装mysql版本](https://blog.csdn.net/weixin_43502969/article/details/126060944)
+
+
+
+**内存占用对比**
+
+```
+docker mysql 5.7 默认配置
+PID   USER      PR  NI    VIRT   RES    SHR S  %CPU  %MEM  TIME+ COMMAND
+99740 systemd+  20   0 1577116 232884  20468 S   0.0  12.0   0:12.80 mysqld
+
+Alibaba Cloud Linux 3 mysql 5.7 默认配置启动
+PID   USER      PR  NI    VIRT   RES    SHR S  %CPU  %MEM  TIME+ COMMAND
+103868 mysql     20   0 1297096 179544  18060 S   0.0   9.3   0:00.25 mysqld
+
+Alibaba Cloud Linux 3 mysql 5.7 减少内存配置之后
+PID   USER      PR  NI    VIRT   RES    SHR S  %CPU  %MEM  TIME+ COMMAND
+104057 mysql     20   0 1237848 138580  26336 S   0.0   7.2   0:00.21 mysqld
+
+Alibaba Cloud Linux 3 mysql 8.0 减少内存配置之后
+PID   USER      PR  NI    VIRT   RES    SHR S  %CPU  %MEM  TIME+ COMMAND
+101277 mysql     20   0 1679236 296220  35688 S   0.3  15.3   0:00.94 mysqld      
+
+```
+
+
+
+**卸载之前的版本**
+
+参考 8.0 安装。
+
+
+
+**yum 安装**
+
+```bash
+# 从官方仓库，找到 mysql5.7 版本最新的 rpm 地址
+#wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+wget https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
+
+# 找不到 wget 命令，需要先安装
+yum -y install wget
+
+# 更新YUM源
+#sudo rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm
+sudo rpm -Uvh https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
+# 安装本地YUM源
+#sudo rpm -ivh mysql57-community-release-el7-10.noarch.rpm
+# Mysql的GPG可能会升级，需要重新获取（相当于访问密钥）
+#rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+
+# 查看安装的源
+ll /etc/yum.repos.d/mysql-community*
+
+# 不用YUM在线下载源，也可以下载 rpm 安装包，直接安装
+wget https://repo.mysql.com/yum/mysql-5.7-community/el/7/x86_64/mysql-community-server-5.7.44-1.el7.x86_64.rpm
+rpm -ivh mysql-community-server-5.7.44-1.el7.x86_64.rpm
+
+# 使用YUM源安装
+#sudo yum install mysql-server # 这个是服务器自带的版本
+sudo yum install mysql-community-server
+
+# 查看是否安装成功
+mysql -V
+mysql  Ver 8.0.36 for Linux on x86_64 (Source distribution)
+
+whereis mysql
+mysql: /usr/bin/mysql /usr/lib64/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz
+
+
+## 黑人问好？？？老子要安装 5.7 咋就变成了 8.0 了！！
+## 应该是服务器自带了YUM源就是8.0的，指定其他源之前没有查看已有的源！
+## 应该先删除之前的源，或者替换源，而不是更新源！
+## 卸载掉重新再来一次咯，确认安装的时候，看清楚要安装的版本再确认！！
+## 要安装的是 mysql-community-server，不是 mysql-server
+
+
+# 删除服务器自带的mysql源
+#sudo rm -rf /etc/yum.repos.d/mysql-community*
+# 不建议直接删，使用 mv 重命名，出问题好回退！
+ll /etc/yum.repos.d/mysql-community*
+
+# 安装mysql 5.7 的YUM源
+sudo rpm -ivh https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
+## 提示已经安装过了，但yum源目录下没有找到
+ll /etc/yum.repos.d/mysql-community*
+## 查看安装
+rpm -qa|grep mysql
+mysql57-community-release-el7-11.noarch
+
+# 离线安装yum源
+#sudo rpm -ivh mysql57-community-release-el7-11.noarch.rpm
+sudo yum localinstall -y mysql57-community-release-el7-11.noarch.rpm
+yum makecache
+
+# 不管怎么设置，只要用yum安装，就是服务器自带的8.0版本！
+sudo yum install mysql-server
+
+## 最后发现安装的包名错了！mysql-server 就是服务器自带的版本！
+## 要安装的是 mysql-community-server
+
+# 如果 mysql 的 repo 文件删除了，需要重写 mysql-community.repo
+## 注意不要改 RPM-GPG-KEY-mysql-2022 后面的年份，否则会验证失败，不能安装
+[mysql-connectors-community]
+name=MySQL Connectors Community
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/mysql/yum/mysql-connectors-community-el7-$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
+[mysql-tools-community]
+name=MySQL Tools Community
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/mysql/yum/mysql-tools-community-el7-$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
+[mysql-5.7-community]
+name=MySQL 5.7 Community Server
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/mysql/yum/mysql-5.7-community-el7-$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
+yum makecache
+
+
+# 安装指定的 mysql 5.7 版本
+sudo yum install mysql-community-server
+yum list installed|grep mysql
+mysql -V
+mysql  Ver 14.14 Distrib 5.7.44, for Linux (x86_64) using  EditLine wrapper
 
 
 ```
 
 
 
-查看当前系统中是否已经安装MySQL
+**配置 my.cnf**
 
-[root@localhost ~]# rpm -qa | grep mysql
+```bash
+whereis my.cnf
+my: /etc/my.cnf
 
-执行以上命令后没有任何输出，说明没有安装过MySQL
-
-
-
-centos6.5默认安装的是mysql5.1
+```
 
 
 
-卸载旧版本的mysql5.1
+- [服务器系统变量](https://mysql.net.cn/doc/refman/5.7/en/server-system-variables.html)
 
-yum list installed | grep mysql 或 rpm -qa | grep mysql
+```properties
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
 
-[root@localhost usr]# yum list installed | grep mysql
+[mysqld]
+#
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+#
+# Remove leading # to turn on a very important data integrity option: logging
+# changes to the binary log between backups.
+# log_bin
+#
+# Remove leading # to set options mainly useful for reporting servers.
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+# mysql数据文件所在位置
+datadir=/var/lib/mysql
+# socke文件所在目录
+socket=/var/lib/mysql/mysql.sock
 
-mysql-libs.x86_64    5.1.71-1.el6  @anaconda-CentOS-201311272149.x86_64/6.5
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
 
-
-
-\#yum remove mysql mysql-server mysql-libs compat-mysql51
-
-yum -y remove mysql-libs.x86_64 或 yum -y remove mysql
-
-
-
-/*
-
-查看本机是否安装MySQL
-
-[root@centos data1]# rpm -qa | grep -i mysql
-
-mysql-libs-5.1.71-1.el6.x86_64
-
-卸载旧版本MySQL
-
-[root@centos data1]# rpm -e --nodeps mysql-libs-5.1.71-1.el6.x86_64
-
-
-
-卸载旧版本
-
-使用下面的命令检查是否安装有MySQL Server  
-
-rpm -qa | grep mysql
-
-如果有的话通过下面的命令来卸载掉
-
-普通删除模式
-
-rpm -e mysql  
-
-强力删除模式 : 如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除
-
-rpm -e --nodeps mysql  
-
-*/
+# 错误日志目录
+log-error=/var/log/mysqld.log
+# pid
+pid-file=/var/run/mysqld/mysqld.pid
 
 
+###########################################################################
+# 服务端自定义参数配置
+###########################################################################
+# 服务端口，默认3306
+port=3306
 
-创建mysql用户和组
+# mysql服务唯一编号
+server-id=1
 
-groupadd mysql
+# 跳过密码登录，修改密码时，临时启用。注意，改完密码记得关闭
+#skip-grant-tables
 
-useradd -r -g mysql mysql -d /usr/local/mysql
+# 数据库默认字符集，主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）
+character-set-server=utf8mb4
+# 数据库字符集对应一些排序等规则，注意要和character-set-server对应
+collation-server=utf8mb4_general_ci
 
-passwd mysql
+# 设置 client 连接 mysql 时的字符集，防止乱码
+init_connect='SET NAMES utf8mb4'
 
-密码：123456
+# 只用IP地址检查客户端的登录，不用主机名
+skip_name_resolve=1
+ 
+# 是否对 sql 语句大小写敏感，1 表示不敏感
+lower_case_table_names=1
+
+# 事务隔离级别，默认为可重复读（此级别下可能参数很多间隙锁，影响性能）
+#transaction_isolation=READ-COMMITTED
+
+# 最大连接数，默认151
+#max_connections=400
+# 最大错误连接数，默认100
+#max_connect_errors=1000
+
+
+#在MySQL暂时停止响应新请求之前的短时间内多少个请求可以被存在堆栈中
+#官方建议 back_log = 50 + (max_connections / 5)，封顶数为65535，默认max_connections
+back_log=80
+
+# 为所有线程打开的表的数量，默认4000
+# 例如，对于200个并发运行的连接，指定表缓存大小至少为200 * N 
+# 其中N是执行的任何查询中每个连接的最大表数 
+table_open_cache=200
+
+# 为了减少会话之间的争用，可以将opentables缓存划分为table_open_cache/table_open_cache_instances，默认16
+#table_open_cache_instances=64
+ 
+# 可以存储在定义缓存中的表定义数量，自动设置【可明显降低内存占用】
+# MIN(400 + table_open_cache / 2, 2000)
+table_definition_cache=400
+
+# 每个线程的堆栈大小 如果线程堆栈太小，则会限制执行复杂SQL语句
+#thread_stack=512K
+
+# 闲置连接超时时间，单位：秒。默认8小时，建议设置小一点，防止空闲连接过多
+interactive_timeout=1800
+# 超时等待时间，默认8小时，与 interactive_timeout 一起配置
+wait_timeout=1800
+
+# Metadata Lock最大时长（秒），一般用于控制 alter操作的最大时长sine mysql5.6
+# 执行DML操作时除了增加innodb事务锁外还增加Metadata Lock，其他alter（DDL）session将阻塞
+lock_wait_timeout=3600
+
+# 内部内存临时表的最大值，设置成128M
+# 比如大数据量的group by、order by时可能用到临时表
+# 超过了这个值将写入磁盘，系统IO压力增大
+#tmp_table_size=64M
+#max_heap_table_size=64M
+
+################################## 慢查询相关 ###############################
+# 慢查询sql日志设置
+#slow_query_log=1
+#slow_query_log_file=/var/log/mysql/slow.log
+
+# 检查未使用到索引的sql
+#log_queries_not_using_indexes=1
+# 针对log_queries_not_using_indexes开启后，记录慢sql的频次、每分钟记录的条数
+#log_throttle_queries_not_using_indexes=5
+# 作为从库时生效，从库复制中如果有慢sql也将被记录
+#log_slow_slave_statements=1
+# 慢查询执行的秒数
+#long_query_time=10
+# 检索的行数必须达到此值才可被记为慢查询
+#min_examined_row_limit=100
+
+
+################################# binlog 相关 ###############################
+# mysql binlog 日志文件保存的过期时间，过期后自动删除
+#expire_logs_days=5
+#binlog_expire_logs_seconds=604800
+
+```
+
+
+
+**设置自启动**
+
+```bash
+systemctl enable mysqld && systemctl start mysqld && systemctl status mysqld
+
+sudo systemctl enable mysqld
+#sudo systemctl disable mysqld
+sudo systemctl start mysqld
+#sudo systemctl restart mysqld
+systemctl status mysqld
+
+```
+
+
+
+**修改 root 密码**
+
+```bash
+# 查看临时密码【注意，要先启动mysqld服务】
+sudo grep 'temporary password' /var/log/mysqld.log
+2024-06-06T03:48:09.633176Z 1 [Note] A temporary password is generated for root@localhost: 5(+#AN7s,Zw4
+
+sudo cat /var/log/mysqld.log | grep password
+2024-06-06T03:48:09.633176Z 1 [Note] A temporary password is generated for root@localhost: 5(+#AN7s,Zw4
+
+```
+
+
+
+**初始设置**
+
+```bash
+# 移除匿名用户
+# 禁止root用户远程登录
+# 移除测试数据库
+# 刷新权限表
+
+mysql_secure_installation
+# 需要输入默认root密码
+
+```
+
+
+
+**创建用户设置权限**
+
+```bash
+# root 登录
+mysql -uroot -p
+
+# 5.7
+create user 'mypages'@'%' identified by 'your passwd';
+
+# 8.0+
+#create user 'mypages'@'%' identified with mysql_native_password by 'your passwd';
+alter user 'mypages'@'%' identified with mysql_native_password by 'your passwd';
+
+# 授予数据库访问权限
+grant all privileges on mypages.* to 'mypages'@'%';
+
+# 刷新权限
+flush privileges;
+
+
+```
 
 
 
@@ -4415,7 +5086,64 @@ passwd mysql
 
 ### 安装 Redis
 
-```shell
+- [Alibaba Cloud Linux 3.2104 64位 yum 安装 redis](https://blog.csdn.net/qq_36874292/article/details/121100985#)
+
+
+
+```bash
+# 查找 dnf 源，alinux3 没找到
+dnf search redis-server
+
+# 查看yum源
+yum list redis
+redis.x86_64 6.2.7-1.0.2.al8 alinux3-updates
+
+# 安装
+sudo yum install redis
+#sudo yum remove redis
+
+# 设置自启动
+sudo systemctl enable redis
+sudo systemctl disable redis
+
+# 启动服务
+sudo systemctl start redis
+sudo systemctl restart redis
+sudo systemctl status redis
+sudo systemctl stop redis
+
+# 查看redis进程
+ps aux|grep redis
+ps -ef|grep redis
+
+# 查看端口情况
+netstat -ntlp|grep 6379
+
+
+```
+
+
+
+**redis 配置**
+
+```bash
+# 查找配置文件位置
+find -name redis.conf
+whereis redis
+redis: /usr/lib64/redis /etc/redis.conf
+
+sudo vim /etc/redis.conf
+
+#修改内容
+bind 0.0.0.0 
+protected-mode no
+appendonly no
+requirepass 123456.a
+
+appendonly yes	启动Redis持久化功能 (默认 no , 所有信息都存储在内存 [重启丢失] 。 设置为 yes , 将存储在硬盘 [重启还在])
+protected-mode no	关闭protected-mode模式，此时外部网络可以直接访问 (docker貌似自动开启了)
+bind 0.0.0.0 将 bind 127.0.0.1 注释掉，或者写 bind 0.0.0.0，保证可以从远程访问到该Redis，不单单是从本地
+requirepass 密码	设置密码
 
 
 ```
@@ -4598,6 +5326,8 @@ JAVA_OPTS="-server -Xms256m -Xmx256m -Xmn128m -Xss512K -XX:MetaspaceSize=128m -X
 
 
 
+
+
 ### 安装 Nginx
 
 #### 安装与基本操作
@@ -4606,11 +5336,21 @@ JAVA_OPTS="-server -Xms256m -Xmx256m -Xmn128m -Xss512K -XX:MetaspaceSize=128m -X
 
 
 
-```shell
-# yum 安装 nginx 非常简单，就输入一条命令即可。
-$ sudo yum -y install nginx   # 安装 nginx
-$ sudo yum remove nginx  # 卸载 nginx
+>在 linux 下，只有以 root 启动的进程才能监听小于 1024 的端口。nginx 如果设置了监听 80 或 443 端口，则一定得以 root 帐号启动。如果只是测试，则可将端口设成 8080 之类大于 1024 的端口。
 
+
+
+```shell
+# 查找 dnf 源，alinux3 没找到
+dnf search nginx
+
+# 查看yum源
+yum list nginx
+nginx.x86_64 1:1.20.1-1.0.3.al8 alinux3-updates
+
+# yum 安装 nginx 非常简单，就输入一条命令即可。
+sudo yum install nginx   # 安装 nginx
+sudo yum remove nginx  # 卸载 nginx
 
 yum makecache
 #作用：就是把服务器的包信息下载到本地电脑缓存起来，makecache建立一个缓存，以后用install时就在缓存中搜索，提高了速度。
@@ -4624,12 +5364,12 @@ yum -y install epel-release
 yum -y install nginx
 
 
-# 使用 yum 进行 Nginx 安装时，Nginx 配置文件在 /etc/nginx 目录下。
-$ sudo systemctl enable nginx # 设置开机启动 
-$ sudo service nginx start # 启动 nginx 服务
-$ sudo service nginx stop # 停止 nginx 服务
-$ sudo service nginx restart # 重启 nginx 服务
-$ sudo service nginx reload # 重新加载配置，一般是在修改过 nginx 配置文件时使用。
+# 使用 yum 进行 Nginx 安装时，Nginx 配置文件在 /etc/nginx 目录下
+sudo systemctl enable nginx
+sudo systemctl start nginx
+sudo systemctl restart nginx
+sudo systemctl status nginx
+sudo systemctl stop nginx
 
 
 # 防火墙开放80端口
@@ -4646,6 +5386,19 @@ sudo firewall-cmd --list-port
 # 项目资源目录
 /usr/share/nginx
 
+
+```
+
+
+
+**nginx 配置**
+
+```bash
+# 查找配置文件位置
+whereis nginx
+nginx: /usr/sbin/nginx /usr/lib64/nginx /etc/nginx /usr/share/nginx /usr/share/man/man8/nginx.8.gz /usr/share/man/man3/nginx.3pm.gz
+
+sudo vim /etc/nginx/nginx.conf
 
 ```
 
@@ -4979,8 +5732,6 @@ ssl_session_cache shared:SSL:10m; # session 会话缓存有效期
 ssl_session_timeout 10m; # session 会话超时时间
 
 ```
-
-
 
 
 

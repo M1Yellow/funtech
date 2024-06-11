@@ -1,6 +1,6 @@
 ---
 title: Git使用教程
-date: 2024-05-18 08:45:21
+date: 2024-06-08 18:03:06
 category:
     - 项目构建管理
 tag:
@@ -1301,6 +1301,10 @@ git push --set-upstream origin 分支名; #提交分支到远程仓库
 git checkout -b master_branch origin/master
 git push --set-upstream origin master_branch
 
+
+# 创建空白分支
+git checkout --orphan test
+
 ```
 
 
@@ -1722,6 +1726,38 @@ cd project.git（project即为你的项目名称）
 3、以镜像推送的方式上传代码到新的仓库地址。
 
 git push --mirror http：//...(目标仓库地址)
+
+
+
+#### 删除历史版本，保留最新版本
+
+- [git删除历史版本，保留当前状态](https://www.cnblogs.com/langkyeSir/p/14528857.html)
+- [从存储库中删除敏感数据](https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
+
+
+
+```bash
+# 创建并切换到latest_branch分支
+git checkout --orphan latest_branch
+
+# 添加所有文件
+git add -A
+
+# 提交更改
+git commit -am "删除历史版本记录，初始化仓库"
+
+# 删除分支
+git branch -D master
+
+# 将当前分支重命名
+git branch -m master
+
+# 强制更新存储库
+git push -f origin master
+
+```
+
+
 
 
 

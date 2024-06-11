@@ -54,10 +54,6 @@ C:\Users\fanmi>npm -v
 
 
 
-#### vue 项目依赖库更新
-
-
-
 
 
 ### 修改 npm 本地仓库目录（可不改）
@@ -92,8 +88,8 @@ npm 本地仓库目录默认在 C 盘，emm，看个人习惯吧，我个人是�
 重新用 npm config ls 查看配置信息，如果配置成功，就直接能看到配置信息了。
 
 ```shell
-npm config set prefix E:\DevRes\npmRepository
-npm config set cache E:\DevRes\npmRepository
+npm config set prefix E:\DevRes\npmRepository\node_global
+npm config set cache E:\DevRes\npmRepository\node_cache
 
 #配置之后
 C:\Users\fanmi>npm install -g pnpm
@@ -128,6 +124,23 @@ C:\Users\fanmi>vue list
 ```
 
 需要把之前设置的本地仓库目录添加到系统环境变量。
+
+
+
+### build 构建报错
+
+```
+[webpack-cli] [Error: EPERM: operation not permitted, mkdir 'E:\'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'mkdir',
+  path: 'E:\\'
+}
+```
+
+
+
+
 
 
 
@@ -239,84 +252,13 @@ pnpm add -g pnpm to update
 - [如果能重来，你要选 Vite 还是 Webpack ？](https://juejin.cn/post/7106136866381889573)
 - [Webpack vs Vite：编译器之争，谁才是你的最爱？](https://blog.csdn.net/m0_49768044/article/details/131640237)
 
+
+
 #### Webpack
 
 
 
 #### Vite
-
-
-
-
-
-### 使用 vue-cli 创建基于 Webpack 的 Vue 项目
-
-#### 安装 vue-cli
-
-```shell
-#在命令台输入
-npm install -g @vue/cli
-#查看是否安装成功
-vue list
-#查看版本
-vue -V
-
-```
-
-
-
-#### 安装 webpack 
-
-WebPack 是一款**模块加载器兼打包工具**，它能把各种资源，如 JS、JSX、ES6、SASS、LESS、图片等**都作为模块来处理和使用。**
-
-```shell
-npm install webpack -g
-npm install webpack-cli -g
-
-#验证安装
-webpack -v
-webpack-cli -v
-
-```
-
-
-
-### 使用 create-vue 创建基于 Vite 的 Vue 项目
-
-```shell
-#进入工作目录，在此目录下执行
-npm create vue@latest
-
-Need to install the following packages:
-create-vue@3.10.2
-Ok to proceed? (y)
-
-Vue.js - The Progressive JavaScript Framework
-
-√ 请输入项目名称： ... collide-try
-√ 是否使用 TypeScript 语法？ ... 否 / 是
-√ 是否启用 JSX 支持？ ... 否 / 是
-√ 是否引入 Vue Router 进行单页面应用开发？ ... 否 / 是
-√ 是否引入 Pinia 用于状态管理？ ... 否 / 是
-√ 是否引入 Vitest 用于单元测试？ ... 否 / 是
-√ 是否要引入一款端到端（End to End）测试工具？ » 不需要
-√ 是否引入 ESLint 用于代码质量检测？ ... 否 / 是
-√ 是否引入 Prettier 用于代码格式化？ ... 否 / 是
-√ 是否引入 Vue DevTools 7 扩展用于调试? (试验阶段) ... 否 / 是
-
-正在初始化项目 E:\DevRes\Projects\collide-try\collide-try...
-
-项目初始化完成，可执行以下命令：
-
-  cd collide-try
-  npm install
-  npm run format
-  npm run dev
-
-
-
-
-```
 
 
 
@@ -428,6 +370,151 @@ var data = Mock.mock({
 console.log(JSON.stringify(data, null, 4))
 
 ```
+
+
+
+
+
+## 开发实战
+
+- [Node.js 中文文档](http://nodejs.cn/api/)
+
+- [官方文档](https://nodejs.org/docs/latest/api/)
+
+- [npm 中文文档](https://nodejs.cn/npm/)
+
+
+
+### 入门基础
+
+#### 依赖管理
+
+- [dependencies](https://nodejs.cn/npm/cli/v7/configuring-npm/package-json/#dependencies)
+- [node-semver](https://github.com/npm/node-semver#versions)
+
+
+
+##### 版本号说明
+
+**~ 范围 `~1.2.3` `~1.2` `~1`**
+
+- `~1.2.3` := `>=1.2.3 <1.(2+1).0` := `>=1.2.3 <1.3.0-0`
+- `~1.2` := `>=1.2.0 <1.(2+1).0` := `>=1.2.0 <1.3.0-0` (Same as `1.2.x`)
+- `~1` := `>=1.0.0 <(1+1).0.0` := `>=1.0.0 <2.0.0-0` (Same as `1.x`)
+- `~0.2.3` := `>=0.2.3 <0.(2+1).0` := `>=0.2.3 <0.3.0-0`
+- `~0.2` := `>=0.2.0 <0.(2+1).0` := `>=0.2.0 <0.3.0-0` (Same as `0.2.x`)
+- `~0` := `>=0.0.0 <(0+1).0.0` := `>=0.0.0 <1.0.0-0` (Same as `0.x`)
+- `~1.2.3-beta.2` := `>=1.2.3-beta.2 <1.3.0-0` Note that prereleases in the `1.2.3` version will be allowed, if they are greater than or equal to `beta.2`. So, `1.2.3-beta.4` would be allowed, but `1.2.4-beta.2` would not, because it is a prerelease of a different `[major, minor, patch]` tuple.
+
+
+
+**^ 范围 `^1.2.3` `^0.2.5` `^0.0.4`**
+
+- `^1.2.3` := `>=1.2.3 <2.0.0-0`
+- `^0.2.3` := `>=0.2.3 <0.3.0-0`
+- `^0.0.3` := `>=0.0.3 <0.0.4-0`
+- `^1.2.3-beta.2` := `>=1.2.3-beta.2 <2.0.0-0` Note that prereleases in the `1.2.3` version will be allowed, if they are greater than or equal to `beta.2`. So, `1.2.3-beta.4` would be allowed, but `1.2.4-beta.2` would not, because it is a prerelease of a different `[major, minor, patch]` tuple.
+- `^0.0.3-beta` := `>=0.0.3-beta <0.0.4-0` Note that prereleases in the `0.0.3` version *only* will be allowed, if they are greater than or equal to `beta`. So, `0.0.3-pr.2` would be allowed.
+
+- `^1.2.x` := `>=1.2.0 <2.0.0-0`
+- `^0.0.x` := `>=0.0.0 <0.1.0-0`
+- `^0.0` := `>=0.0.0 <0.1.0-0`
+
+- `^1.x` := `>=1.0.0 <2.0.0-0`
+- `^0.x` := `>=0.0.0 <1.0.0-0`
+
+
+
+
+
+#### 更新项目依赖
+
+
+
+
+
+### Vue3 脚手架搭建
+
+- [Vue3脚手架搭建](https://haibin-007.github.io/vue3-scaffolding-tutorial/)
+
+
+
+
+
+
+
+### 使用 vue-cli 创建基于 Webpack 的 Vue 项目
+
+#### 安装 vue-cli
+
+```shell
+#在命令台输入
+npm install -g @vue/cli
+#查看是否安装成功
+vue list
+#查看版本
+vue -V
+
+```
+
+
+
+#### 安装 webpack 
+
+WebPack 是一款**模块加载器兼打包工具**，它能把各种资源，如 JS、JSX、ES6、SASS、LESS、图片等**都作为模块来处理和使用。**
+
+```shell
+npm install webpack -g
+npm install webpack-cli -g
+
+#验证安装
+webpack -v
+webpack-cli -v
+
+```
+
+
+
+
+
+### 使用 create-vue 创建基于 Vite 的 Vue 项目
+
+```shell
+#进入工作目录，在此目录下执行
+npm create vue@latest
+
+Need to install the following packages:
+create-vue@3.10.2
+Ok to proceed? (y)
+
+Vue.js - The Progressive JavaScript Framework
+
+√ 请输入项目名称： ... collide-try
+√ 是否使用 TypeScript 语法？ ... 否 / 是
+√ 是否启用 JSX 支持？ ... 否 / 是
+√ 是否引入 Vue Router 进行单页面应用开发？ ... 否 / 是
+√ 是否引入 Pinia 用于状态管理？ ... 否 / 是
+√ 是否引入 Vitest 用于单元测试？ ... 否 / 是
+√ 是否要引入一款端到端（End to End）测试工具？ » 不需要
+√ 是否引入 ESLint 用于代码质量检测？ ... 否 / 是
+√ 是否引入 Prettier 用于代码格式化？ ... 否 / 是
+√ 是否引入 Vue DevTools 7 扩展用于调试? (试验阶段) ... 否 / 是
+
+正在初始化项目 E:\DevRes\Projects\collide-try\collide-try...
+
+项目初始化完成，可执行以下命令：
+
+  cd collide-try
+  npm install
+  npm run format
+  npm run dev
+
+
+
+
+```
+
+
 
 
 
@@ -583,14 +670,6 @@ USAGE
 
 
 
-
-## 开发实战
-
-### 官方文档
-
-中文 Api 文档：http://nodejs.cn/api/ （中文网站也一样）
-
-官方英文文档：https://nodejs.org/dist/latest-v14.x/docs/api/ （可能访问不了）
 
 
 

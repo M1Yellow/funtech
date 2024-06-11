@@ -94,10 +94,10 @@ export const zhNavbar = navbar([
         prefix: "/tool/",
         children: [
             {
-                text: "IDEA内存优化",
-                icon: "neicun",
-                prefix: "10_01_开发环境和工具/",
-                link: "10_01_开发环境和工具/IDEA占用内存优化"
+                text: "JetBrains",
+                icon: "jb-jetbrains",
+                prefix: "10_01_开发环境和工具/JetBrains/",
+                link: "10_01_开发环境和工具/JetBrains/IDEA占用内存优化"
             },
         ],
     },

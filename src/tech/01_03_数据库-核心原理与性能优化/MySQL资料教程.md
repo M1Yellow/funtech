@@ -1,6 +1,6 @@
 ---
 title: MySQL资料教程
-date: 2024-05-06 12:22:13
+date: 2024-06-06 12:22:13
 category:
     - 数据库
 tag:
@@ -156,7 +156,7 @@ net start mysql
 
 
 
-### 配置文件 my.ini 详解
+### 配置文件
 
 - [MySQL 配置文件 my.ini 详解](https://blog.csdn.net/qq_37141978/article/details/106906666)
 - [配置文件my.ini或my.cnf的详解](https://blog.csdn.net/qq_34802511/article/details/89852340)
@@ -5086,14 +5086,16 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...
 
 ```shell
 #root账号登录
-mysql -uroot -proot;
+mysql -uroot -p
 
 #创建用户
 ##低版本数据库 5.7.x
-create user '用户民'@'%' identified by '密码';
+create user '用户民'@'%' identified by 'your passwd';
 create user 'mypages'@'%' identified by 'your passwd';
-##高版本数据库 没试过
-create user '用户名'@'%' identified with mysql_native_password by '密码';
+##高版本数据库 8.0+
+#create user '用户名'@'%' identified with mysql_native_password by 'your passwd';
+#授权mysql_native客户端工具，修改后刷新权限，navicat就可以访问了
+alter user 'mypages'@'%' identified with mysql_native_password by 'your passwd';
 
 ‘%’ - 所有情况都能访问
 ‘localhost’ - 本机才能访问
@@ -5104,6 +5106,7 @@ SELECT * FROM `mysql`.`user`;
 
 #修改密码
 alter user '用户名'@'%' identified by '密码';
+alter user 'mypages'@'%' identified by '密码';
 
 #未授权访问其他数据库，只能看到默认生成information_schema和test数据库
 

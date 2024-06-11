@@ -107,9 +107,9 @@ export const sideBar = sidebar({
     ],
     "/tool/": [
         {
-            text: "开发工具",
-            icon: "software",
-            prefix: "10_01_开发环境和工具/",
+            text: "JetBrains",
+            icon: "jb-jetbrains",
+            prefix: "10_01_开发环境和工具/JetBrains/",
             collapsible: true,
             children: ['IDEA占用内存优化'],
         },
