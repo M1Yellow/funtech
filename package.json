@@ -12,11 +12,7 @@
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.13",
-    "@vuepress/plugin-docsearch": "2.0.0-rc.34",
     "@vuepress/plugin-feed": "2.0.0-rc.34",
-    "@vuepress/plugin-search": "2.0.0-rc.34",
-    "axios": "^1.7.2",
-    "katex": "^0.16.10",
     "vue": "^3.4.27",
     "vuepress": "2.0.0-rc.13",
     "vuepress-plugin-md-enhance": "2.0.0-rc.48",

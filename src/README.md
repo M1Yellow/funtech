@@ -22,7 +22,7 @@ features:
 
   - title: mypages-web
     icon: page-card-3
-    details: mypages-web 是 mypages 的前端项目。基于 Vue 3.0 + ElementPlus 实现。致力于聚合多社交平台用户主页的小型单页应用。主要业务功能包括，平台管理、平台观点管理、关注用户管理、用户类型管理、用户标签管理、检查用户内容更新、同步用户头像昵称等。
+    details: mypages-web 是 mypages 的前端项目。基于 Webpack 5、Vue 3、ElementPlus 实现。致力于聚合多社交平台用户主页的小型单页应用。主要业务功能包括，平台管理、平台观点管理、关注用户管理、用户类型管理、用户标签管理、检查用户内容更新、同步用户头像昵称等。
     link: https://github.com/M1Yellow/mypages-web
 
   - title: mypages-cloud
