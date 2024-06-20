@@ -22,6 +22,15 @@ html::before {
   place-content: stretch left;
 }
 
+// 主页项目
+.vp-feature-item {
+}
+
+// 主页项目鼠标经过时→箭头
+.vp-feature-item.link:hover::before {
+  content: unset !important;
+}
+
 // 主页项目内容省略
 .vp-feature-details {
   max-height: 7rem;
@@ -30,4 +39,16 @@ html::before {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+
+// 主页项目gitee入口
+.project-gitee-entry {
+  margin: 0.25rem 0 0.5rem; /* 设置跟 h3 标题一样的 margin 值 */
+  float: inline-end;
+  width: 22px;
+  height: 22px;
+}
+.project-gitee-entry > a {
+  display: inherit;
+  height: inherit;
 }
