@@ -1,7 +1,7 @@
 {
   "name": "funtech",
-  "version": "2.4.0",
-  "description": "兴趣成果驱动，理论概念驱不动。",
+  "version": "2.4.1",
+  "description": "兴趣成果驱动，理论概念驱不动，前提饭碗得饱够。",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -12,12 +12,12 @@
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-feed": "2.0.0-rc.36",
-    "vue": "^3.4.29",
-    "vue-router": "^4.3.3",
+    "@vuepress/plugin-feed": "2.0.0-rc.40",
+    "vue": "^3.4.35",
+    "vue-router": "^4.4.2",
     "vuepress": "2.0.0-rc.14",
-    "vuepress-plugin-md-enhance": "2.0.0-rc.49",
-    "vuepress-plugin-search-pro": "2.0.0-rc.49",
-    "vuepress-theme-hope": "2.0.0-rc.49"
+    "vuepress-plugin-md-enhance": "2.0.0-rc.52",
+    "vuepress-plugin-search-pro": "2.0.0-rc.52",
+    "vuepress-theme-hope": "2.0.0-rc.52"
   }
 }

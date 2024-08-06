@@ -50,7 +50,7 @@ export default hopeTheme({
     pageInfo: ["Author", "Category", "Date", "Original", "Tag", "ReadingTime", "Word", "PageView"],
 
     blog: {
-        description: "兴趣成果驱动",
+        description: "兴趣成果驱动，理论概念驱不动，前提饭碗得饱够。",
         intro: "/intro.html",
         medias: {
             GitHub: "https://github.com/m1yellow",

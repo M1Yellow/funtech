@@ -10,7 +10,7 @@ actions:
       link: https://www.m1yellow.cn/mypages
       type: primary
     
-    - text: 📱 小游戏项目
+    - text: 📱 COLLIDE-TRY
       link: https://www.m1yellow.cn/collide-try-demo
       type: secondary
 
@@ -32,7 +32,7 @@ features:
 
   - title: funtech
     icon: boshimao
-    details: 工作和学习整理的技术知识结构体系。【兴趣成果驱动，理论概念驱不动】
+    details: 工作和学习整理的技术知识结构体系。【兴趣成果驱动，理论概念驱不动，前提饭碗得饱够。】
     link: https://github.com/M1Yellow/funtech
 
   - title: collide-try
@@ -46,9 +46,14 @@ features:
     link: https://github.com/M1Yellow/collide-try-vue
   
   - title: funasm
+    icon: asm2
+    details: 使用 Javaagent + ASM 实现无侵入动态修改类方法案例。
+    link: https://github.com/M1Yellow/funasm
+  
+  - title: funJssist
     icon: JVM
-    details: 使用 Javaagent + ASM 实现无侵入动态修改类方法，去除 IDEA Licenses 弹窗，不退出程序，继续愉快 Coding~⌨~
-    link: https://github.com/M1Yellow/doidea-asm
+    details: 使用 Javaagent + Javassist 实现无侵入动态修改类方法案例。
+    link: https://github.com/M1Yellow/funJssist
 
 ---
 
@@ -75,11 +80,11 @@ features:
 
 Q：用 `浏览器书签` 按平台分组，把用户主页添加书签，就可以实现聚合多社交平台用户主页了吧，为什么还要花费这么多时间精力写一个项目啊？
 
-A：最开始也是用的浏览器书签分组，也确实挺好用，正因为经常用到，有一天就萌生了自己做一个书签应用的念头 💡
+A：最开始也是用的浏览器书签分组，也确实挺好用，正因为经常用到，有一天就萌生了自己做一个书签应用的念头💡
 
 - 浏览器书签只是基础功能，可以在书签的基础上，新增头像、简介、标签、更新提醒等功能
 - 做一个自己的项目脚手架，能更好地理解、运用、熟练各大技术框架组件
-- 追求极简社交体验，关注创作者本身有品质/感兴趣的内容，而不是平台算法、信息茧房的投喂推送
+- 追求极简社交体验，关注创作者本身有品质/感兴趣的内容，而不是平台算法、信息茧房的推送投喂
 
 
 
