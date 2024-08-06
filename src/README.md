@@ -32,7 +32,7 @@ features:
 
   - title: funtech
     icon: boshimao
-    details: 工作和学习整理的技术知识结构体系。【兴趣成果驱动，理论概念驱不动，前提饭碗得饱够。】
+    details: 工作和学习整理的技术知识结构体系。
     link: https://github.com/M1Yellow/funtech
 
   - title: collide-try
