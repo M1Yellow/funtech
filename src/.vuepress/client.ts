@@ -1,6 +1,6 @@
 import { onMounted } from 'vue';
 import { defineClientConfig } from "vuepress/client";
-import { insertEntry } from "./client/home/index.js";
+import { insertEntry, resumeThanksDialog } from "./client/home/index.js";
 import 'vuepress-theme-hope/presets/bounce-icon.scss'; // 页面图标鼠标悬停跳动效果
 
 
@@ -14,6 +14,8 @@ export default defineClientConfig({
             //document.querySelector('#app');
             // 首页 project item 添加 gitee访问入口
             insertEntry();
+            // 设置首页感谢弹窗
+            resumeThanksDialog();
         });
     },
     /*

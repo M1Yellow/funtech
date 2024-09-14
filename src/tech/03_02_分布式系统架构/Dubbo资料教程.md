@@ -1,6 +1,6 @@
 ---
 title: Dubbo资料教程
-date: 2022-11-02 19:42:40
+date: 2024-09-04 19:42:40
 category:
     - 分布式架构
 tag:
@@ -283,7 +283,7 @@ apache/dubbo-admin
 
 https://github.com/apache/dubbo-admin/wiki/Dubbo-Admin%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E
 
-**Dubbo Admin配置说明**
+**Dubbo Admin 配置说明**
 
 min edited this page on Jul 24, 2019 · [9 revisions](https://github.com/apache/dubbo-admin/wiki/Dubbo-Admin配置说明/_history)
 
@@ -1517,7 +1517,7 @@ public String reliable(String name) {
 
 > 看着像八股文，其实是考查对 dubbo 的理解和熟练程度。
 >
-> 八股文和底层源码实现原理，足够卷退一大批人了！要不是为了生活，讨口饭吃，谁特么愿意拿大好的年华去看这些
+> 八股文和底层源码实现原理，足够卷退一大批人了！都是为了生活，讨口饭吃而已！
 
 - Dubbo是什么？RPC又是什么？
 - Dubbo能做什么？

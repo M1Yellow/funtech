@@ -1,6 +1,6 @@
 ---
 title: Java多线程并发编程
-date: 2022-11-02 16:01:24
+date: 2024-09-03 16:01:24
 category:
     - Java
 tag:
@@ -110,7 +110,7 @@ tag:
 
 ### 为什么学多线程并发编程
 
-初级开发者可能更多的是为了应付面试。工作三五年之后，再想着弄虚作假糊弄应付面试，恐怕真的不行了，面试官可不是吃素的！你不行，后面还有一大批求职者等着呢，没点真本事，只能眼睁睁看着机会从身边流逝，很看好的公司，然而自己却面试不过，这种心痛的滋味不好受呢。
+初级开发者可能更多的是为了应付面试。工作三五年之后，再想着弄虚作假糊弄应付面试，恐怕真的不行了，面试官可不是吃素的！你不行，后面还有一大批求职者等着呢，没点真本事，只能眼睁睁看着机会从身边流逝，很看好的公司，然而自己却面试不过，这种心痛的滋味可不好受。
 
 其实，多线程并发应用程序的优势是非常显著的，尤其是在多核CPU和大内存的系统环境下，**多线程能更大程度地利用发挥硬件性能**，为应用程序带来业务处理响应速度上的提升，给用户更好的体验感受，进而更好的留住用户和吸引更多新用户。
 
@@ -1530,7 +1530,7 @@ class TestJoin implements Runnable {
 >
 > TIP
 >
-> 别一开始就想要把实现代码写得很完美，各种高级炫技，这是在写笔试题啊，追求这么完美，最后只会导致其他题目没有时间做，甚至这一题都写不完！产品市场也一样，真要把产品做到百分之八十以上得完美程度，市场早就被别人占据了！
+> 别一开始就想要把实现代码写得很完美，各种高级炫技，这是在写笔试题啊，追求这么完美，最后只会导致其他题目没有时间做，甚至这一题都写不完！产品市场也一样，真要把产品做到百分之八十以上的完美程度，市场早就被别人占据了！
 
 题目要求用 Java 的 wait + notify 机制来实现，重点考察对于多线程可见性的理解。
 
@@ -4757,10 +4757,10 @@ public ThreadPoolExecutor(int corePoolSize, // 线程池核心大小
 
 ```java
 /**
- * new ThreadPoolExecutor.AbortPolicy() // 银行满了，还有人进来，不处理这个人的，抛出异常
+ * new ThreadPoolExecutor.AbortPolicy() // 银行满了，不接待后面进来的人，但可能会有个别人闹事，所以会抛出异常
  * new ThreadPoolExecutor.CallerRunsPolicy() // 哪来的去哪里
- * new ThreadPoolExecutor.DiscardPolicy() // 队列满了，丢掉任务，不会抛出异常
- * new ThreadPoolExecutor.DiscardOldestPolicy() // 队列满了，尝试去和最早的竞争，也不会抛出异常
+ * new ThreadPoolExecutor.DiscardPolicy() // 队列满了，在入口通知请到别的地方去办理，不会抛出异常
+ * new ThreadPoolExecutor.DiscardOldestPolicy() // 队列满了，尝试去和最早的竞争（你可以等，看看有没有人中途离开），也不会抛出异常
  */
 ExecutorService createThreadPool() {
     ExecutorService threadPool = new ThreadPoolExecutor(5, // 线程池核心大小

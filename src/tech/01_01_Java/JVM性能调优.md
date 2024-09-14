@@ -2631,7 +2631,7 @@ Java 虚拟机被允许堆满足上述三个条件的无用类进行回收，这
 >
 >  Jvm  stack, native method stack, runtime constant pool, static references in  method area, Clazz
 >
->  虚拟机栈、本地方法栈、运行时常量池、方法区中的静态应用
+>  虚拟机栈、本地方法栈、运行时常量池、方法区中的静态引用
 
 
 
@@ -2886,16 +2886,16 @@ obj = null;
 
 #### 垃圾回收器类比
 
-| **GC**                    | **区域**       | **线程**   | **算法**           | **特点**         | **场景**                                         |
-| ------------------------- | -------------- | ---------- | ------------------ | ---------------- | ------------------------------------------------ |
-| **Serial**                | 新生代         | 串行       | 复制算法           | 响应速度优先     | 低配置环境下的Client模式                         |
-| **ParNew**                | 新生代         | 并行       | 复制算法           | 响应速度优先     | 多CPU环境Server模式下与CMS配合使用               |
-| **Parallel** **Scavenge** | 新生代         | 并行       | 复制算法           | 吞吐量优先       | 后台运算且不需要太多交互的场景                   |
-| **Serial Old**            | 老年代         | 串行       | 标记-压缩算法      | 响应速度优先     | 低配置环境下的Client模式                         |
-| **Parallel Old**          | 老年代         | 并行       | 标记-压缩算法      | 吞吐量优先       | 后台运算且不需要太多交互的场景                   |
-| **CMS**                   | 老年代         | 并发、并行 | 标记-清除算法      | 响应速度优先     | 互联网 B/S 服务端                                |
-| **G1**                    | 新生代、老年代 | 并发、并行 | 标记-压缩/复制算法 | 响应速度优先     | 互联网服务端应用（B/S、App API） 大内存多CPU环境 |
-| **ZGC**                   | 所有内存空间   | 并发、并行 | 复制算法           | 响应速度优先10ms | 互联网服务端应用（B/S、App API） 大内存多CPU环境 |
+| No   | **GC**                    | **区域**       | **线程**   | **算法**           | **特点**         | **场景**                                         |
+| ---- | ------------------------- | -------------- | ---------- | ------------------ | ---------------- | ------------------------------------------------ |
+| 1    | **Serial**                | 新生代         | 串行       | 复制算法           | 响应速度优先     | 低配置环境下的Client模式                         |
+| 2    | **ParNew**                | 新生代         | 并行       | 复制算法           | 响应速度优先     | 多CPU环境Server模式下与CMS配合使用               |
+| 3    | **Parallel** **Scavenge** | 新生代         | 并行       | 复制算法           | 吞吐量优先       | 后台运算且不需要太多交互的场景                   |
+| 4    | **Serial Old**            | 老年代         | 串行       | 标记-压缩算法      | 响应速度优先     | 低配置环境下的Client模式                         |
+| 5    | **Parallel Old**          | 老年代         | 并行       | 标记-压缩算法      | 吞吐量优先       | 后台运算且不需要太多交互的场景                   |
+| 6    | **CMS**                   | 老年代         | 并发、并行 | 标记-清除算法      | 响应速度优先     | 互联网 B/S 服务端                                |
+| 7    | **G1**                    | 新生代、老年代 | 并发、并行 | 标记-压缩/复制算法 | 响应速度优先     | 互联网服务端应用（B/S、App API） 大内存多CPU环境 |
+| 8    | **ZGC**                   | 所有内存空间   | 并发、并行 | 复制算法           | 响应速度优先10ms | 互联网服务端应用（B/S、App API） 大内存多CPU环境 |
 
 GC发展阶段：Serial =\> Parallel（并行）=\> CMS（并发）=\> G1 =\> ZGC
 
@@ -3334,7 +3334,7 @@ G1（Garbage-First）是一款面向服务端应用的垃圾收集器，主要�
 
 
 
-**漏标**
+漏标
 
 白色可回收的对象，在并发过程中，用户线程又引用了，结果被 GC 回收了，导致用户线程出现未知异常！
 
@@ -3939,9 +3939,21 @@ the current working directory and named hs_err_pidpid.log 默认生成位置
 
 ```shell
 #jps查看Java进程，需要安装Java
+jps
+1520 mypages.jar
+1694 Jps
+
 jps -v
+1520 mypages.jar -Xms512m -Xmx512m -Xmn400m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=64m -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=80 -XX:+ExplicitGCInvokesConcurrent -XX:-OmitStackTraceInFastThrow -XX:+PrintCommandLineFlags -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/mypages/gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -Xloggc:logs/mypages/gc/gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=10M -Dspring.profiles.active=prod
+1711 Jps -Denv.class.path=.:/usr/java/jdk1.8.0_401/lib/dt.jar:/usr/java/jdk1.8.0_401/lib/tools.jar -Dapplication.home=/usr/java/jdk1.8.0_401 -Xms8m
 
+jstat -gc 1520
+S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT   
+68224.0 68224.0  0.0   56042.4 273152.0 167191.7  114688.0     0.0     78592.0 74852.6 10240.0 9507.6      9    0.224   0      0.000    0.224
 
+jstat -gcutil 1520
+S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT   
+  0.00  82.14  61.54   0.00  95.24  92.85      9    0.224     0    0.000    0.224
 
 
 ```
@@ -4589,21 +4601,25 @@ GC回收的内存比不上新对象占用的内存，用的多，回收少，自
 
 ### 内存泄漏的场景有哪些？
 
-1.  **静态集合类。**静态集合具有与类相同的生命周期，集合中存放的对象元素使用完之后，除非手动清除，GC是清除不了的。
+[Java 中发生内存泄漏 5 个场景以及解决方法](https://blog.csdn.net/wuhuayangs/article/details/122594327)
 
-2.  **单例模式。**单例的生命周期和应用程序是一样长的，所以在单例程序中，如果持有对外部对象的引用的话，那么这个外部对象是不能被回收的，则会导致内存泄漏的产生。
 
-3.  **内部类持有外部类属性。**多线程操作、监听器。
 
-4.  **连接资源未关闭释放。**数据库连接、网络连接、IO连接等一些提供close()的资源未关闭导致内存泄漏。
+1.  **静态集合类**。静态集合具有与类相同的生命周期，集合中存放的对象元素使用完之后，除非手动清除，GC是清除不了的。
 
-5.  **变量不合理的作用域。**临时使用的对象，存放到了一个生命周期较长的外部对象，导致临时对象持续时间比实际的生命周期长。
+2.  **单例模式**。单例的生命周期和应用程序是一样长的，所以在单例程序中，如果持有对外部对象的引用的话，那么这个外部对象是不能被回收的，则会导致内存泄漏的产生。
 
-6.  **改变哈希值。**Set集合添加元素后，中途改变元素的值，导致元素哈希值发生变化，remove的时候，根据哈希值找不到原来的元素位置，导致内存泄漏。
+3.  **内部类持有外部类属性**。多线程操作、监听器。
 
-7.  **缓存泄漏。**没有指定过期时间的缓存，将会导致内存占用递增。可以适当使用弱引用，或指定缓存失效时间。
+4.  **连接资源未关闭释放**。数据库连接、网络连接、IO连接等一些提供close()的资源未关闭导致内存泄漏。
 
-8.  **监听器和回调。**本质是内部类引用了外部类属性，导致内部类不能被释放。
+5.  **变量不合理的作用域**。临时使用的对象，存放到了一个生命周期较长的外部对象，导致临时对象持续时间比实际的生命周期长。
+
+6.  **改变哈希值**。Set集合添加元素后，中途改变元素的值，导致元素哈希值发生变化，remove的时候，根据哈希值找不到原来的元素位置，导致内存泄漏。
+
+7.  **缓存泄漏**。没有指定过期时间的缓存，将会导致内存占用递增。可以适当使用弱引用，或指定缓存失效时间。
+
+8.  **监听器和回调**。本质是内部类引用了外部类属性，导致内部类不能被释放。
 
 
 
@@ -4612,6 +4628,10 @@ GC回收的内存比不上新对象占用的内存，用的多，回收少，自
 - 占用着不放。静态资源、缓存、连接
 - 作用范围扩大。临时对象被长周期对象持有
 - 找不着了。改变了哈希值，找不到了，还怎么释放
+
+
+
+
 
 
 

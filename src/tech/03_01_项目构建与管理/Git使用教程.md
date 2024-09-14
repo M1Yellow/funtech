@@ -1,6 +1,6 @@
 ---
 title: Git使用教程
-date: 2024-06-08 18:03:06
+date: 2024-09-04 18:03:06
 category:
     - 项目构建管理
 tag:
@@ -1365,7 +1365,7 @@ git fetch -p
 
 ##### 合并分支
 
-###### git merge 常规合并
+###### git merge 常规合并（主合分）
 
 > 保留原有提交点和分支结构，新增一个提交点
 
@@ -1386,7 +1386,7 @@ git merge --quit
 
 
 
-###### git rebase 变基合并
+###### git rebase 变基合并（分到主）
 
 - [Git 分支 - 变基](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA)
 

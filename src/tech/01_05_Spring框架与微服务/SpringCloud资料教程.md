@@ -1,6 +1,6 @@
 ---
 title: SpringCloud资料教程
-date: 2022-11-02 18:25:21
+date: 2024-09-08 18:25:21
 category:
     - Spring
 tag:
@@ -25,6 +25,8 @@ Spring Cloud 本身不开发项目，只做项目的管理者。
 
 
 
+
+
 ## 二、有什么用？
 
 - Distributed/versioned configuration 分布式/版本控制配置
@@ -40,6 +42,8 @@ Spring Cloud 本身不开发项目，只做项目的管理者。
 - Circuit Breakers 断路器
 
 - Distributed messaging 分布式消息管理
+
+
 
 
 
@@ -186,18 +190,19 @@ https://github.com/spring-cloud
 
 
 
+
+
 ## 五、怎样使用？
 
-- SpringCloud Netflix：https://spring.io/projects/spring-cloud-netflix
-- SpringCloud Alibaba：https://spring.io/projects/spring-cloud-alibaba
+- [SpringCloud Netflix](https://spring.io/projects/spring-cloud-netflix)
+- [SpringCloud Netflix 中文文档](https://springcloud.cc/spring-cloud-netflix.html)
+- [SpringCloud Alibaba](https://spring.io/projects/spring-cloud-alibaba)
+- [SpringCloud 中文API文档(官方文档翻译版)](https://springcloud.cc/spring-cloud-dalston.html)
+- [SpringCloud中国社区](http://springcloud.cn/)
+- [SpringCloud中文网](https://springcloud.cc)
+- [SpringCloud系列](https://blog.csdn.net/qq_43509535/category_10799695.html)
 
-- SpringCloud Netflix 中文文档：https://springcloud.cc/spring-cloud-netflix.html
 
-- SpringCloud 中文API文档(官方文档翻译版)：https://springcloud.cc/spring-cloud-dalston.html
-
-- SpringCloud中国社区：http://springcloud.cn/
-
-- SpringCloud中文网：https://springcloud.cc
 
 
 
@@ -424,7 +429,6 @@ sudo systemctl restart firewalld
 
 ### 整合 Sentinel
 
-- [Spring Cloud Alibaba：Sentinel实现熔断与限流](http://www.macrozheng.com/#/cloud/sentinel?id=spring-cloud-alibaba：sentinel实现熔断与限流)
 - https://github.com/alibaba/Sentinel/releases
 
 
@@ -475,18 +479,6 @@ Sentinel 控制台默认运行在 8080 端口上，登录账号密码均为`sent
 
 
 ## 八、面试题（主干、重难点）
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

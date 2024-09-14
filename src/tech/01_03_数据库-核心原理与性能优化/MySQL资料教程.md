@@ -527,6 +527,12 @@ super_read_only=1               # 管理员（super）用户是否可读，超�
 
 
 
+### 配置调优
+
+具体参见《Linux服务器部署》
+
+
+
 ### 连接数据库
 
 打开 MySQL 命令窗口
@@ -1010,6 +1016,13 @@ ALTER TABLE 表名 ADD 字段名 类型(宽度) 约束条件 after 字段名；
 
 ```mysql
 ALTER TABLE student1 ADD phone int(11);
+
+ALTER TABLE `mypages`.`emp_test` 
+ADD COLUMN `name` varchar(100) NOT NULL COMMENT '姓名' AFTER `id`;
+
+alter table emp_test
+add column gender tinyint(3) unsigned not null default 1 comment '性别'
+after age;
 
 ALTER TABLE `mypage`.`user_following` 
 ADD COLUMN `signature` varchar(100) NULL COMMENT '个性签名' AFTER `profile_photo`;
@@ -1694,11 +1707,9 @@ WHERE subjectname='数据库结构-1'
 
 UNION 与 UNION ALL 的区别
 
-1. 对重复结果的处理：UNION 会去掉重复记录，UNION ALL 不会
+union 会进行排序去重，效率低一点
 
-2. 对排序的处理：UNION 会排序，UNION ALL 只是简单地将两个结果集合并
-
-3. 效率方面的区别：因为 UNION 会做去重和排序处理，因此效率比 UNION ALL 慢很多
+union all 不做处理
 
 
 
@@ -3356,7 +3367,7 @@ set global transaction isolation level read committed;
 | ---------------- | ------------------------------------------------------------ |
 | Read uncommitted | 最低级别，以上情况均无法保证。(读未提交)                     |
 | Read committed   | 可避免脏读情况发生（读已提交）。                             |
-| Repeatable read  | 数据库默认级别，可避免脏读、不可重复读情况的发生。（可重复读） |
+| Repeatable read  | 数据库**默认级别**，可避免脏读、不可重复读情况的发生。（可重复读） |
 | Serializable     | 最高级别，可避免脏读、不可重复读、幻读情况的发生。（串行化） |
 
 
@@ -4132,7 +4143,7 @@ order by id desc limit 5;
 
 
 
-**select_type**：查询的类型，用于区别普通查询、联合查询、子查询。
+**select_type** 查询的类型，用于区别普通查询、联合查询、子查询。
 
 SIMPLE：简单查询，只有一条 select 查询的简单语句，不包含其他子查询或联合查询。
 
@@ -4361,11 +4372,9 @@ explain select * from user where mobile = 1234567890; -- mobile 为 varchar 类�
 
 #### 少用 or
 
-or 主要是针对复合索引查询，or 条件连接查询，也会导致索引失效。对于单独索引，or 条件查询的字段有索引，索引正常有效。
+对于单个索引查询，or 条件查询的字段有索引，索引正常有效。
 
-```mysql
-
-```
+对多表查询、使用了非索引字段，会导致索引失效。
 
 
 
@@ -4373,13 +4382,21 @@ or 主要是针对复合索引查询，or 条件连接查询，也会导致索�
 
 索引有两个作用：排序和查找。
 
-order by 字段，违法最左前缀法则、含非索引字段排序、会导致文件排序、产生临时表，严重影响性能。
+order by 字段，违法最左前缀法则、含非索引字段排序、会产生文件排序，影响查询效率。
 
 
 
 #### group by
 
-group by 字段，违法最左前缀法则、含非索引字段排序、会导致文件排序、产生临时表，严重影响性能。
+group by 字段，违法最左前缀法则、含非索引字段排序、会产生临时表，影响查询效率。
+
+
+
+#### 优化器预估判断 30%
+
+优化器预估的查询结果记录数达到全表记录的 30% 上下（不固定），可能会全表扫描。
+
+可以使用 `force index(idx_name)` 手动强制指定使用索引，进行矫正。但并不推荐，因为可能会使用不同的数据源，其他数据库很可能不支持使用强制索引。
 
 
 
@@ -4567,9 +4584,9 @@ mysqldumpslow -s r -t 20 /mysqldata/mysql/mysql06-slow.log | more
 
 
 
-### show profile 性能分析
+### show profiles 性能分析
 
-Show Profile 是 mysql 提供的可以用来分析当前会话中 sql 语句执行的资源消耗情况的工具，可用于 sql 调优的测量。
+`show profiles` 是 mysql 提供的可以用来分析当前会话中 sql 语句执行的资源消耗情况的工具，可用于 sql 调优的测量。
 
 mysql 5.7+ 默认情况下处于开启状态，并保存最近 15 次的运行结果。
 
@@ -4580,7 +4597,7 @@ mysql 5.7+ 默认情况下处于开启状态，并保存最近 15 次的运行�
 ```mysql
 -- 通过 select @@have_profiling 来显示当前 mysql 是否支持 profile
 
--- 查看 show profile 状态
+-- 查看 show profiles 状态
 show variables like '%profiling%';
 -- 或者
 select @@profiling;
@@ -4725,7 +4742,7 @@ mysql 锁分类：
 
 行级锁是Mysql中锁定粒度最细的一种锁，表示只针对当前操作的行进行加锁。**行级锁能大大减少数据库操作的冲突。其加锁粒度最小，但加锁的开销也最大。有可能会出现死锁的情况。** 行级锁按照使用方式分为共享锁和排他锁。
 
-**共享锁用法（S锁 读锁）**：
+**共享锁用法（S锁/读锁）**：
 
  若事务T对数据对象A加上S锁，则事务T**可以读A但不能修改A**，其他事务只能再对A加S锁，而不能加X锁，直到T释放A上的S锁。这保证了其他事务可以读A，但在T释放A上的S锁之前不能对A做任何修改。
 
@@ -4735,7 +4752,7 @@ select ... lock in share mode;
 
 **共享锁就是允许多个线程同时获取一个锁，一个锁可以同时被多个线程拥有。**
 
-**排它锁用法（X 锁 写锁）**：
+**排他锁用法（X锁/写锁）**：
 
  若事务T对数据对象A加上X锁，事务T**可以读A也可以修改A**，其他事务不能再对A加任何锁，直到T释放A上的锁。这保证了其他事务在T释放A上的锁之前不能再读取和修改A。
 
@@ -4954,6 +4971,8 @@ Query OK, 1 row affected
 
 
 
+
+
 ## mysql 加锁过程详解
 
 **[Mysql加锁过程详解（1）-基本知识](http://www.cnblogs.com/crazylqy/p/7611069.html)**
@@ -4975,6 +4994,8 @@ Query OK, 1 row affected
 **[Mysql加锁过程详解（8）-理解innodb的锁(record,gap,Next-Key lock)](http://www.cnblogs.com/crazylqy/p/7773492.html)**
 
 **[Mysql加锁过程详解（9）-innodb下的记录锁，间隙锁，next-key锁](http://www.cnblogs.com/crazylqy/p/7821481.html)**
+
+
 
 
 
@@ -5198,6 +5219,22 @@ delete from mysql.user where user='用户名';
 
 ## 数据备份
 
+### 三大日志
+
+#### redo log
+
+
+
+#### undo log
+
+
+
+#### bin log
+
+
+
+
+
 ### 实时备份（复制）
 
 #### 主从复制
@@ -5234,9 +5271,54 @@ delete from mysql.user where user='用户名';
 
 
 
+## 分库分表
+
+
+
+
+
 ## 负载均衡
 
+前提是搭建 `主主复制` 环境。
+
 - [如何使用Nginx实现MySQL数据库的负载均衡](https://zhuanlan.zhihu.com/p/161985895)
+
+
+
+## SQL 注入
+
+- [Mybatis 框架下 SQL 注入攻击的 3 种方式，真是防不胜防！](https://www.cnblogs.com/javastack/p/13277739.html)
+
+- [PreparedStatement是如何防止SQL注入的？（加引号包裹）](https://www.cnblogs.com/roostinghawk/p/9703806.html)
+
+
+
+**MyBatis SQL 注入场景：**
+
+```mysql
+1、模糊查询
+select * from news where title like ‘%#{title}%’   
+在这种情况下使用#程序会报错，新手程序员就把#号改成了$,这样如果java代码层面没有对用户输入的内容做处理势必会产生SQL注入漏洞。
+
+正确写法：
+select * from news where tile like concat(‘%’, #{title}, ‘%’)
+                                          
+2、in 之后的多个参数
+in之后多个id查询时使用# 同样会报错，
+select * from news where id in (#{ids})   
+    
+正确用法为使用foreach，而不是将#替换为$
+id in
+<foreach collection="ids" item="item" open="("separatosr="," close=")">
+#{ids} 
+</foreach>   
+
+3、order by 之后
+不能让用户直接传排序的字段！业务代码做一个映射关系，比如，1->日期正序；2->日期倒序；3->点赞最多；4->评论最多
+
+这种场景应当在Java层面做映射，设置一个字段/表名数组，仅允许用户传入索引值。这样保证传入的字段或者表名都在白名单里面。需要注意的是在mybatis-generator自动生成的SQL语句中，order by使用的也是$，而like和in没有问题。
+
+```
 
 
 

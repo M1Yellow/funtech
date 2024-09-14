@@ -52,19 +52,19 @@ RabbitMQ 是一个开源的遵循 AMQP（Advanced Message Queuing Protocol）高
 
 ### 消息中间件的应用场景
 
-- 跨系统数据传递
+- 流量削峰
 
-- 高并发的流量削峰
+- 应用解耦
 
-- 数据的分发和异步处理
+- 异步处理
 
-- 大数据分析与传递
+- 数据分发
 
 - 分布式事务
 
 
 
-简单记忆：异步处理，可以用来实现分布式事务
+简单记忆：削峰、解耦、异步、分布式事务
 
 
 
@@ -361,10 +361,6 @@ public class DirectSMSConsumer {
 
 
 
-
-
-
-
 死信队列的作用：
 
 1. 防止消费失败的消息一直重试，导致队列阻塞
@@ -501,9 +497,11 @@ public class DirectSMSConsumer {
 
 1. **你们项目为什么没有用 kafka？**
 
-kafka 优势：快、吞吐量大，更多的是在大数据业务使用
+后续可以换
 
-不足：消息延迟比 rabbitmq 高，实际项目参考资料比 rabbitmq 少
+功能支持比 RabbitMQ 少一点，Kafka 主要
+
+RabbitMQ 轻量级、低延迟、高可靠，支持功能全，技术资料比较多
 
 
 

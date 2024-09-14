@@ -1,6 +1,6 @@
 {
   "name": "funtech",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "兴趣成果驱动，理论概念驱不动，前提饭碗得保住。",
   "license": "MIT",
   "type": "module",
@@ -11,11 +11,11 @@
     "update": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-feed": "2.0.0-rc.40",
-    "vue": "^3.4.35",
-    "vue-router": "^4.4.2",
-    "vuepress": "2.0.0-rc.14",
+    "@vuepress/bundler-vite": "2.0.0-rc.15",
+    "@vuepress/plugin-feed": "2.0.0-rc.43",
+    "vue": "^3.5.5",
+    "vue-router": "^4.4.5",
+    "vuepress": "2.0.0-rc.15",
     "vuepress-plugin-md-enhance": "2.0.0-rc.52",
     "vuepress-plugin-search-pro": "2.0.0-rc.52",
     "vuepress-theme-hope": "2.0.0-rc.52"

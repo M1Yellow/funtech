@@ -46,3 +46,38 @@ export const insertEntry = () => {
         };
     }
 };
+
+/* 首页简历感谢弹窗 */
+export const resumeThanksDialog = () => {
+    //let url = window.location.href; // 获取完整URL
+    let url = window.location.search; // 获取属性（“?”后面的分段）?from=resume
+    if (!url) return;
+    url = url.toLocaleLowerCase();
+    if (!url.includes("from=resume")) return;
+    // 只弹一次
+    let dialogTime = localStorage.getItem('m1yellow-resume-thanks-dialog-time');
+    if (dialogTime) return;
+
+    // 弹窗蒙板
+    let dialogMaskHtml = "<div id='resumeThanksDialogMask'></div>";
+    // 弹窗内容
+    let dialogContentHtml = "<div id='resumeThanksDialogEntry'><div id='resumeThanksDialogMsg'>感谢您给的面试机会！</div><span id='resumeThanksDialogEmoji'><img src='/bixin.svg' alt='比心'></span><div id='resumeThanksDialogBtn'>不用谢，加油💪</div></div>";
+    // 追加到body
+    let resumeThanksDialogEle = document.createElement('div');
+    resumeThanksDialogEle.id = "resumeThanksDialogArea";
+    resumeThanksDialogEle.innerHTML = dialogMaskHtml + dialogContentHtml;
+    document.body.appendChild(resumeThanksDialogEle);
+    // 禁止页面滚动
+    document.body.style.overflow = "hidden";
+    // 点击按钮，隐藏弹窗
+    let resumeThanksDialogBtnEle = document.getElementById("resumeThanksDialogBtn");
+    if (resumeThanksDialogBtnEle) resumeThanksDialogBtnEle.onclick = (e) => {
+        e.stopPropagation();
+        //document.getElementById("resumeThanksDialogMask").style.display = "none";
+        resumeThanksDialogEle.style.display = "none";
+        // 允许页面滚动
+        document.body.style.overflow = "visible";
+        // 设置弹窗时间
+        localStorage.setItem('m1yellow-resume-thanks-dialog-time', new Date().getTime().toString());
+    };
+};
